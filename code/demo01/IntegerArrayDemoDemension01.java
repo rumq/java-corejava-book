@@ -1,3 +1,5 @@
+package demo01;
+
 public class IntegerArrayDemoDemension01 {
     public static void main(String[] args) {
  
