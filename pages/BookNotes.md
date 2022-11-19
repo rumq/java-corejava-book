@@ -12,6 +12,10 @@ Two variables can point to the same object.
 
 ![Object Variables](../assets/diagrams/ObjectVariable.png)
  
+ `Date` class refers to a particular point in time
+
+ `LocalDate` class refers to a particular calendar notation. Instances of this are created using `static factory methods`.
+
 
  
 >[Common Home](../README.md)
