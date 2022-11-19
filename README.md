@@ -1,8 +1,10 @@
-# Home : A repository to store documentation
+# Core Java Book Home Page
 
-A template repository for documentation
+## Links
 
-[A link to page one](pages/page-one.md)
+- [Core Jave Book link](https://horstmann.com/corejava/index.html)
 
-## A link to a diagram 
-![A link to a diagram](assets/slide2.png)
+## Pages
+
+- [Book Notes](pages/BookNotes.md)
+
