@@ -1,5 +1,9 @@
 {
-    "java.project.sourcePaths": [
-        "code/"
-    ]
+    // "java.project.sourcePaths": [
+    //     "code",
+    //     "book-code/corejava/v1ch03/BigIntegerTest",
+    //     "book-code/corejava/v1ch03/CompoundInterest"
+    // ]
+
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
