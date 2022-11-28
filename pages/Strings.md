@@ -48,6 +48,8 @@ String fullName = firstName + " " + lastName;
 System.out.println(fullName);
 
 ```
+# String Concatenation
+
 
 Converts the other operand to a string and concatenates it to the string on the left.
 
@@ -129,6 +131,7 @@ The `==` operator compares the references of two strings.
 ```java
 String firstName = "Deepika";
 String surname = "Padukone";
+
 String fullName = firstName + " " + surname;
 System.out.println(fullName == "Deepika Padukone");
 System.out.println(fullName.equals("Deepika Padukone"));
