@@ -3,7 +3,7 @@
 # Strings
  
 ## Source 
-Chapter 3.6
+Chapter 3.6 from the Core Java 11th Edition Volume 1
 
 ## String Literals
 
