@@ -199,5 +199,10 @@ System.out.println(message);
 
 ```
 
+## Code points and code units
+
+Wil be covered at a later stage.
+
+
 
 >[Common Home](../README.md)
