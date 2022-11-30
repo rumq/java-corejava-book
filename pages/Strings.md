@@ -88,15 +88,6 @@ greeting = "J" + greeting.substring(1);
 System.out.println(greeting);
 
 ```
-
-## An exercise in string manipulation
-
-```java
-String s = "Hello, World!";
-int n = s.length();
-System.out.println(n);
-
-```
 ## String comparison
 
 The equals method compares two strings to see if they contain the same characters.
@@ -183,26 +174,26 @@ System.out.println(message);
 
 ```
 
-
-## String builder
-
-The StringBuilder class is used to create a mutable sequence of characters.
-
-```java
-StringBuilder builder = new StringBuilder();
-builder.append("Hello");
-builder.append(" ");
-builder.append("World");
-builder.append("!");
-String message = builder.toString();
-System.out.println(message);
-
-```
-
 ## Code points and code units
 
 Wil be covered at a later stage.
 
+## String blocks
 
+A text block is a multi-line string literal. 
+This requires higher version of Java.
+We'll cover this at a later stage.
+
+```java
+String html = """
+    <html>
+        <body>
+            <p>Hello, world</p>
+        </body>
+    </html>
+    """;
+System.out.println(html);
+
+```
 
 >[Common Home](../README.md)
