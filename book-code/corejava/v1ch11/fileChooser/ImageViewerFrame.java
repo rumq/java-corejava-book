@@ -4,7 +4,6 @@ import java.io.*;
 
 import javax.swing.*;
 import javax.swing.filechooser.*;
-import javax.swing.filechooser.FileFilter;
 
 /**
  * A frame that has a menu for loading an image and a display area for the
