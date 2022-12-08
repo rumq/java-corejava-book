@@ -1,4 +1,4 @@
-import com.horstmann.corejava.*;
+import com.horstmann.corejava.Employee;
 // the Employee class is defined in that package
 
 import static java.lang.System.*;

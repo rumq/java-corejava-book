@@ -1,3 +1,4 @@
+package statictest;
 /**
  * This program demonstrates static methods.
  * @version 1.03 2021-09-03

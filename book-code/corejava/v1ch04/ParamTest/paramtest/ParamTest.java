@@ -1,3 +1,4 @@
+package paramtest;
 /**
  * This program demonstrates parameter passing in Java.
  * @version 1.01 2018-04-10
