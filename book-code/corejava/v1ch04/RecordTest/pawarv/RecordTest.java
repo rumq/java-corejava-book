@@ -1,7 +1,5 @@
 package pawarv;
 
-import javax.sql.rowset.serial.SerialArray;
-
 public class RecordTest {
     public static void main(String[] args) {
         System.out.println("Hello, World!");
