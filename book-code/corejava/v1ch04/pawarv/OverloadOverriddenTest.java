@@ -39,8 +39,7 @@ class Rabbit extends Animal {
 }
     
 class Animal {
-
-
+    
     void eats() {
         System.out.println("Animal eats food");
     }
