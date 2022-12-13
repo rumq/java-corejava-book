@@ -3,7 +3,20 @@
 # v1ch03
  
 ## Status : IN_PROGRESS 
+
+## Contents
  
+In this chapter
+• 3.1 A Simple Java Program
+• 3.2 Comments
+• 3.3 Data Types
+• 3.4 Variables and Constants
+• 3.5 Operators
+• 3.6 Strings
+• 3.7 Input and Output
+• 3.8 Control Flow
+• 3.9 Big Numbers
+• 3.10 Arrays
 
 ## InputTest 3.2
 

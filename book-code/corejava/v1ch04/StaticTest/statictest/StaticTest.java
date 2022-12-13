@@ -23,7 +23,7 @@ public class StaticTest
       }
 
       int n = Employee.advanceId(); // calls static method
-      System.out.println("Next issued id=" + n);
+   System.out.println("Next issued id=" + n);
    }
 }
 
