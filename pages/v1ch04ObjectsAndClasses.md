@@ -66,13 +66,14 @@ The `NullPointerException` is a runtime exception that is thrown when you try to
 ## Class Design Hints
 
 1. Always keep data private.
-2. Always initialize data fields.
+2. Always initialize data.
 3. Don't use too many basic types in a class.
 4. Not all fields need individual field accessors and mutators.
 5. Break up classes that have too many responsibilities.
 6. Make the names of classes and methods reflect their functionality.
    >  A good convention is that a class name should be a noun (Order), or a noun preceded by an adjective (RushOrder) or a gerund (an “-ing” word, as in BillingAddress). As for methods, follow the standard convention that accessor methods begin with a lowercase get (getSalary) and mutator methods use a lowercase set (setSalary).
 7. Prefer immutable classes.
+   > The problem with mutation is that it can happen concurrently when multiple threads try to update an object at the same time. The results are unpredictable. When classes are immutable, it is safe to share their objects among multiple threads.
 
 
 >[Common Home](../README.md)

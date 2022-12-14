@@ -1,10 +1,15 @@
 package pawarv;
 
-public class ImmutableTest {
+
+public  class ImmutableTest {
     private final String name;
 
-    public String getName() {
+    public final String  getName() {
         return name;
+    }
+
+    public final int getLength() {
+        return name.length();
     }
 
     ImmutableTest(String name) {
