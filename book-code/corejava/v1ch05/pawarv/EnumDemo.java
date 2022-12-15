@@ -37,6 +37,10 @@ public class EnumDemo {
         var dayNumber = DayNumber.MONDAY;
         System.out.println(dayNumber);
         System.out.println(dayNumber.getDayNumber());
+
+        var dayNumber2 =  DayNumber.TUESDAY;
+        System.out.println(dayNumber2);
+        System.out.println(dayNumber2.getDayNumber());
     }
 
     
