@@ -9,6 +9,8 @@ public class EqualsTest
 {
    public static void main(String[] args)
    {
+
+      
       var alice1 = new Employee("Alice Adams", 75000, 1987, 12, 15);
       var alice2 = alice1;
       var alice3 = new Employee("Alice Adams", 75000, 1987, 12, 15);
@@ -33,5 +35,10 @@ public class EqualsTest
       System.out.println("alice3.hashCode(): " + alice3.hashCode());
       System.out.println("bob.hashCode(): " + bob.hashCode());
       System.out.println("carl.hashCode(): " + carl.hashCode());
+
+      System.out.println(alice1 instanceof Employee); 
+      System.out.println(alice1 instanceof Manager); 
+      System.out.println(carl instanceof Employee); 
+      System.out.println(carl instanceof Manager); 
    }
 }

@@ -35,6 +35,7 @@ public class Employee implements Comparable<Employee>
     */
    public int compareTo(Employee other)
    {
+      // return name.compareTo(other.name);
       return Double.compare(salary, other.salary);
    }
 }
