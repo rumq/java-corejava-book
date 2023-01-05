@@ -114,7 +114,7 @@ public class ExecutorDemo
          if (executor instanceof ThreadPoolExecutor tpExecutor)
             // the single thread executor isn't
             System.out.println("Largest pool size: " 
-               + tpExecutor.getLargestPoolSize();
+               + tpExecutor.getLargestPoolSize());
          executor.shutdown();
       }
    }
