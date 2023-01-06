@@ -159,6 +159,16 @@ See example in [LambdaTest](../book-code/corejava/v1ch06/pawarv/LambdaSyntaxTest
 
 > In fact, conversion to a functional interface is the only thing that you can do with a lambda expression in Java.
 
+Arrays.sort method takes a Comparator as a parameter. Comparator is a functional interface. So you can pass a lambda expression to sort an array.
+
+Timer class takes an ActionListener as a parameter. ActionListener is a functional interface. So you can pass a lambda expression to the constructor.
+
+See example in [LambdaTest](../book-code/corejava/v1ch06/pawarv/LambdaSyntaxTest.java)
+
+The JAVA API has many functional interfaces. See [Functional Interfaces](https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html)
+
+The Predicate interface is a functional interface that takes an object and returns a boolean. It has a default method `and` that takes another Predicate and returns a new Predicate that is true if both Predicates are true.
+
 ### 6.2.4 Method References
 ### 6.2.5 Constructor References
 ### 6.2.6 Variable Scope
