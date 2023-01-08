@@ -172,7 +172,7 @@ The Predicate interface is a functional interface that takes an object and retur
 See the examples in [PredicateTest](../book-code/corejava/v1ch06/pawarv/PredicateTest.java)
 and [PredicateAndTest](../book-code/corejava/v1ch06/pawarv/PredicateAndTest.java)
 
-The Supplier interface is a functional interface that takes no parameters and returns an object. It has a default method `andThen` that takes another Supplier and returns a new Supplier that returns the result of the first Supplier followed by the result of the second Supplier.
+The Supplier interface is a functional interface that takes no parameters and returns an object. 
 
 See the examples in [SupplierTest](../book-code/corejava/v1ch06/pawarv/SupplierTest.java).
 
