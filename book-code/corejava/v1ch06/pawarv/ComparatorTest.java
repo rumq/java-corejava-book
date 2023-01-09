@@ -12,6 +12,16 @@ public class ComparatorTest {
         for (String name : friends)
             System.out.println(name);
 
+        System.out.println("*********** Using anonymous class");     
+        Arrays.sort(friends, new Comparator<String>() {
+            public int compare(String first, String second) {
+                return first.length() - second.length();
+            }
+        });
+
+        for (String name : friends)
+            System.out.println(name);
+
     }
 }
 

@@ -174,9 +174,13 @@ and [PredicateAndTest](../book-code/corejava/v1ch06/pawarv/PredicateAndTest.java
 
 The Supplier interface is a functional interface that takes no parameters and returns an object. 
 
+>A Supplier has no arguments and yields a value of type T when it is called. Suppliers are used for lazy evaluation, (where the value is not computed until it is needed.)
+
 See the examples in [SupplierTest](../book-code/corejava/v1ch06/pawarv/SupplierTest.java).
 
 ### 6.2.4 Method References
+
+
 ### 6.2.5 Constructor References
 ### 6.2.6 Variable Scope
 ### 6.2.7 Processing Lambda Expressions

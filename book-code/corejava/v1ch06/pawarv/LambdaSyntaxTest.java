@@ -20,6 +20,8 @@ public class LambdaSyntaxTest {
         int result2 = comp2.compare("Amitabh", "Bachan");
         System.out.println(result2);
 
+        //
+
         // Single parameter with inferred type, so parentheses are optional
         // instead of (event) -> . . . or (ActionEvent event) -> . . .
         ActionListener listener = event -> System.out.println("The time is " + Instant.ofEpochMilli(event.getWhen()));
