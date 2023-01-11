@@ -110,14 +110,12 @@ See [InterfacesTest](../book-code/corejava/v1ch06/pawarv/InterfacesTest.java)
 
 ### 6.1.6 Resolving Default Method Conflicts
 
-
 > What happens if the exact same method is defined as a default method in one interface and then again as a method of a superclass or another interface?
+>
 > 1. Superclasses win. If a superclass provides a concrete method, default methods with the same name and parameter types are simply ignored.
 > 2. Interfaces clash. If an interface provides a default method, and another interface contains a method with the same name and parameter types (default or not), then you must resolve the conflict by overriding that method.
 
-
 ### 6.1.7 Interfaces and Callbacks
-
 
 >A common pattern in programming is the callback pattern. In this pattern, you specify the action that should occur whenever a particular event happens. For example, you may want a particular action to occur when a button is clicked or a menu item is selected.
 
@@ -128,12 +126,61 @@ The Comparator interface is a generic interface that defines a single method, `i
 The Comparator interface is a functional interface, so you can use a lambda expression to specify a comparator.
 
 Example of using `Comparator` interface [EmployeeSortTest](../book-code/corejava/v1ch06/interfaces/EmployeeSortTest.java)
+
 ### 6.1.9 Object Cloning
+
+[Clone Test](../book-code/corejava/v1ch06/clone/CloneTest.java)
+
 ### 6.2 Lambda Expressions
+
+Looks at the [TimerTest](../book-code/corejava/v1ch06/timer/TimerTest.java) and [ComparatorTest](../book-code/corejava/v1ch06/pawarv/ComparatorTest.java) examples to see how blocks of code were passed around. Doing this was quite verbose. Lambda expressions are a way to pass around blocks of code in a more concise way.
+
 ### 6.2.1 Why Lambdas?
+
+>A lambda expression is a block of code that you can pass around so it can be executed later, once or multiple times.
+
+The key point is that you can pass around code without executing it.
+
 ### 6.2.2 The Syntax of Lambda Expressions
+
+Lambda (λ) was used by Alonzo Church to represent functions in his lambda calculus. Lambda expressions are a way to represent functions in Java.
+
+Syntax is `parameters -> body`
+
+The parameter types are optional. If there is only one parameter, the parentheses are optional. If the body is a single expression, the braces and return statement are optional.
+
+> You never specify the result type of a lambda expression. It is always inferred from context. 
+
+See example in [LambdaTest](../book-code/corejava/v1ch06/pawarv/LambdaSyntaxTest.java)
+
 ### 6.2.3 Functional Interfaces
+
+>You can supply a lambda expression whenever an object of an interface with a single abstract method is expected. Such an interface is called a functional interface.
+
+> In fact, conversion to a functional interface is the only thing that you can do with a lambda expression in Java.
+
+Arrays.sort method takes a Comparator as a parameter. Comparator is a functional interface. So you can pass a lambda expression to sort an array.
+
+Timer class takes an ActionListener as a parameter. ActionListener is a functional interface. So you can pass a lambda expression to the constructor.
+
+See example in [LambdaTest](../book-code/corejava/v1ch06/pawarv/LambdaSyntaxTest.java)
+
+The JAVA API has many functional interfaces. See [Functional Interfaces](https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html)
+
+The Predicate interface is a functional interface that takes an object and returns a boolean. It has a default method `and` that takes another Predicate and returns a new Predicate that is true if both Predicates are true.
+
+See the examples in [PredicateTest](../book-code/corejava/v1ch06/pawarv/PredicateTest.java)
+and [PredicateAndTest](../book-code/corejava/v1ch06/pawarv/PredicateAndTest.java)
+
+The Supplier interface is a functional interface that takes no parameters and returns an object. 
+
+>A Supplier has no arguments and yields a value of type T when it is called. Suppliers are used for lazy evaluation, (where the value is not computed until it is needed.)
+
+See the examples in [SupplierTest](../book-code/corejava/v1ch06/pawarv/SupplierTest.java).
+
 ### 6.2.4 Method References
+
+
 ### 6.2.5 Constructor References
 ### 6.2.6 Variable Scope
 ### 6.2.7 Processing Lambda Expressions
