@@ -2,6 +2,11 @@ package pawarv;
 
 import java.util.Arrays;
 
+/*
+ * 
+ * Done in class
+ * 
+ */
 public class Methodreferences2Test {
     public static void main(String[] args) {
 
