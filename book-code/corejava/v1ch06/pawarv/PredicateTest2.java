@@ -30,7 +30,8 @@ public class PredicateTest2 {
         System.out.println("After removal round 3 :" + list);
 
      
-        Predicate<String> p1 = s -> s.length() > 3;
+        Predicate<String> p1 = s -> s.length() > 4;
+        Predicate<String> pa2 = s -> s.startsWith("C");
 
         Predicate<String> p2 = new Predicate<String>() {
             @Override
@@ -42,7 +43,10 @@ public class PredicateTest2 {
         Predicate<String> p3 = new PredicateLength();
         
 
-        list.removeIf(p3);
+        // list.removeIf(p3);
+
+        list.removeIf(p1.and(pa2));
+        list.removeIf(p1.or(pa2));
 
         System.out.println("After removal round 4 :" + list);
 
