@@ -106,8 +106,6 @@ If a new method is added to an interface, all classes that implement the interfa
 
 If the new method is a default method, then the class does not have to be updated. If the old jars are used, the new method will be available, but it will use the default implementation.
 
-
-
 See [InterfacesTest](../book-code/corejava/v1ch06/pawarv/InterfacesTest.java)
 
 ### 6.1.6 Resolving Default Method Conflicts
@@ -155,4 +153,5 @@ Example of using `Comparator` interface [EmployeeSortTest](../book-code/corejava
 ### 6.5.3 Properties of Proxy Classes
 
  
+ [](Time)
 >[Home](HOME.md)

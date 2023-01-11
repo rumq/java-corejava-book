@@ -1,5 +1,6 @@
 package pawarv;
 
+import java.nio.file.Path;
 import java.util.Collection;
 
 public class InterfacesTest {
@@ -24,6 +25,7 @@ public class InterfacesTest {
         var pineapplepizza = new PineapplePizza();
         pineapplepizza.prepare();
         
+        Path
 
     };
 

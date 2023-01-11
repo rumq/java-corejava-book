@@ -12,7 +12,7 @@
 
 ## Programming Exercises
 
-- [v1ch03FundamentalProgrammingStructures](v1ch03FundamentalProgrammingStructures.md.md)
+- [v1ch03FundamentalProgrammingStructures](v1ch03FundamentalProgrammingStructures.md)
 - [v1ch04ObjectsAndClasses](v1ch04ObjectsAndClasses.md.md)
  
 
