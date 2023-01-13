@@ -59,7 +59,10 @@ class TalkingClock
       {
          System.out.println("At the tone, the time is " 
             + Instant.ofEpochMilli(event.getWhen()));
+            // beep comes from the outer class
          if (beep) Toolkit.getDefaultToolkit().beep();
+         // Same as 
+         // if (TalkingClock.this.beep) Toolkit.getDefaultToolkit().beep();
       }
    }
 }

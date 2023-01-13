@@ -218,20 +218,75 @@ A block of code that contains free variables is called a `closure`, so a lambda 
 [MethodChaining](../book-code/corejava/v1ch06/pawarv/MethodChaining.java)
 
 ### 6.2.8 More about Comparators
+
+[AdvancedComparatorsTest](../book-code/corejava/v1ch06/pawarv/AdvancedComparatorsTest.java)
+
 ### 6.3 Inner Classes
+
+> Reasons
+> * Inner classes can be hidden from other classes in the same package.
+> * Inner class methods can access the data from the scope in which they are defined—including the data that would otherwise be private.
+
 ### 6.3.1 Use of an Inner Class to Access Object State
+
+[InnerClassTest](../book-code/corejava/v1ch06/innerClass/InnerClassTest.java)
+
 ### 6.3.2 Special Syntax Rules for Inner Classes
+
+See above example.
+
 ### 6.3.3 Are Inner Classes Useful? Actually Necessary? Secure?
+
+Later
+
 ### 6.3.4 Local Inner Classes
+
+[LocalInnerClassTest](../book-code/corejava/v1ch06/localInnerClass/LocalInnerClassTest.java)
+
 ### 6.3.5 Accessing Variables from Outer Methods
+
+Later
+
 ### 6.3.6 Anonymous Inner Classes
+
+[AnonymousInnerClassTest](../book-code/corejava/v1ch06/anonymousInnerClass/AnonymousInnerClassTest.java)
+
+- Are used when you need to define a class that is used only once.
+- Are local inner classes without a name.
+- Cannot have a constructor, but can have an initializer block.
+- Now a days, you can use lambda expressions instead of anonymous inner classes.
+
+
 ### 6.3.7 Static Inner Classes
+
+Even called nested classes.
+
+ > A static inner class is exactly like any other inner class, except that an object of a static inner class does not have a reference to the outer class object that generated it.
+
+- Only one instance of a static inner class is ever created.
+- Only inner classes can be static.
+
+[StaticInnerClassTest](../book-code/corejava/v1ch06/staticInnerClass/StaticInnerClassTest.java)
+
 ### 6.4 Service Loaders
+
+Later
+
 ### 6.5 Proxies
+
+Later
+
 ### 6.5.1 When to Use Proxies
+
+Later
+
 ### 6.5.2 Creating Proxy Objects
+
+Later
+
 ### 6.5.3 Properties of Proxy Classes
 
+Later
+
  
- [](Time)
 >[Home](HOME.md)

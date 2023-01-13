@@ -36,6 +36,7 @@ class TalkingClock
     */
    public void start(int interval, boolean beep)
    {
+      // Class defined inside a method
       class TimePrinter implements ActionListener
       {
          public void actionPerformed(ActionEvent event)
