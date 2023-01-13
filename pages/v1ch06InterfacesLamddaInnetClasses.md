@@ -180,6 +180,10 @@ See the examples in [SupplierTest](../book-code/corejava/v1ch06/pawarv/SupplierT
 
 ### 6.2.4 Method References
 
+[MRStaticReferenceTest](../book-code/corejava/v1ch06/pawarv/MRStaticReferenceTest.java)
+[MRStaticReferenceToInstanceMethodTest](../book-code/corejava/v1ch06/pawarv/MRStaticReferenceToInstanceMethodTest.java)
+[MRObjectInstanceTest](../book-code/corejava/v1ch06/pawarv/MRObjectInstanceTest.java)
+[MRStaticReferenceNoLambdaTest](../book-code/corejava/v1ch06/pawarv/MRStaticReferenceNoLambdaTest.java)
 
 ### 6.2.5 Constructor References
 ### 6.2.6 Variable Scope
