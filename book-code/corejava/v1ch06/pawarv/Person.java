@@ -12,6 +12,10 @@ class Person {
         return name;
     }
 
+    public int getNameLength() {
+        return name.length();
+    }
+
     private String name;
 
     @Override
@@ -30,7 +34,7 @@ class Person {
         return names;
     }
 
-    public static List<Person> getPeople() {
+    public static List<Person> getPeopleList() {
         var people = new ArrayList<Person>();
         people.add(new Person("Diana"));
         people.add(new Person("Alia"));
@@ -39,5 +43,10 @@ class Person {
         people.add(new Person("Fiona"));       
         people.add(new Person("Ethan"));
         return people;
+    }
+
+    // A way to convert a list to an array
+    public static Person[] getPeopleArray() {
+        return getPeopleList().toArray(new Person[0]);
     }
 }
