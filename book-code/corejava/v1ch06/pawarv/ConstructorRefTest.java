@@ -9,10 +9,7 @@ import java.util.ArrayList;
 public class ConstructorRefTest {
     public static void main(String[] args) {
 
-        var names = new ArrayList<String>();
-        names.add("Peter");
-        names.add("Paul");
-        names.add("Mary");
+        var names = Person.getNames();
 
         // Constructor reference        
         var people = names.stream().map(Person::new).toList();
@@ -29,19 +26,4 @@ public class ConstructorRefTest {
 
 }
 
-class Person {
-    public Person(String name) {
-        this.name = name;
-    }
 
-    public String getName() {
-        return name;
-    }
-
-    private String name;
-
-    @Override
-    public String toString() {
-        return "Person [name=" + name + "]";
-    }
-}

@@ -196,8 +196,27 @@ These variables are called `captured variables` or `free variables`.
 
 A block of code that contains free variables is called a `closure`, so a lambda expression is a closure.
 
+[VariableScopeTest](../book-code/corejava/v1ch06/pawarv/VariableScopeTest.java)
 
 ### 6.2.7 Processing Lambda Expressions
+
+> The point of using lambdas is deferred execution.
+> 
+> **Reasons for deferred execution:**
+>  * Running the code in a separate thread
+>  * Running the code multiple times
+>  * Running the code at the right point in an algorithm (for example, the comparison operation in sorting)
+>  * Running the code when something happens (a button was clicked, data has arrived, and so on)
+>  * Running the code only when necessary
+
+[ProcessingLambdasTest](../book-code/corejava/v1ch06/pawarv/ProcessingLambdasTest.java)
+
+[ConsumerTest](../book-code/corejava/v1ch06/pawarv/ConsumerTest.java)
+
+[BiConsumerTest](../book-code/corejava/v1ch06/pawarv/BiConsumerTest.java)
+
+[MethodChaining](../book-code/corejava/v1ch06/pawarv/MethodChaining.java)
+
 ### 6.2.8 More about Comparators
 ### 6.3 Inner Classes
 ### 6.3.1 Use of an Inner Class to Access Object State
