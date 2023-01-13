@@ -186,7 +186,17 @@ See the examples in [SupplierTest](../book-code/corejava/v1ch06/pawarv/SupplierT
 [MRStaticReferenceNoLambdaTest](../book-code/corejava/v1ch06/pawarv/MRStaticReferenceNoLambdaTest.java)
 
 ### 6.2.5 Constructor References
+
+[ConstructorRefTest](../book-code/corejava/v1ch06/pawarv/ConstructorRefTest.java)
+
 ### 6.2.6 Variable Scope
+
+A lambda expression can access local variables of the enclosing block that are final or effectively final.
+These variables are called `captured variables` or `free variables`.
+
+A block of code that contains free variables is called a `closure`, so a lambda expression is a closure.
+
+
 ### 6.2.7 Processing Lambda Expressions
 ### 6.2.8 More about Comparators
 ### 6.3 Inner Classes
