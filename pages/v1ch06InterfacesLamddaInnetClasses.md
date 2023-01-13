@@ -2,7 +2,7 @@
 
 # Chapter 6: Interfaces, Lambda Expressions, and Inner Classes
 
-## Status : IN_PROGRESS
+## Status : DONE
 
 ## Contents
 
