@@ -1,11 +1,11 @@
 >[Home](Home.md)
- 
+
 # Chapter 6: Interfaces, Lambda Expressions, and Inner Classes
- 
-## Status : IN_PROGRESS 
- 
+
+## Status : IN_PROGRESS
+
 ## Contents
- 
+
 - 6.1 Interfaces
   - 6.1.1 The Interface Concept
   - 6.1.2 Properties of Interfaces
@@ -38,7 +38,7 @@
   - 6.5.1 When to Use Proxies
   - 6.5.2 Creating Proxy Objects
   - 6.5.3 Properties of Proxy Classes
- 
+
 ## Order of examples
 
 - [EmployeeSortTest](../book-code/corejava/v1ch06/interfaces/EmployeeSortTest.java)
@@ -181,8 +181,11 @@ See the examples in [SupplierTest](../book-code/corejava/v1ch06/pawarv/SupplierT
 ### 6.2.4 Method References
 
 [MRStaticReferenceTest](../book-code/corejava/v1ch06/pawarv/MRStaticReferenceTest.java)
+
 [MRStaticReferenceToInstanceMethodTest](../book-code/corejava/v1ch06/pawarv/MRStaticReferenceToInstanceMethodTest.java)
+
 [MRObjectInstanceTest](../book-code/corejava/v1ch06/pawarv/MRObjectInstanceTest.java)
+
 [MRStaticReferenceNoLambdaTest](../book-code/corejava/v1ch06/pawarv/MRStaticReferenceNoLambdaTest.java)
 
 ### 6.2.5 Constructor References
@@ -288,5 +291,4 @@ Later
 
 Later
 
- 
 >[Home](HOME.md)
