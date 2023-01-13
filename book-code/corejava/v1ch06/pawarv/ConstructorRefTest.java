@@ -9,12 +9,16 @@ import java.util.ArrayList;
 public class ConstructorRefTest {
     public static void main(String[] args) {
 
+        System.out.println("***************** names");
         var names = Person.getNames();
+        System.out.println(names);
 
+        System.out.println("***************** people");
         // Constructor reference        
         var people = names.stream().map(Person::new).toList();
         System.out.println(people);
 
+        System.out.println("***************** peopleArray");
         //  The toArray method invokes this constructor to obtain an array of the correct type. 
         // Then it fills and returns the array.
         Person[] peopleArray = names.stream().map(Person::new).toArray(Person[]::new);
