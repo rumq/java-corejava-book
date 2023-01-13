@@ -129,6 +129,25 @@ You can think of iterators being in between elements.
 
 
 ### 9.1.4 Generic Utility Methods
+
+
+> The Collection and Iterator interfaces are generic, which means you can write utility methods that operate on any kind of collection.
+>
+> In fact, the Collection interface declares quite a few useful methods that all implementing classes must supply. Among them are 
+> * int size() 
+> * boolean isEmpty() 
+> * boolean contains(Object obj) 
+> * boolean containsAll(Collection<?> c) 
+> * boolean equals(Object other) 
+> * boolean addAll(Collection<? extends E> from) 
+> * boolean remove(Object obj) 
+> * boolean removeAll(Collection<?> c) 
+> * void clear() 
+> * boolean retainAll(Collection<?> c) Object[] toArray()
+
+
+> To make life easier for implementors, the library supplies a class AbstractCollection that leaves the fundamental methods size and iterator abstract but implements the routine methods in terms of them.
+
 ## 9.2 Interfaces in the Collections Framework
 ## 9.3 Concrete Collections
 ### 9.3.1 Linked Lists
