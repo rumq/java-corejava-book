@@ -4,40 +4,41 @@
 
 ## Status : DONE
 
-## Contents
-
-- 6.1 Interfaces
-  - 6.1.1 The Interface Concept
-  - 6.1.2 Properties of Interfaces
-  - 6.1.3 Interfaces and Abstract Classes
-  - 6.1.4 Static and Private Methods
-  - 6.1.5 Default Methods
-  - 6.1.6 Resolving Default Method Conflicts
-  - 6.1.7 Interfaces and Callbacks
-  - 6.1.8 The Comparator Interface
-  - 6.1.9 Object Cloning
-- 6.2 Lambda Expressions
-  - 6.2.1 Why Lambdas?
-  - 6.2.2 The Syntax of Lambda Expressions
-  - 6.2.3 Functional Interfaces
-  - 6.2.4 Method References
-  - 6.2.5 Constructor References
-  - 6.2.6 Variable Scope
-  - 6.2.7 Processing Lambda Expressions
-  - 6.2.8 More about Comparators
-- 6.3 Inner Classes
-  - 6.3.1 Use of an Inner Class to Access Object State
-  - 6.3.2 Special Syntax Rules for Inner Classes
-  - 6.3.3 Are Inner Classes Useful? Actually Necessary? Secure?
-  - 6.3.4 Local Inner Classes
-  - 6.3.5 Accessing Variables from Outer Methods
-  - 6.3.6 Anonymous Inner Classes
-  - 6.3.7 Static Inner Classes
-- 6.4 Service Loaders
-- 6.5 Proxies
-  - 6.5.1 When to Use Proxies
-  - 6.5.2 Creating Proxy Objects
-  - 6.5.3 Properties of Proxy Classes
+- [Chapter 6: Interfaces, Lambda Expressions, and Inner Classes](#chapter-6-interfaces-lambda-expressions-and-inner-classes)
+  - [Status : DONE](#status--done)
+  - [Order of examples](#order-of-examples)
+  - [6.1 Interfaces](#61-interfaces)
+    - [6.1.1 The Interface Concept](#611-the-interface-concept)
+    - [6.1.2 Properties of Interfaces](#612-properties-of-interfaces)
+    - [6.1.3 Interfaces and Abstract Classes](#613-interfaces-and-abstract-classes)
+    - [6.1.4 Static and Private Methods](#614-static-and-private-methods)
+    - [6.1.5 Default Methods](#615-default-methods)
+    - [6.1.6 Resolving Default Method Conflicts](#616-resolving-default-method-conflicts)
+    - [6.1.7 Interfaces and Callbacks](#617-interfaces-and-callbacks)
+    - [6.1.8 The Comparator Interface](#618-the-comparator-interface)
+    - [6.1.9 Object Cloning](#619-object-cloning)
+    - [6.2 Lambda Expressions](#62-lambda-expressions)
+    - [6.2.1 Why Lambdas?](#621-why-lambdas)
+    - [6.2.2 The Syntax of Lambda Expressions](#622-the-syntax-of-lambda-expressions)
+    - [6.2.3 Functional Interfaces](#623-functional-interfaces)
+    - [6.2.4 Method References](#624-method-references)
+    - [6.2.5 Constructor References](#625-constructor-references)
+    - [6.2.6 Variable Scope](#626-variable-scope)
+    - [6.2.7 Processing Lambda Expressions](#627-processing-lambda-expressions)
+    - [6.2.8 More about Comparators](#628-more-about-comparators)
+    - [6.3 Inner Classes](#63-inner-classes)
+    - [6.3.1 Use of an Inner Class to Access Object State](#631-use-of-an-inner-class-to-access-object-state)
+    - [6.3.2 Special Syntax Rules for Inner Classes](#632-special-syntax-rules-for-inner-classes)
+    - [6.3.3 Are Inner Classes Useful? Actually Necessary? Secure?](#633-are-inner-classes-useful-actually-necessary-secure)
+    - [6.3.4 Local Inner Classes](#634-local-inner-classes)
+    - [6.3.5 Accessing Variables from Outer Methods](#635-accessing-variables-from-outer-methods)
+    - [6.3.6 Anonymous Inner Classes](#636-anonymous-inner-classes)
+    - [6.3.7 Static Inner Classes](#637-static-inner-classes)
+    - [6.4 Service Loaders](#64-service-loaders)
+    - [6.5 Proxies](#65-proxies)
+    - [6.5.1 When to Use Proxies](#651-when-to-use-proxies)
+    - [6.5.2 Creating Proxy Objects](#652-creating-proxy-objects)
+    - [6.5.3 Properties of Proxy Classes](#653-properties-of-proxy-classes)
 
 ## Order of examples
 
