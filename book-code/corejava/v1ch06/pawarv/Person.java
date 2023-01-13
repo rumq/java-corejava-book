@@ -23,6 +23,11 @@ class Person {
         return "Person [name=" + name + "]";
     }
 
+    public static List<String> getSortedNames() {
+        List<String> names = getNames();
+        names.sort(String::compareToIgnoreCase);
+        return names;
+    }
     public static List<String> getNames() {
         var names = new ArrayList<String>();
         names.add("Diana");

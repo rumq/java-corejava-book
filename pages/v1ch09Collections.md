@@ -123,12 +123,18 @@ You can think of iterators being in between elements.
 [AdvancingAnIterator](../assets/diagrams/AdvancingAnIterator.excalidraw)
 [AdvancingAnIterator PNG](../assets/diagrams/AdvancingAnIterator.png)
 
+[IteratorTest](../book-code/corejava/v1ch09/pawarv/IteratorTest.java)
+
 >The remove method of the Iterator interface removes the element that was returned by the last call to next.
+
 
 ### 9.1.4 Generic Utility Methods
 ## 9.2 Interfaces in the Collections Framework
 ## 9.3 Concrete Collections
 ### 9.3.1 Linked Lists
+
+[LinkedListTest](../book-code/corejava/v1ch09/linkedList/LinkedListTest.java)
+
 ### 9.3.2 Array Lists
 ### 9.3.3 Hash Sets
 ### 9.3.4 Tree Sets
