@@ -23,12 +23,28 @@ public class IteratorTest {
             System.out.println(str);
         }
 
-        System.out.println("***************** remove() method");
-        // remove() method
-        var iterator3 = people.iterator();
-        iterator3.next();
-        iterator3.remove();
+        System.out.println("Printing people");
         System.out.println(people);
+        var iterator4 = people.iterator();
+
+        iterator4.next();
+        iterator4.remove();                
+        iterator4.next();
+        iterator4.remove();                
+        System.out.println("*******************Today");
+        while (iterator4.hasNext()) {
+            String str = iterator4.next();
+            System.out.println(str);
+        }
+        System.out.println(people);
+        System.out.println(people.size());
+
+        // System.out.println("***************** remove() method");
+        // // remove() method
+        // var iterator3 = people.iterator();
+        // iterator3.next();
+        // iterator3.remove();
+        // System.out.println(people);
 
 
     }

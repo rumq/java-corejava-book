@@ -1,7 +1,9 @@
 package pawarv;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 class Person {
     public Person(String name) {
@@ -53,5 +55,16 @@ class Person {
     // A way to convert a list to an array
     public static Person[] getPeopleArray() {
         return getPeopleList().toArray(new Person[0]);
+    }
+
+    public static Map<String, Person> getPeopleMap() {
+        var people = new HashMap<String, Person>();
+        people.put("Diana", new Person("Diana"));
+        people.put("Alia", new Person("Alia"));
+        people.put("Carl", new Person("Carl"));
+        people.put("Bob", new Person("Bob"));
+        people.put("Fiona", new Person("Fiona"));       
+        people.put("Ethan", new Person("Ethan"));
+        return people;
     }
 }

@@ -59,6 +59,7 @@
 
 ### 9.1.2 The Collection Interface
 
+[Collection API doc](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html)
 
 > The fundamental interface for collection classes in the Java library is the Collection interface. The interface has two fundamental methods: (there are others as well)
 
@@ -73,6 +74,8 @@ public interface Collection<E>
 ```
 
 ### 9.1.3 Iterators
+
+[Iterator API doc](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Iterator.html)
 
 Are used to visit all elements of a collection.
 
@@ -147,10 +150,33 @@ You can think of iterators being in between elements.
 > * boolean retainAll(Collection<?> c) Object[] toArray()
 
 
-> To make life easier for implementors, the library supplies a class AbstractCollection that leaves the fundamental methods size and iterator abstract but implements the routine methods in terms of them.
+> To make life easier for implementors, the library supplies a class AbstractCollection that leaves the fundamental methods size and iterator abstract but implements the routine methods in terms of them. 
+> This approach is a bit outdated. It would be nicer if the methods were default methods of the Collection interface.
 
+The default method `removeIf` has been added to Collection. See [PredicateAndTest](../book-code/corejava/v1ch06/pawarv/PredicateAndTest.java)
+
+[GenericUtilityMethodsTest](../book-code/corejava/v1ch09/pawarv/GenericUtilityMethodsTest.java)
 ## 9.2 Interfaces in the Collections Framework
+
+![Collections Hierarchy - Book](2023-01-16-20-24-46.png)
+[Collection Hierarchy](https://upload.wikimedia.org/wikipedia/commons/a/ab/Java.util.Collection_hierarchy.svg) 
+
+[Collection Hierrachy Local file](../assets/diagrams/Java.util.Collection_hierarchy.svg)
+
+[Map Hierarchy](https://upload.wikimedia.org/wikipedia/commons/7/7b/Java.util.Map_hierarchy.svg)
+[Map Hierarchy Local](../assets/diagrams/Java.util.Map_hierarchy.svg)
+
+> There are two fundamental interfaces for collections: Collection and Map .
+
+Add into a list using `boolean add(E element)` and get values using `E get(int index)` or visit them using an iterator.
+
+Add into a Map using `V put(K key, V value)`, and read values using `V get(K key)`.
+
+A List is an ordered collection.
+
 ## 9.3 Concrete Collections
+
+![Concrete Collections - Book](2023-01-16-20-25-54.png)
 ### 9.3.1 Linked Lists
 
 [LinkedListTest](../book-code/corejava/v1ch09/linkedList/LinkedListTest.java)
