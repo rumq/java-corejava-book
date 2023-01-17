@@ -3,6 +3,11 @@ package set;
 import java.util.*;
 
 /**
+ * Procedure to run this program:
+ * 1. cd /home/vikram/git/java-corejava-book/book-code/corejava/v1ch09
+ * 2. javac set/SetTest.java
+ * 3. java set.SetTest < '/home/vikram/git/java-corejava-book/book-code/corejava/gutenberg/alice30.txt'
+ * 
  * This program uses a set to print all unique words in System.in.
  * @version 1.12 2015-06-21
  * @author Cay Horstmann

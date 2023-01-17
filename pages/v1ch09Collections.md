@@ -182,11 +182,29 @@ A List is an ordered collection.
 [LinkedListTest](../book-code/corejava/v1ch09/linkedList/LinkedListTest.java)
 
 ### 9.3.2 Array Lists
+
+[ArrayListTest](../book-code/corejava/v1ch09/pawarv/ArrayListTest.java)
+
+[UnmodifiableCollectionsTest](../book-code/corejava/v1ch09/pawarv/UnmodifiableCollectionsTest.java)
+
+
 ### 9.3.3 Hash Sets
+>  If you don’t care about the ordering of the elements, there are data structures that let you find elements much faster.
+
+> A well-known data structure for finding objects quickly is the hash table. A hash table computes an integer, called the hash code, for each object. A hash code is somehow derived from the instance fields of an object, preferably in such a way that objects with different data yield different codes.
+
+>  A set is a collection of elements without duplicates.
+
+[HashSetTest](../book-code/corejava/v1ch09/pawarv/HashSetTest.java)
+
+[SetTest](../book-code/corejava/v1ch09/set/SetTest.java)
+
 ### 9.3.4 Tree Sets
 ### 9.3.5 Queues and Deques
 ### 9.3.6 Priority Queues
 ## 9.4 Maps
+
+[MapTest](../book-code/corejava/v1ch09/pawarv/MapTest.java)
 ### 9.4.1 Basic Map Operations
 ### 9.4.2 Updating Map Entries
 ### 9.4.3 Map Views
