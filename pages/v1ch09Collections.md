@@ -179,7 +179,10 @@ A List is an ordered collection.
 ![Concrete Collections - Book](2023-01-16-20-25-54.png)
 ### 9.3.1 Linked Lists
 
+[LinkedList Diagram](../assets/diagrams/LinkedList.excalidraw)
+
 [LinkedListTest](../book-code/corejava/v1ch09/linkedList/LinkedListTest.java)
+
 [ListIteratorTest](../book-code/corejava/v1ch09/pawarv/ListIteratorTest.java)
 
 ### 9.3.2 Array Lists
