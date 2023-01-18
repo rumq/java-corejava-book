@@ -11,7 +11,7 @@ import java.util.Set;
 public class HashSetTest {
     public static void main(String[] args) {
 
-        var set = new HashSet<String>();
+        Set set = new HashSet<String>();
         set.add("Mary");
         set.add("had");
         set.add("a");

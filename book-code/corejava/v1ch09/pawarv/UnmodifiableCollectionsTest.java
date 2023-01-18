@@ -17,7 +17,7 @@ public class UnmodifiableCollectionsTest {
     var unmodifiableList = List.of("Mary", "had", "a", "little", "lamb");
     System.out.println(unmodifiableList);
     // uncomment this line to see the exception
-    // unmodifiableList.add("Mary2");
+    unmodifiableList.add("Mary2");
     
 
     }
