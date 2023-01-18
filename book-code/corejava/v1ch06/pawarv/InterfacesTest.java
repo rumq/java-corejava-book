@@ -24,8 +24,7 @@ public class InterfacesTest {
         // implementation of interface using class
         var pineapplepizza = new PineapplePizza();
         pineapplepizza.prepare();
-        
-        Path
+                
 
     };
 

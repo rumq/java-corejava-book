@@ -214,7 +214,24 @@ A List is an ordered collection.
 
 
 ### 9.3.5 Queues and Deques
+
+From [AbstractQueue API](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/AbstractQueue.html)
+> public abstract class AbstractQueue<E> extends AbstractCollection<E> implements Queue<E>
+
+> This class provides skeletal implementations of some Queue operations. The implementations in this class are appropriate when the base implementation does not allow null elements. Methods add, remove, and element are based on offer, poll, and peek, respectively, but throw exceptions instead of indicating failure via false or null returns.
+
+> A Queue implementation that extends this class must minimally define a method Queue.offer(E) which does not permit insertion of null elements, along with methods Queue.peek(), Queue.poll(), Collection.size(), and Collection.iterator(). Typically, additional methods will be overridden as well. If these requirements cannot be met, consider instead subclassing AbstractCollection.
+
+> This class is a member of the Java Collections Framework.
+
 ### 9.3.6 Priority Queues
+
+> A priority queue retrieves elements in sorted order after they were inserted in arbitrary order.
+
+> Just like a TreeSet, a priority queue can either hold elements of a class that implements the Comparable interface or a Comparator object you supply in the constructor.
+
+[PriorityQueueTest](../book-code/corejava/v1ch09/priorityQueue/PriorityQueueTest.java)
+
 ## 9.4 Maps
 
 [MapTest](../book-code/corejava/v1ch09/pawarv/MapTest.java)
