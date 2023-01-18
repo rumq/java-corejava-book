@@ -180,6 +180,7 @@ A List is an ordered collection.
 ### 9.3.1 Linked Lists
 
 [LinkedListTest](../book-code/corejava/v1ch09/linkedList/LinkedListTest.java)
+[ListIteratorTest](../book-code/corejava/v1ch09/pawarv/ListIteratorTest.java)
 
 ### 9.3.2 Array Lists
 
@@ -206,6 +207,11 @@ A List is an ordered collection.
  > In order to use a tree set, you must be able to compare the elements. The elements must implement the Comparable interface, or you must supply a Comparator when constructing the set
 
 [TreeSetTest](../book-code/corejava/v1ch09/treeSet/TreeSetTest.java)
+
+[TreeSet Test - read words from a book](../book-code/corejava/v1ch09/pawarv/TreeSetTest.java)
+
+[TreeSetBasicTest](../book-code/corejava/v1ch09/pawarv/TreeSetBasicTest.java)
+
 
 ### 9.3.5 Queues and Deques
 ### 9.3.6 Priority Queues

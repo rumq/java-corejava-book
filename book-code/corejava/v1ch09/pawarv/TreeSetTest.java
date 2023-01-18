@@ -16,7 +16,7 @@ import java.util.TreeSet;
  *  java pawarv.TreeSetTest  < ../gutenberg/alice30.txt
  *       5909 distinct words. 38 milliseconds.
  *  java pawarv.TreeSetTest  < ../other/CountOfMonteCristo.txt
- *       40032 distinct words. 579 milliseconds.
+ *       40032 distinct words. 579 milliseconds. [ seen above 605]
  */
 
 public class TreeSetTest {
