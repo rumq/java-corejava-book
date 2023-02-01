@@ -6,6 +6,17 @@ import java.util.List;
 import java.util.Map;
 
 class Person {
+
+    private Address address;
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
     public Person(String name) {
         this.name = name;
     }
@@ -30,6 +41,7 @@ class Person {
         names.sort(String::compareToIgnoreCase);
         return names;
     }
+
     public static List<String> getNames() {
         var names = new ArrayList<String>();
         names.add("Diana");
@@ -37,7 +49,7 @@ class Person {
         names.add("Alia");
         names.add("Carl");
         names.add("Ethan");
-        names.add("Fiona");        
+        names.add("Fiona");
         return names;
     }
 
@@ -47,7 +59,7 @@ class Person {
         people.add(new Person("Alia"));
         people.add(new Person("Carl"));
         people.add(new Person("Bob"));
-        people.add(new Person("Fiona"));       
+        people.add(new Person("Fiona"));
         people.add(new Person("Ethan"));
         return people;
     }
@@ -63,8 +75,56 @@ class Person {
         people.put("Alia", new Person("Alia"));
         people.put("Carl", new Person("Carl"));
         people.put("Bob", new Person("Bob"));
-        people.put("Fiona", new Person("Fiona"));       
+        people.put("Fiona", new Person("Fiona"));
         people.put("Ethan", new Person("Ethan"));
         return people;
     }
+
+    public static void main(String[] args) {
+        var peopleArray = getPeopleArray();
+
+        for (Person person : peopleArray) {
+            System.out.println(person.getName());
+        }
+
+        Person[] persons = getPersonArray(10);
+
+        for (Person person : persons) {
+            System.out.println(person);
+        }
+
+        Person person = new Person("Diana");
+        Address address = new Address("1", "Main Street", "12345", "USA");
+        person.setAddress(address);
+        System.out.println(person.getAddress().getHouseNumber());
+    }
+
+    public static Person[] getPersonArray(int n) {
+
+        Person[] persons = new Person[n];
+
+        for (int i = 0; i < persons.length; i++) {
+            persons[i] = new Person("Name " + i);
+        }
+        return persons;
+    }
+}
+
+class Address {
+    private String houseNumber;
+    private String streetName;
+    private String postCode;
+    private String country;
+
+    public Address(String houseNumber, String streetName, String postCode, String country) {
+        this.houseNumber = houseNumber;
+        this.streetName = streetName;
+        this.postCode = postCode;
+        this.country = country;
+    }
+
+    public String getHouseNumber() {
+        return houseNumber;
+    }
+
 }
