@@ -237,16 +237,77 @@ From [AbstractQueue API](https://docs.oracle.com/en/java/javase/17/docs/api/java
 
 ## 9.4 Maps
 
-[MapTest](../book-code/corejava/v1ch09/pawarv/MapTest.java)
+A Map stores key value pairs. The keys are unique. The values can be duplicates. You can find a value by looking up its key.
+
+A Map.Entry object represents a key-value pair. You can get a Set of all entries in a map by calling the entrySet method. You can iterate through the entries in a map using a for-each loop.
+
+[BasicMapTest](../book-code/corejava/v1ch09/pawarv/BasicMapTest.java)
+[MapTest](../book-code/corejava/v1ch09/map/MapTest.java)
+
 ### 9.4.1 Basic Map Operations
+
+HashMap and TreeMap are general purpose implementations of the Map interface. They differ in how they store the elements.
+
+A HashMap is a Map that uses a hash table to store its elements. The hash function is applied to the keys. It is very fast for finding elements, but it is not guaranteed to preserve the order of the elements.
+
+A TreeMap is a Map that uses a tree to store its elements. It is slower for finding elements, but it is guaranteed to preserve the order of the elements.
+
+A LinkedHashMap is a Map that uses a hash table to store its elements. It is very fast for finding elements, and it preserves the order of the elements.
+
+
 ### 9.4.2 Updating Map Entries
+
+When updating a map, you can use the put method to add a new entry or to replace an existing entry. The put method returns the previous value associated with the key, or null if there was no previous value.
+
+When updating, we need to be aware of a special case where when it's the first occurrence of the key, we need to add a new entry, and when it's not the first occurrence, we need to update the existing entry.
+
+In such cases, we have some options as shown in the below example.
+
+[UpdateMapTest](../book-code/corejava/v1ch09/pawarv/UpdateMapTest.java)
+
+
 ### 9.4.3 Map Views
+
+A map view is a collection that is backed by a map. If you change the map, the collection changes, and vice versa.
+
+The `keySet` method returns a Set view of the keys in the map. The `values` method returns a Collection view of the values in the map. The `entrySet` method returns a Set view of the entries in the map.
+
+The `entrySet` method returns a Set view of the entries in the map. Each entry is a Map.Entry object. 
+
+You can iterate through the entries in a map using a for-each loop.
+
+If you remove a key from the key set, it will be removed from the map as well, as key set is a view of the map. Same with the entry set.
+
+
 ### 9.4.4 Weak Hash Maps
+
+If the reference to a key is is no longer used, the value cannot be accessed, however, the Garbage Collector will not collect the key-value pair from the map. This is because the key is still referenced by the map.
+
+If we want such key-value pairs to be removed from the map, we can use a WeakHashMap.
+
+A weak hash map is a Map that uses weak references to store its keys. A weak reference is a reference that does not prevent the garbage collector from collecting the object to which it refers. If the garbage collector collects a key, the corresponding entry is removed from the map.
+
+
 ### 9.4.5 Linked Hash Sets and Maps
 ### 9.4.6 Enumeration Sets and Maps
 ### 9.4.7 Identity Hash Maps
+
 ## 9.5 Copies and Views
 ### 9.5.1 Small Collections
+
+You can use `of` method to create a small collection with a few elements.
+
+```java
+var friends = Set.of("Raphael", "Olivia", "Thibaut");
+var friends = List.of("Raphael", "Olivia", "Thibaut");
+var friends = Map.of("Raphael", 7, "Olivia", 5, "Thibaut", 10);
+```
+
+These methods are convenient, but they have some limitations. The objects produced are immutable. You cannot add or remove elements from the collection. You cannot change the elements. You cannot change the order of the elements.
+
+Collections.nCopies method returns a list with n copies of the same object.
+
+
 ### 9.5.2 Unmodifiable Copies and Views
 ### 9.5.3 Subranges
 ### 9.5.4 Checked Views

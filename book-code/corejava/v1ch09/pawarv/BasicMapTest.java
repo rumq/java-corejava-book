@@ -1,6 +1,6 @@
 package pawarv;
 
-public class MapTest {
+public class BasicMapTest {
     public static void main(String[] args) {
         // Get a map
         var people = Person.getPeopleMap();
@@ -51,6 +51,16 @@ public class MapTest {
         entries.removeIf(entry -> entry.getKey().equals("Carl"));
 
         System.out.println("\n***people: " + people);
+
+        // removing a value from the keys set will remove the value from the map
+        keys.remove("Alia");
+
+        System.out.println("\n***people: " + people);
+
+        // removing an entry from the entries set will the corresponding key and value from the map
+        entries.remove(entries.iterator().next());
+        System.out.println("\n***people: " + people);
+
 
 
     }
