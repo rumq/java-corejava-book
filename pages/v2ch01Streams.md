@@ -8,6 +8,7 @@
   - [Status : IN\_PROGRESS](#status--in_progress)
   - [1.1 From Iterating to Stream Operations](#11-from-iterating-to-stream-operations)
   - [1.2 Stream Creation](#12-stream-creation)
+  - [1.3 The filter, map, and flatMap Methods](#13-the-filter-map-and-flatmap-methods)
 
 Streams were introduced in Java 8. They are a new abstraction that allows you to process data **declaratively**. It provides a way to process data in a functional style.
 
@@ -51,8 +52,13 @@ See [CreatingStreamsTest](../book-code/corejava/v2ch01/pawarv/CreatingStreamsTes
 
 Do not modify the collection that's being used to create a stream. The outcome is undefined. 
 
+## 1.3 The filter, map, and flatMap Methods
 
-1.3 The filter, map, and flatMap Methods
+Once we have a stream, we can apply operations on it.
+
+A filter operation takes a predicate and returns a stream consisting of the elements that match the given predicate.
+
+A map operation takes a function and returns a stream consisting of the results of applying the given function to the elements of this stream.
 
 1.4 Extracting Substreams and Combining Streams
 
