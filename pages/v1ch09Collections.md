@@ -2,11 +2,11 @@
 
 # Chapter 9: Collections
 
-## Status : IN_PROGRESS
+## Status : DONE
 
 
 - [Chapter 9: Collections](#chapter-9-collections)
-  - [Status : IN\_PROGRESS](#status--in_progress)
+  - [Status : DONE](#status--done)
   - [9.1 The Java Collections Framework](#91-the-java-collections-framework)
     - [9.1.1 Separating Collection Interfaces and Implementation](#911-separating-collection-interfaces-and-implementation)
     - [9.1.2 The Collection Interface](#912-the-collection-interface)

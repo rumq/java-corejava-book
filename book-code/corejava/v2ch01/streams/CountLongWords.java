@@ -13,13 +13,16 @@ public class CountLongWords
    public static void main(String[] args) throws IOException
    {
       var contents = Files.readString(
-         Path.of("../gutenberg/alice30.txt"));
+         Path.of("book-code/corejava/gutenberg/alice30.txt"));
       List<String> words = List.of(contents.split("\\PL+"));
 
       long count = 0;
       for (String w : words)
       {
-         if (w.length() > 12) count++;
+         if (w.length() > 12) {
+            System.out.println(w);
+            count++;
+         }
       }
       System.out.println(count);
 
