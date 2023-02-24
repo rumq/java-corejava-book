@@ -295,7 +295,9 @@ A weak hash map is a Map that uses weak references to store its keys. A weak ref
 ## 9.5 Copies and Views
 ### 9.5.1 Small Collections
 
-You can use `of` method to create a small collection with a few elements.
+[SmallCollections](../book-code/corejava/v1ch09/pawarv/SmallCollections.java)
+
+Since Java 9, you can use the static method  `of` method to create a small collection with a few elements.
 
 ```java
 var friends = Set.of("Raphael", "Olivia", "Thibaut");
@@ -307,10 +309,44 @@ These methods are convenient, but they have some limitations. The objects produc
 
 Collections.nCopies method returns a list with n copies of the same object.
 
-
 ### 9.5.2 Unmodifiable Copies and Views
+
+[UnmodifiableCopiesAndViews](../book-code/corejava/v1ch09/pawarv/UnmodifiableCopiesAndViews.java)
+
+You can create copies or views of collections that cannot be modified. The main difference between a copy and a view is that a copy is a separate collection, whereas a view is a view of the original collection. Therefore, any changes to the original collection are reflected in the view but not in the copy.
+
+Collections has several methods that return unmodifiable copies or views of collections. They all start with the word `unmodifiable`. 
+
+For example, `unmodifiableList` returns an unmodifiable view of a list. `unmodifiableSet` returns an unmodifiable view of a set. `unmodifiableMap` returns an unmodifiable view of a map. `unmodifiableSortedSet` returns an unmodifiable view of a sorted set. `unmodifiableSortedMap` returns an unmodifiable view of a sorted map.
+
 ### 9.5.3 Subranges
+
+[SubrangesTest](../book-code/corejava/v1ch09/pawarv/SubrangesTest.java)
+
+The `subList` method returns a view of a portion of a list. The view is backed by the original list, so any changes to the original list are reflected in the view. The view is not a separate list. It is a view of the original list.
+
+Subranges are useful for implementing algorithms that need to process only a portion of a list. For example, the `sort` method sorts a list in place. If you want to sort only a portion of a list, you can use a subrange view.
+
+Sorted set views are also useful for implementing algorithms that need to process only a portion of a set. For example, the `subSet` method returns a view of a portion of a sorted set. The view is backed by the original set, so any changes to the original set are reflected in the view. The view is not a separate set. It is a view of the original set.
+
+Sorted sets also have a `headSet` method that returns a view of the portion of the set that is less than a given element. The `tailSet` method returns a view of the portion of the set that is greater than or equal to a given element.
+
+Sorted map views are also useful for implementing algorithms that need to process only a portion of a map. For example, the `subMap` method returns a view of a portion of a sorted map. The view is backed by the original map, so any changes to the original map are reflected in the view. The view is not a separate map. It is a view of the original map.
+
+Similar to sorted sets, sorted maps also have a `headMap` method that returns a view of the portion of the map that is less than a given key. The `tailMap` method returns a view of the portion of the map that is greater than or equal to a given key.
+
+
 ### 9.5.4 Checked Views
+
+[CheckedViewsTest](../book-code/corejava/v1ch09/pawarv/CheckedViewsTest.java)
+
+Checked views are views of collections that check whether the elements that are added to the collection are of the correct type. If an element is not of the correct type, an exception is thrown.
+
+Collections has several methods that return checked views of collections. They all start with the word `checked`.
+
+The `checkedCollection` method returns a checked view of a collection. The `checkedList` method returns a checked view of a list. The `checkedSet` method returns a checked view of a set. The `checkedSortedSet` method returns a checked view of a sorted set. The `checkedMap` method returns a checked view of a map. The `checkedSortedMap` method returns a checked view of a sorted map.
+
+
 ### 9.5.5 Synchronized Views
 ### 9.5.6 A Note on Optional Operations
 ## 9.6 Algorithms
