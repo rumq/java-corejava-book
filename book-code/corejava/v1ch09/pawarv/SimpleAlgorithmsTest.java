@@ -39,7 +39,7 @@ public class SimpleAlgorithmsTest {
         System.out.println(copiedList);
 
         // replaceAll
-        Collections.replaceAll(copiedList, "Ringo ", "Paul");
+        Collections.replaceAll(copiedList, "Ringo", "Paul");
         System.out.println(copiedList);
 
         // indexOfSubList
@@ -80,8 +80,6 @@ public class SimpleAlgorithmsTest {
         // replaceAll
         namesList.replaceAll(String::toUpperCase);
         System.out.println(namesList);
-
-
 
     }
 }

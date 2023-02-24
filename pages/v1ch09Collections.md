@@ -402,12 +402,26 @@ With a linked list, you can't access the elements by index. So, you can't use bi
 [SimpleAlgorithmsTest](../book-code/corejava/v1ch09/pawarv/SimpleAlgorithmsTest.java)
 
 ### 9.6.5 Bulk Operations
+
+[BulkOperationsTest](../book-code/corejava/v1ch09/pawarv/BulkOperationsTest.java)
+
 ### 9.6.6 Converting between Collections and Arrays
+
+[CollectionToArrayTest](../book-code/corejava/v1ch09/pawarv/CollectionToArrayTest.java)
+
 ### 9.6.7 Writing Your Own Algorithms
+
+When you write a method that processes a collection, you should always use the interface type for the parameter. This way, you can use your method with any collection.
+
+Also use the most generic type that'll work, Iterable, for example, instead of List. This way, you can use your method with any collection that implements the Iterable interface.
+
 ## 9.7 Legacy Collections
 ### 9.7.1 The Hashtable Class
 ### 9.7.2 Enumerations
 ### 9.7.3 Property Maps
+
+[PropertiesTest](../book-code/corejava/v1ch09/pawarv/PropertiesTest.java)
+
 ### 9.7.4 Stacks
 ### 9.7.5 Bit Sets
 
