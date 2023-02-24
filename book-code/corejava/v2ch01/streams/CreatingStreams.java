@@ -70,5 +70,7 @@ public class CreatingStreams
       Stream<Path> pathComponents = StreamSupport.stream(Spliterators.spliteratorUnknownSize(
          iterator, Spliterator.ORDERED), false);  
       show("pathComponents", pathComponents);
+
+      
    }
 }
