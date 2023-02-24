@@ -60,6 +60,14 @@ A filter operation takes a predicate and returns a stream consisting of the elem
 
 A map operation takes a function and returns a stream consisting of the results of applying the given function to the elements of this stream.
 
+A flatMap operations returns a stream consisting of the results of replacing each element of this stream with the contents of a mapped stream produced by applying the provided mapping function to each element. Each mapped stream is closed after its contents have been placed into this stream. (If a mapped stream is null an empty stream is used, instead.).  In other words, it takes a stream of streams and returns a flattened stream.
+
+A multiple map operation can be replaced by a single flatMap operation.
+
+A mapMulti operation takes a function that returns a collection, and then returns a stream consisting of the results of replacing each element of this stream with the contents of a mapped collection produced by applying the provided mapping function to each element. In other words, it takes a stream of collections and returns a flattened stream.
+
+A mapMulti operation a stream consisting of the results of replacing each element of this stream with multiple elements, specifically zero or more elements. Replacement is performed by applying the provided mapping function to each element in conjunction with a consumer argument that accepts replacement elements. The mapping function calls the consumer zero or more times to provide the replacement elements.
+
 1.4 Extracting Substreams and Combining Streams
 
 1.5 Other Stream Transformations
