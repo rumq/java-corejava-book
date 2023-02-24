@@ -18,5 +18,6 @@ public class ShuffleTest
       List<Integer> winningCombination = numbers.subList(0, 6);
       Collections.sort(winningCombination);
       System.out.println(winningCombination);
+
    }
 }

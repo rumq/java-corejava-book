@@ -348,12 +348,59 @@ The `checkedCollection` method returns a checked view of a collection. The `chec
 
 
 ### 9.5.5 Synchronized Views
+
+Collections has several methods that return synchronized views of collections. They all start with the word `synchronized`. 
+
+The `synchronizedCollection` method returns a synchronized view of a collection. The `synchronizedList` method returns a synchronized view of a list. The `synchronizedSet` method returns a synchronized view of a set. The `synchronizedSortedSet` method returns a synchronized view of a sorted set. The `synchronizedMap` method returns a synchronized view of a map. The `synchronizedSortedMap` method returns a synchronized view of a sorted map.
+
+It is a way to make a collection thread-safe. You'll learn more about thread safety in Chapter 16.
+
 ### 9.5.6 A Note on Optional Operations
+
+Generally it doesn't make sense to use an interface and have optional methods. However, you find that in the Collections library some operations are optional. This was mainly done to reduce the number of interfaces in the collections library, which has a lot of requirements including that it needs to be simple. 
+
+This approach is not recommended in your own code.
+
+
 ## 9.6 Algorithms
 ### 9.6.1 Why Generic Algorithms?
+
+Collections interfaces have generic methods for searching, sorting, and shuffling. These methods are implemented by the Collections class. The Collections class also has generic methods for copying, reversing, and filling collections.
+
+The advantage of using generic algorithms is that you can use them with any collection. You don't have to write your own algorithms for searching, sorting, and shuffling for each collection type.
+
 ### 9.6.2 Sorting and Shuffling
+
+[SortingAndShufflingTest](../book-code/corejava/v1ch09/pawarv/SortingAndShufflingTest.java)
+
+[ShuffleTest](../book-code/corejava/v1ch09/shuffle/ShuffleTest.java)
+
+The `sort` method sorts a list in place. The `shuffle` method shuffles a list in place.
+
+These do basic sorting and shuffling. If you want to sort in a different way, you can use the sort method that takes a comparator which we have seen in the previous chapters.
+
 ### 9.6.3 Binary Search
+
+[BinarySearchTest](../book-code/corejava/v1ch09/pawarv/BinarySearchTest.java)
+
+Binary search is a fast way to search a sorted list that has a way to access the elements by index, that is a list that implements the `RandomAccess` interface.
+
+Consider looking up a word in a dictionary. You can start at the beginning and look at each word until you find the word you are looking for. It can take as many as steps as there are words in the dictionary.
+
+If you open the dictionary in half and determine if the word would be in the first half or the second half, you can ignore half of the book. You can repeat this process until you find the word. This way, you can find the word in fewer steps.
+
+If a list has 1024 elements, it takes 10 steps to find the element using binary search, whereas it can take 1024 steps to confirm the list does not have the element using linear search.
+
+To search a sorted list, use the `binarySearch` method. The `binarySearch` method returns the index of the search key, if it is contained in the list. Otherwise, it returns a negative number. 
+
+You can subtract 1 from the absolute of the negative number to get the index where the searched item would be inserted. That is if you get the index -5, the item would be inserted at index 4.
+
+With a linked list, you can't access the elements by index. So, you can't use binary search.
+
 ### 9.6.4 Simple Algorithms
+
+[SimpleAlgorithmsTest](../book-code/corejava/v1ch09/pawarv/SimpleAlgorithmsTest.java)
+
 ### 9.6.5 Bulk Operations
 ### 9.6.6 Converting between Collections and Arrays
 ### 9.6.7 Writing Your Own Algorithms

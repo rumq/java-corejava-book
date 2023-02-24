@@ -39,6 +39,7 @@ public class SmallCollections {
         // Returns an immutable list containing n copies of the specified object.
         var list = Collections.nCopies(10, 0);
         System.out.println(list);
+        
     }
 
     
