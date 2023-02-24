@@ -54,6 +54,14 @@ Do not modify the collection that's being used to create a stream. The outcome i
 
 ## 1.3 The filter, map, and flatMap Methods
 
+See the following examples
+- [FilterOperationTest](../book-code/corejava/v2ch01/pawarv/FilterOperationTest.java)
+- [MapOperationTest](../book-code/corejava/v2ch01/pawarv/MapOperationTest.java)
+- [FlatMapOperationSimpleTest](../book-code/corejava/v2ch01/pawarv/FlatMapOperationSimpleTest.java.java)
+- [FlatMapOperationComplexTest](../book-code/corejava/v2ch01/pawarv/FlatMapOperationComplexTest.java)
+- [MapMultiOperationTest](../book-code/corejava/v2ch01/pawarv/MapMultiOperationTest.java)
+  
+
 Once we have a stream, we can apply operations on it.
 
 A filter operation takes a predicate and returns a stream consisting of the elements that match the given predicate.
