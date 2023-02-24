@@ -419,7 +419,6 @@ Also use the most generic type that'll work, Iterable, for example, instead of L
 ### 9.7.1 The Hashtable Class
 ### 9.7.2 Enumerations
 ### 9.7.3 Property Maps
-
 [PropertiesTest](../book-code/corejava/v1ch09/pawarv/PropertiesTest.java)
 
 ### 9.7.4 Stacks

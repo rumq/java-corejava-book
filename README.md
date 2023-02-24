@@ -10,4 +10,4 @@
 
 ## Pages
 
-- [All Pages](pages/AllPages.md)
+- [Home](pages/Home.md)
