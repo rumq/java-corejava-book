@@ -9,6 +9,7 @@ Status : IN_PROGRESS
   - [1.2 Stream Creation](#12-stream-creation)
   - [1.3 The filter, map, and flatMap Methods](#13-the-filter-map-and-flatmap-methods)
   - [1.4 Extracting Substreams and Combining Streams](#14-extracting-substreams-and-combining-streams)
+  - [1.5 Other Stream Transformations](#15-other-stream-transformations)
 
 Streams were introduced in Java 8. They are a new abstraction that allows you to process data **declaratively**. It provides a way to process data in a functional style.
 
@@ -81,13 +82,23 @@ It's a bit like a flatMap operation, but the mapping function can produce zero o
 
 ## 1.4 Extracting Substreams and Combining Streams
 
+See the following example [SubstreamTest](../book-code/corejava/v2ch01/pawarv/SubstreamTest.java)
+
 The `limit` and `skip` methods can be used to extract a substream. 
 
 The `limit` method returns a stream consisting of the elements of this stream, truncated to be no longer than `maxSize` in length. 
 
 The `skip` method returns a stream consisting of the remaining elements of this stream after discarding the first `n` elements of the stream. If this stream contains fewer than `n` elements then an empty stream will be returned.
 
-1.5 Other Stream Transformations
+The `takeWhile` and `dropWhile` methods can be used to extract a substream.
+
+The `takeWhile` method returns a stream consisting of the elements of the stream until a particular element that matches the given predicate. Note that if the first element itself matches the predicate, then nothing will be included in the resulting stream.
+
+The `dropWhile` method does the exact opposite. It returns a stream consisting of the remaining elements of this stream after discarding all the elements until the first element that matches the given predicate is found. Note that if the first element itself matches the predicate, then the entire stream will be returned.
+
+The `concat` method can be used to combine two streams. It returns a stream consisting of the elements of the first stream followed by the elements of the second stream. So, if you combine the elements of the lists resulting from the takeWhile and dropWhile operations, you get the original list back. You can see this in the example.
+
+## 1.5 Other Stream Transformations
 
 1.6 Simple Reductions
 
