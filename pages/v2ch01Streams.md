@@ -10,6 +10,7 @@ Status : IN_PROGRESS
   - [1.3 The filter, map, and flatMap Methods](#13-the-filter-map-and-flatmap-methods)
   - [1.4 Extracting Substreams and Combining Streams](#14-extracting-substreams-and-combining-streams)
   - [1.5 Other Stream Transformations](#15-other-stream-transformations)
+  - [1.6 Simple Reductions](#16-simple-reductions)
 
 Streams were introduced in Java 8. They are a new abstraction that allows you to process data **declaratively**. It provides a way to process data in a functional style.
 
@@ -100,6 +101,22 @@ The `concat` method can be used to combine two streams. It returns a stream cons
 
 ## 1.5 Other Stream Transformations
 
+See example [OtherStreamTransformationsTest](../book-code/corejava/v2ch01/pawarv/OtherStreamOperationsTest.java)
+
+The `distinct` method returns a stream consisting of the distinct elements of this stream.
+
+The `sorted` method returns a stream consisting of the elements of this stream, sorted according to natural order.
+
+The `sorted` method can also take a comparator as an argument. It returns a stream consisting of the elements of this stream, sorted according to the provided comparator.
+
+The `peek` method returns a stream consisting of the elements of this stream, additionally performing the provided action on each element as elements are consumed from the resulting stream.
+
+The `unordered` method returns a stream with the same elements as this stream, but may not preserve any encounter order.
+
+
+
+
+## 1.6 Simple Reductions
 1.6 Simple Reductions
 
 1.7 The Optional Type
