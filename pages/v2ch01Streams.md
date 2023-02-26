@@ -136,6 +136,15 @@ The `reduce` method can also take an identity value and a binary operator as arg
 
 1.7 The Optional Type
 
+See example [OptionalTest](../book-code/corejava/v2ch01/pawarv/OptionalTest.java)
+
+The Optional type is a container object used to contain not-null objects. Optional objects are used to represent null with a non-null value. Optional is a final class and cannot be subclassed.
+
+Optional has various utility methods to facilitate code to handle values as ‘available’ or ‘not available’ instead of checking null values. 
+
+If we want to use a default value if a value is not available, we can use `orElse` method of Optional class.
+
+
 1.8 Collecting Results
 
 1.9 Collecting into Maps
