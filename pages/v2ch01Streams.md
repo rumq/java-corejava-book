@@ -2,13 +2,13 @@
 
 # Volume 2 Chapter 1 Streams
 
-## Status : IN_PROGRESS
+Status : IN_PROGRESS
 
 - [Volume 2 Chapter 1 Streams](#volume-2-chapter-1-streams)
-  - [Status : IN\_PROGRESS](#status--in_progress)
   - [1.1 From Iterating to Stream Operations](#11-from-iterating-to-stream-operations)
   - [1.2 Stream Creation](#12-stream-creation)
   - [1.3 The filter, map, and flatMap Methods](#13-the-filter-map-and-flatmap-methods)
+  - [1.4 Extracting Substreams and Combining Streams](#14-extracting-substreams-and-combining-streams)
 
 Streams were introduced in Java 8. They are a new abstraction that allows you to process data **declaratively**. It provides a way to process data in a functional style.
 
@@ -68,15 +68,24 @@ A filter operation takes a predicate and returns a stream consisting of the elem
 
 A map operation takes a function and returns a stream consisting of the results of applying the given function to the elements of this stream.
 
-A flatMap operations returns a stream consisting of the results of replacing each element of this stream with the contents of a mapped stream produced by applying the provided mapping function to each element. Each mapped stream is closed after its contents have been placed into this stream. (If a mapped stream is null an empty stream is used, instead.).  In other words, it takes a stream of streams and returns a flattened stream.
+> A flatMap operations returns a stream consisting of the results of replacing each element of this stream with the contents of a mapped stream produced by applying the provided mapping function to each element. Each mapped stream is closed after its contents have been placed into this stream. (If a mapped stream is null an empty stream is used, instead.). 
 
-A multiple map operation can be replaced by a single flatMap operation.
+That is a bit confusing. Let's break it down. 
+A flatMap operation like a map operation, works on a stream to return another steam. Suppose the mapping function returns not a single value, but a stream? You'll end up with a stream of streams. In this case, if you use a flatMap instead of a map, the result will be just a single stream containing all the elements of the streams returned by the mapping function.
 
-A mapMulti operation takes a function that returns a collection, and then returns a stream consisting of the results of replacing each element of this stream with the contents of a mapped collection produced by applying the provided mapping function to each element. In other words, it takes a stream of collections and returns a flattened stream.
+In other words, it takes a stream of streams and returns a flattened stream.
 
-A mapMulti operation a stream consisting of the results of replacing each element of this stream with multiple elements, specifically zero or more elements. Replacement is performed by applying the provided mapping function to each element in conjunction with a consumer argument that accepts replacement elements. The mapping function calls the consumer zero or more times to provide the replacement elements.
+> A mapMulti operation returns a stream consisting of the results of replacing each element of this stream with multiple elements, specifically zero or more elements. Replacement is performed by applying the provided mapping function to each element in conjunction with a consumer argument that accepts replacement elements. The mapping function calls the consumer zero or more times to provide the replacement elements.
 
-1.4 Extracting Substreams and Combining Streams
+It's a bit like a flatMap operation, but the mapping function can produce zero or more elements rather than a stream.
+
+## 1.4 Extracting Substreams and Combining Streams
+
+The `limit` and `skip` methods can be used to extract a substream. 
+
+The `limit` method returns a stream consisting of the elements of this stream, truncated to be no longer than `maxSize` in length. 
+
+The `skip` method returns a stream consisting of the remaining elements of this stream after discarding the first `n` elements of the stream. If this stream contains fewer than `n` elements then an empty stream will be returned.
 
 1.5 Other Stream Transformations
 
