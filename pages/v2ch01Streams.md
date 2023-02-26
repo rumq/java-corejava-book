@@ -113,11 +113,26 @@ The `peek` method returns a stream consisting of the elements of this stream, ad
 
 The `unordered` method returns a stream with the same elements as this stream, but may not preserve any encounter order.
 
-
-
-
 ## 1.6 Simple Reductions
-1.6 Simple Reductions
+
+See example [SimpleReductionsTest](../book-code/corejava/v2ch01/pawarv/SimpleReductionsTest.java)
+
+
+Reduction operations are terminal operations. They return a single value.
+
+The `count` method returns the number of elements a stream.
+
+The `min` and `max` methods return the minimum and maximum element of a stream. These methods assume that the elements of the stream are comparable. The result is an Optional object containing the minimum or maximum element, if any. 
+
+The `min` and `max` methods can also take a comparator as an argument. They return the minimum and maximum element of a stream according to the provided comparator.
+
+The `findAny` and `findFirst` methods return an Optional object. They return an arbitrary element of the stream or the first element of the stream, respectively.
+
+The `anyMatch`, `allMatch`, and `noneMatch` methods return a boolean value. They return true if any, all, or none of the elements of the stream match the provided predicate, respectively.
+
+The `reduce` method returns an Optional object. It returns the result of reducing the elements of the stream with the provided binary operator. The binary operator takes two arguments and returns one. The result is an Optional object containing the reduced value, if any.
+
+The `reduce` method can also take an identity value and a binary operator as arguments. It returns the result of reducing the elements of the stream with the provided identity value and binary operator. The binary operator takes two arguments and returns one. The result is an Optional object containing the reduced value, if any.
 
 1.7 The Optional Type
 
