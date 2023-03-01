@@ -11,6 +11,14 @@ Status : IN_PROGRESS
   - [1.4 Extracting Substreams and Combining Streams](#14-extracting-substreams-and-combining-streams)
   - [1.5 Other Stream Transformations](#15-other-stream-transformations)
   - [1.6 Simple Reductions](#16-simple-reductions)
+  - [1.7 The Optional Type](#17-the-optional-type)
+    - [1.7.1 Getting an Optional Value](#171-getting-an-optional-value)
+    - [1.7.2 Consuming an Optional Value](#172-consuming-an-optional-value)
+    - [1.7.3 Pipelining Optional Values](#173-pipelining-optional-values)
+    - [1.7.4 How Not to Work with Optional Values](#174-how-not-to-work-with-optional-values)
+    - [1.7.5 Creating Optional Values](#175-creating-optional-values)
+    - [1.7.6 Composing Optional Value Functions with flatMap](#176-composing-optional-value-functions-with-flatmap)
+    - [1.7.7 Turning an Optional into a Stream](#177-turning-an-optional-into-a-stream)
 
 Streams were introduced in Java 8. They are a new abstraction that allows you to process data **declaratively**. It provides a way to process data in a functional style.
 
@@ -134,15 +142,46 @@ The `reduce` method returns an Optional object. It returns the result of reducin
 
 The `reduce` method can also take an identity value and a binary operator as arguments. It returns the result of reducing the elements of the stream with the provided identity value and binary operator. The binary operator takes two arguments and returns one. The result is an Optional object containing the reduced value, if any.
 
-1.7 The Optional Type
+## 1.7 The Optional Type
 
-See example [OptionalTest](../book-code/corejava/v2ch01/pawarv/OptionalTest.java)
+See example 
+- [OptionalTest](../book-code/corejava/v2ch01/optional/OptionalTest.java)
 
-The Optional type is a container object used to contain not-null objects. Optional objects are used to represent null with a non-null value. Optional is a final class and cannot be subclassed.
+The Optional type is a container object used to contain objects that could be  null. Optional objects are used to represent null with a non-null value. Optional is a final class and cannot be subclassed.
 
 Optional has various utility methods to facilitate code to handle values as ‘available’ or ‘not available’ instead of checking null values. 
 
-If we want to use a default value if a value is not available, we can use `orElse` method of Optional class.
+### 1.7.1 Getting an Optional Value
+
+See 
+- [CreatingOptionalsTest](../book-code/corejava/v2ch01/pawarv/CreatingOptionalsTest.java)
+- [GettingOptionalTest](../book-code/corejava/v2ch01/pawarv/GettingOptionalTest.java)
+
+If we want to use a default value if a value is not available, we can use `orElse`, `orElseGet`, `orElseThrow` methods of Optional class.
+
+### 1.7.2 Consuming an Optional Value
+
+See [ConsumeOptionalTest](../book-code/corejava/v2ch01/pawarv/ConsumeOptionalTest.java)
+
+We can consume an Optional value using `ifPresent` , `ifPresentOrElse` methods. It takes a Consumer as an argument. It consumes the value if it is present.
+
+### 1.7.3 Pipelining Optional Values
+
+See [ConsumeOptionalTest](../book-code/corejava/v2ch01/pawarv/ConsumeOptionalTest.java)
+
+We can use `map` and `flatMap` methods to transform an Optional value. It takes a Function as an argument. It returns an Optional object containing the transformed value, if any.
+
+### 1.7.4 How Not to Work with Optional Values
+
+If you still use `isPresent` and then use the `get` method, you get no benefit from using Optional.
+
+### 1.7.5 Creating Optional Values
+
+See [CreatingOptionalsTest](../book-code/corejava/v2ch01/pawarv/CreatingOptionalsTest.java
+
+### 1.7.6 Composing Optional Value Functions with flatMap
+
+### 1.7.7 Turning an Optional into a Stream
 
 
 1.8 Collecting Results
