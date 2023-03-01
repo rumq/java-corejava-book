@@ -185,6 +185,17 @@ See
 
 ### 1.7.6 Composing Optional Value Functions with flatMap
 
+See 
+- [FlatMapOptionalTest](../book-code/corejava/v2ch01/pawarv/FlatMapOptionalTest.java)
+
+The `flatMap` method works in a similar way to the `flatMap` method of Stream. It takes an optional that can explode into more optionals and flattens them. 
+
+For example if the optional returns a type that has a method that returns an optional, you can use `flatMap` to get the optional value.
+
+Supposing a cupboard may have a safe which may have a box which have have earrings. You can use `flatMap` to get the earrings without checking for nulls.
+
+
+
 ### 1.7.7 Turning an Optional into a Stream
 
 

@@ -22,14 +22,16 @@ public class CreatingOptionalsTest {
             System.out.println(nameEmptyOptional.get());
         }
 
-        // Can take a null value 
+        // `ofNullable` - Can take a null value (`of` can't)
+        // Optional.of(null); // Throws a NullPointerException
         Optional<String> nameIsNull = Optional.ofNullable(null);
         System.out.println(nameIsNull.isPresent()); // false
 
-        // Or take a non-null value
+        // Or it can take a non-null value
         Optional<String> nameIsNotNull = Optional.ofNullable("Adam");
         System.out.println(nameIsNotNull.isPresent()); // true
 
+        // Wrap return values from a method
         // Call a method that returns an Optional
         Optional<String> nameFromMethod = getOptionalName("Adam");
         System.out.println(nameFromMethod.isPresent()); // true
