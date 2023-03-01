@@ -9,12 +9,6 @@ public class GettingOptionalTest {
         Optional<String> name = Optional.of("Adam");
         Optional<String> nameEmptyOptional = Optional.empty();
 
-        // System.out.println(name2.get());
-        // Can do this, but it's no better than checking for null;
-        if (nameEmptyOptional.isPresent()) {
-            System.out.println(nameEmptyOptional.get());
-        }
-
         // orElse - Get a value if present, otherwise return a default value
         System.out.println(nameEmptyOptional.orElse("No name found"));
 
