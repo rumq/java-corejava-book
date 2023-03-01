@@ -169,15 +169,19 @@ We can consume an Optional value using `ifPresent` , `ifPresentOrElse` methods. 
 
 See [PipeliningOptionalsTest](../book-code/corejava/v2ch01/pawarv/PipeliningOptionalsTest.java)
 
-We can use `map` and `flatMap` methods to transform an Optional value. It takes a Function as an argument. It returns an Optional object containing the transformed value, if any.
+We can use `map` method to transform an Optional value. It takes a Function as an argument. It returns an Optional object containing the transformed value, if any.
 
 ### 1.7.4 How Not to Work with Optional Values
 
 If you still use `isPresent` and then use the `get` method, you get no benefit from using Optional.
 
+See  
+- [CreatingOptionalsTest](../book-code/corejava/v2ch01/
+
 ### 1.7.5 Creating Optional Values
 
-See [CreatingOptionalsTest](../book-code/corejava/v2ch01/pawarv/CreatingOptionalsTest.java).
+See 
+- [CreatingOptionalsTest](../book-code/corejava/v2ch01/pawarv/CreatingOptionalsTest.java).
 
 ### 1.7.6 Composing Optional Value Functions with flatMap
 
