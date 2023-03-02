@@ -20,10 +20,16 @@ public class FlatMapOptionalTest {
 
         // 1.b Box is empty
         Box box1 = new Box();
-        Safe safe1 = new Safe(box1);
-        Cupboard cupboard1 = new Cupboard(safe1);
-        String name1 = cupboard1.getSafe().getBox().getName();
-        // System.out.println(name1.toUpperCase()); // NullPointerException
+        Safe safe1 = new Safe();
+        Cupboard cupboard1 = new Cupboard();
+        
+        try {
+            String name1 = cupboard1.getSafe().getBox().getName();
+            System.out.println(name1.toUpperCase());
+        } catch (NullPointerException e) {
+            System.out.println("NullPointerException caught");
+        }
+        
 
         // 2. With optionals
 

@@ -176,7 +176,7 @@ We can use `map` method to transform an Optional value. It takes a Function as a
 If you still use `isPresent` and then use the `get` method, you get no benefit from using Optional.
 
 See  
-- [CreatingOptionalsTest](../book-code/corejava/v2ch01/
+- [CreatingOptionalsTest](../book-code/corejava/v2ch01/pawarv/CreatingOptionalsTest.java)
 
 ### 1.7.5 Creating Optional Values
 
@@ -187,6 +187,7 @@ See
 
 See 
 - [FlatMapOptionalTest](../book-code/corejava/v2ch01/pawarv/FlatMapOptionalTest.java)
+- [OptionalFlatMap Diagram](../assets/diagrams/OptionalFlatMap.excalidraw)
 
 The `flatMap` method works in a similar way to the `flatMap` method of Stream. It takes an optional that can explode into more optionals and flattens them. 
 
