@@ -19,6 +19,7 @@ Status : IN_PROGRESS
     - [1.7.5 Creating Optional Values](#175-creating-optional-values)
     - [1.7.6 Composing Optional Value Functions with flatMap](#176-composing-optional-value-functions-with-flatmap)
     - [1.7.7 Turning an Optional into a Stream](#177-turning-an-optional-into-a-stream)
+    - [1.8 Collecting Results](#18-collecting-results)
 
 Streams were introduced in Java 8. They are a new abstraction that allows you to process data **declaratively**. It provides a way to process data in a functional style.
 
@@ -199,8 +200,29 @@ Supposing a cupboard may have a safe which may have a box which have have earrin
 
 ### 1.7.7 Turning an Optional into a Stream
 
+See [OptionToStreamTest](../book-code/corejava/v2ch01/pawarv/OptionToStreamTest.java)
 
-1.8 Collecting Results
+
+The `stream` method returns a stream consisting of the optional value, if present. Otherwise, it returns an empty stream.
+
+The `stream` method is useful when you want to use a stream method on an optional value.
+
+After it's turned into a stream, you can use `flatMap` to drop the empty optionals.
+
+### 1.8 Collecting Results
+
+See [CollectingResultsTest](../book-code/corejava/v2ch01/pawarv/CollectingResultsTest.java)
+
+After all the stream operations are done, we can collect the results into a collection or a map.
+
+We can use `forEach` method to consume the elements of a stream. It takes a Consumer as an argument. It consumes the elements of the stream. We can use `forEachOrdered` method to consume the elements of a stream in encounter order. It takes a Consumer as an argument. 
+
+The `toArray` method returns an array containing the elements of the stream. It takes a generator as an argument. It returns an array containing the elements of the stream.
+
+The `collect` method returns a result of the reduction operation. It takes a Collector as an argument. It returns a result of the reduction operation.
+
+The `collect` method can also take a supplier, an accumulator, and a combiner as arguments. It returns a result of the reduction operation.
+
 
 1.9 Collecting into Maps
 
