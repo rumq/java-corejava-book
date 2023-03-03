@@ -223,6 +223,49 @@ The `collect` method returns a result of the reduction operation. It takes a Col
 
 The `collect` method can also take a supplier, an accumulator, and a combiner as arguments. It returns a result of the reduction operation.
 
+Factory methods of the Collectors class can be used to create Collectors.
+
+The `toList` method returns a Collector. It returns a Collector that accumulates the input elements into a new list.
+
+The `toSet` method returns a Collector. It returns a Collector that accumulates the input elements into a new set.
+
+The `toCollection` method returns Collector. It takes a supplier as an argument. It returns a Collector that accumulates the input elements into a new collection, as supplied by the supplier.
+
+The `counting` method returns a Collector. It returns a Collector that counts the input elements.
+
+The `summingInt` method returns a Collector. It takes an IntFunction as an argument. It returns a Collector that sums the input elements.
+
+The `averagingInt` method returns a Collector. It takes an IntFunction as an argument. It returns a Collector that computes the arithmetic mean of the input elements.
+
+The `summarizingInt` method returns a Collector. It takes an IntFunction as an argument. It returns a Collector that computes summary statistics for the input elements.
+
+The `joining` method returns a Collector. It returns a Collector that concatenates the input elements, separated by the specified delimiter, in encounter order.
+
+The `maxBy` method returns a Collector. It takes a Comparator as an argument. It returns a Collector that returns the maximum element according to the specified Comparator.
+
+The `minBy` method returns a Collector. It takes a Comparator as an argument. It returns a Collector that returns the minimum element according to the specified Comparator.
+
+The `groupingBy` method returns a Collector. It takes a classifier function as an argument. It returns a Collector that groups the input elements according to a classification function.
+
+The `partitioningBy` method returns a Collector. It takes a predicate as an argument. It returns a Collector that partitions the input elements according to a predicate.
+
+The `mapping` method returns a Collector. It takes a function and a downstream collector as arguments. It returns a Collector that applies a mapping function to the input elements before accumulating them.
+
+The `reducing` method returns a Collector. It takes an identity, a function, and a combiner as arguments. It returns a Collector that applies a reduction function to the input elements.
+
+The `collectingAndThen` method returns a Collector. It takes a downstream collector and a function as arguments. It returns a Collector that applies a finisher function to the result of a reduction.
+
+The `toUnmodifiableList` method returns a Collector. It returns a Collector that accumulates the input elements into an unmodifiable list.
+
+The `toUnmodifiableSet` method returns a Collector. It returns a Collector that accumulates the input elements into an unmodifiable set.
+
+The `toUnmodifiableCollection` method returns a Collector. It takes a supplier as an argument. It returns a Collector that accumulates the input elements into an unmodifiable collection, as supplied by the supplier.
+
+
+The `toMap` method returns a map. It takes a function that maps keys to values and a function that merges values as arguments. It returns a map containing the elements of the stream.
+
+
+
 
 1.9 Collecting into Maps
 

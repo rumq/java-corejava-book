@@ -60,6 +60,24 @@ public class CollectingResultsTest {
                 .collect(Collectors.joining(", "));
         System.out.println(string);
 
+        // collect to a count
+        System.out.println("************* toCollection count*************");
+        var count = list.stream()
+                .collect(Collectors.counting());
+        System.out.println(count);
+
+        // collect to a sum
+        System.out.println("************* toCollection sum*************");
+        var sum = list.stream()
+                .collect(Collectors.summingInt(String::length));
+        System.out.println(sum);
+
+        // collect to a average
+        System.out.println("************* toCollection average*************");
+        var average = list.stream()
+                .collect(Collectors.averagingInt(String::length));
+        System.out.println(average);
+        
         // collect to summary statistics
         System.out.println("************* toCollection summary statistics*************");
         var summary = list.stream()
