@@ -240,6 +240,40 @@ The `averagingInt` method returns a Collector. It takes an IntFunction as an arg
 
 The `summarizingInt` method returns a Collector. It takes an IntFunction as an argument. It returns a Collector that computes summary statistics for the input elements.
 
+
+### 1.9 Collecting into Maps
+
+See
+- [CollectingIntoMapsBasicTest](../book-code/corejava/v2ch01/pawarv/CollectingIntoMapsBasicTest.java)
+- [CollectingIntoMapsIdentity](../book-code/corejava/v2ch01/pawarv/CollectingIntoMapsIdentity.java)
+- [CollectingIntoMapsMergesTest](../book-code/corejava/v2ch01/pawarv/CollectingIntoMapsMergesTest.java)
+
+
+The `toMap` method on Collectors returns a map. 
+
+It can take 2,3 or 4 arguments. It returns a map containing the elements of the stream.
+
+It can take key mapper function and the value mapper function as arguments to return a HashMap containing the key and corresponding value generated from these functions.
+
+It can take the third argument of a merge function that is used to merge the values if the keys are the same. In this case merge means any logic we do to derive the value from the two values. As it takes two inputs, it's a binary operator.
+
+Finally, it can take a supplier as the fourth argument which supplier the type of map we need, by default it's a HashMap.
+
+See this [diagram](../assets/diagrams/toMap.excalidraw).
+
+1.10 Grouping and Partitioning
+
+1.11 Downstream Collectors
+
+1.12 Reduction Operations
+
+1.13 Primitive Type Streams
+
+1.14 Parallel Streams
+
+// TODO
+
+
 The `joining` method returns a Collector. It returns a Collector that concatenates the input elements, separated by the specified delimiter, in encounter order.
 
 The `maxBy` method returns a Collector. It takes a Comparator as an argument. It returns a Collector that returns the maximum element according to the specified Comparator.
@@ -261,31 +295,5 @@ The `toUnmodifiableList` method returns a Collector. It returns a Collector that
 The `toUnmodifiableSet` method returns a Collector. It returns a Collector that accumulates the input elements into an unmodifiable set.
 
 The `toUnmodifiableCollection` method returns a Collector. It takes a supplier as an argument. It returns a Collector that accumulates the input elements into an unmodifiable collection, as supplied by the supplier.
-
-
-### 1.9 Collecting into Maps
-
-See
-- [CollectingIntoMapsTest](../book-code/corejava/v2ch01/pawarv/CollectingIntoMapsTest.java)
-
-
-
-
-The `toMap` method returns a map. It takes a function that maps keys to values and a function that merges values as arguments. It returns a map containing the elements of the stream.
-
-The `toConcurrentMap` method returns a concurrent map. It takes a function that maps keys to values and a function that merges values as arguments. It returns a concurrent map containing the elements of the stream.
-
-The `toUnmodifiableMap` method returns a map. It takes a function that maps keys to values and a function that merges values as arguments. It returns an unmodifiable map containing the elements of the stream.
-
-
-1.10 Grouping and Partitioning
-
-1.11 Downstream Collectors
-
-1.12 Reduction Operations
-
-1.13 Primitive Type Streams
-
-1.14 Parallel Streams
 
 > [Home](HOME.md)
