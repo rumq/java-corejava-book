@@ -20,6 +20,7 @@ Status : IN_PROGRESS
     - [1.7.6 Composing Optional Value Functions with flatMap](#176-composing-optional-value-functions-with-flatmap)
     - [1.7.7 Turning an Optional into a Stream](#177-turning-an-optional-into-a-stream)
     - [1.8 Collecting Results](#18-collecting-results)
+    - [1.9 Collecting into Maps](#19-collecting-into-maps)
 
 Streams were introduced in Java 8. They are a new abstraction that allows you to process data **declaratively**. It provides a way to process data in a functional style.
 
@@ -262,12 +263,20 @@ The `toUnmodifiableSet` method returns a Collector. It returns a Collector that 
 The `toUnmodifiableCollection` method returns a Collector. It takes a supplier as an argument. It returns a Collector that accumulates the input elements into an unmodifiable collection, as supplied by the supplier.
 
 
+### 1.9 Collecting into Maps
+
+See
+- [CollectingIntoMapsTest](../book-code/corejava/v2ch01/pawarv/CollectingIntoMapsTest.java)
+
+
+
+
 The `toMap` method returns a map. It takes a function that maps keys to values and a function that merges values as arguments. It returns a map containing the elements of the stream.
 
+The `toConcurrentMap` method returns a concurrent map. It takes a function that maps keys to values and a function that merges values as arguments. It returns a concurrent map containing the elements of the stream.
 
+The `toUnmodifiableMap` method returns a map. It takes a function that maps keys to values and a function that merges values as arguments. It returns an unmodifiable map containing the elements of the stream.
 
-
-1.9 Collecting into Maps
 
 1.10 Grouping and Partitioning
 
