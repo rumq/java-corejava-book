@@ -2,6 +2,7 @@ package pawarv;
 
 import java.util.List;
 import java.util.TreeSet;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class CollectingResultsTest {
@@ -70,7 +71,19 @@ public class CollectingResultsTest {
         System.out.println("************* toCollection sum*************");
         var sum = list.stream()
                 .collect(Collectors.summingInt(String::length));
-        System.out.println(sum);
+
+                System.out.println(sum);
+        // collect to a sum
+        System.out.println("************* toCollection sum give own lambda*************");
+        var sum2 = list.stream()
+                .collect(Collectors.summingInt(word -> word.length()*2));
+
+                System.out.println(sum2);
+        // collect to a sum
+        System.out.println("************* toCollection sum give own lambda*************");
+        var sum3 = list.stream().map(String::length)
+                .collect(Collectors.summingInt(n->n));
+        System.out.println(sum3);
 
         // collect to a average
         System.out.println("************* toCollection average*************");

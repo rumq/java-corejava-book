@@ -14,7 +14,7 @@ public class CollectingResults
    public static Stream<String> noVowels() throws IOException
    {
       var contents = Files.readString(
-         Path.of("../gutenberg/alice30.txt"));
+         Path.of("book-code/corejava/gutenberg/alice30.txt"));
 
       List<String> wordList = List.of(contents.split("\\PL+"));
       Stream<String> words = wordList.stream();
