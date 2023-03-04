@@ -53,7 +53,7 @@ public class CollectingIntoMapsMergesTest {
                 .collect(Collectors.toMap(
                         elem -> elem.name(), // key mapper
                         // singleton returns an immutable set containing only the specified object.
-                        elem -> Collections.singleton(elem.address()), // value mapper, singleton set (immutable), 
+                        elem -> Collections.singleton(elem.address()), // address as value
                         (a, b) -> { // merge function
                             var union = new HashSet<String>(a);
                             union.addAll(b);
@@ -65,7 +65,7 @@ public class CollectingIntoMapsMergesTest {
         var nameToAddress5 = nameAddresses.stream()
                 .collect(Collectors.toMap(
                         elem -> elem.name(), // key mapper
-                        elem -> Collections.singleton(elem), // value mapper
+                        elem -> Collections.singleton(elem), // NameAddress object as value
                         (a, b) -> { // merge function
                             var union = new HashSet<NameAddress>(a);
                             union.addAll(b);
