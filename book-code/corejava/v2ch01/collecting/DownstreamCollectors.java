@@ -13,6 +13,8 @@ import java.util.stream.*;
  */
 public class DownstreamCollectors
 {
+   private static final String CITIES_TXT = "book-code/corejava/v2ch01/cities.txt";
+
    public record City(String name, String state, int population) {}
 
    public static Stream<City> readCities(String filename) throws IOException
@@ -34,12 +36,12 @@ public class DownstreamCollectors
          Locale::getCountry, counting()));
       System.out.println("countryToLocaleCounts: " + countryToLocaleCounts);
 
-      Stream<City> cities = readCities("cities.txt");
+      Stream<City> cities = readCities(CITIES_TXT);
       Map<String, Integer> stateToCityPopulation = cities.collect(groupingBy(
          City::state, summingInt(City::population)));
       System.out.println("stateToCityPopulation: " + stateToCityPopulation);
 
-      cities = readCities("cities.txt");
+      cities = readCities(CITIES_TXT);
       Map<String, Optional<String>> stateToLongestCityName = cities
          .collect(groupingBy(City::state,
             mapping(City::name, maxBy(Comparator.comparing(String::length)))));
@@ -50,22 +52,22 @@ public class DownstreamCollectors
          Locale::getDisplayCountry, mapping(Locale::getDisplayLanguage, toSet())));
       System.out.println("countryToLanguages: " + countryToLanguages);
 
-      cities = readCities("cities.txt");
+      cities = readCities(CITIES_TXT);
       Map<String, IntSummaryStatistics> stateToCityPopulationSummary = cities
          .collect(groupingBy(City::state, summarizingInt(City::population)));
       System.out.println(stateToCityPopulationSummary.get("NY"));
 
-      cities = readCities("cities.txt");
+      cities = readCities(CITIES_TXT);
       Map<String, String> stateToCityNames = cities.collect(groupingBy(
          City::state,
          reducing("", City::name, (s, t) -> s.length() == 0 ? t : s + ", " + t)));
 
-      cities = readCities("cities.txt");
+      cities = readCities(CITIES_TXT);
       stateToCityNames = cities.collect(groupingBy(City::state,
          mapping(City::name, joining(", "))));
       System.out.println("stateToCityNames: " + stateToCityNames);
 
-      cities = readCities("cities.txt");
+      cities = readCities(CITIES_TXT);
       record Pair<S, T>(S first, T second) {}
       Pair<List<String>, Double> result = cities.filter(c -> c.state().equals("NV"))
          .collect(teeing(

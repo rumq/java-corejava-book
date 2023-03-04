@@ -22,6 +22,7 @@ Status : IN_PROGRESS
     - [1.8 Collecting Results](#18-collecting-results)
     - [1.9 Collecting into Maps](#19-collecting-into-maps)
     - [1.10 Grouping and Partitioning](#110-grouping-and-partitioning)
+    - [1.11 Downstream Collectors](#111-downstream-collectors)
 
 Streams were introduced in Java 8. They are a new abstraction that allows you to process data **declaratively**. It provides a way to process data in a functional style.
 
@@ -241,6 +242,7 @@ The `averagingInt` method returns a Collector. It takes an IntFunction as an arg
 
 The `summarizingInt` method returns a Collector. It takes an IntFunction as an argument. It returns a Collector that computes summary statistics for the input elements.
 
+The `joining` method returns a Collector. It returns a Collector that concatenates the input elements, separated by the specified delimiter, in encounter order.
 
 ### 1.9 Collecting into Maps
 
@@ -272,7 +274,32 @@ The `groupingBy` method returns a Collector. It takes a classifier function as a
 
 The `partitioningBy` method returns a Collector. It takes a predicate as an argument. It returns a Collector that partitions the input elements according to a predicate.
 
-1.11 Downstream Collectors
+### 1.11 Downstream Collectors
+
+See 
+- [DownstreamCollectorsTest](../book-code/corejava/v2ch01/pawarv/DownstreamCollectorsTest.java)
+
+After grouping or partitioning, we can use downstream collectors to further process the results. 
+
+These are the collectors we saw in the previous section.
+
+The `toSet` method returns a Collector. It returns a Collector that accumulates the input elements into a new set.
+
+The `counting` method returns a Collector. It returns a Collector that counts the input elements.
+
+
+The `summingInt` method returns a Collector. It takes an IntFunction as an argument. It returns a Collector that sums the input elements.
+
+The `averagingInt` method returns a Collector. It takes an IntFunction as an argument. It returns a Collector that computes the arithmetic mean of the input elements.
+
+The `maxBy` method returns a Collector. It takes a Comparator as an argument. It returns a Collector that returns the maximum element according to the specified Comparator.
+
+The `minBy` method returns a Collector. It takes a Comparator as an argument. It returns a Collector that returns the minimum element according to the specified Comparator.
+
+The `mapping` method returns a Collector. It takes a function and a downstream collector as arguments. It returns a Collector that applies a mapping function to the input elements and collects the results.
+
+The `collectingAndThen` method returns a Collector. It takes a downstream collector and a function as arguments. It returns a Collector that applies a finisher function to the result of a reduction.
+
 
 1.12 Reduction Operations
 
@@ -283,23 +310,15 @@ The `partitioningBy` method returns a Collector. It takes a predicate as an argu
 // TODO
 
 
-The `joining` method returns a Collector. It returns a Collector that concatenates the input elements, separated by the specified delimiter, in encounter order.
 
-The `maxBy` method returns a Collector. It takes a Comparator as an argument. It returns a Collector that returns the maximum element according to the specified Comparator.
 
-The `minBy` method returns a Collector. It takes a Comparator as an argument. It returns a Collector that returns the minimum element according to the specified Comparator.
 
 
 The `mapping` method returns a Collector. It takes a function and a downstream collector as arguments. It returns a Collector that applies a mapping function to the input elements before accumulating them.
 
 The `reducing` method returns a Collector. It takes an identity, a function, and a combiner as arguments. It returns a Collector that applies a reduction function to the input elements.
 
-The `collectingAndThen` method returns a Collector. It takes a downstream collector and a function as arguments. It returns a Collector that applies a finisher function to the result of a reduction.
 
-The `toUnmodifiableList` method returns a Collector. It returns a Collector that accumulates the input elements into an unmodifiable list.
 
-The `toUnmodifiableSet` method returns a Collector. It returns a Collector that accumulates the input elements into an unmodifiable set.
-
-The `toUnmodifiableCollection` method returns a Collector. It takes a supplier as an argument. It returns a Collector that accumulates the input elements into an unmodifiable collection, as supplied by the supplier.
 
 > [Home](HOME.md)
