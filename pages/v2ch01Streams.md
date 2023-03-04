@@ -21,6 +21,7 @@ Status : IN_PROGRESS
     - [1.7.7 Turning an Optional into a Stream](#177-turning-an-optional-into-a-stream)
     - [1.8 Collecting Results](#18-collecting-results)
     - [1.9 Collecting into Maps](#19-collecting-into-maps)
+    - [1.10 Grouping and Partitioning](#110-grouping-and-partitioning)
 
 Streams were introduced in Java 8. They are a new abstraction that allows you to process data **declaratively**. It provides a way to process data in a functional style.
 
@@ -261,7 +262,15 @@ Finally, it can take a supplier as the fourth argument which supplier the type o
 
 See this [diagram](../assets/diagrams/toMap.excalidraw).
 
-1.10 Grouping and Partitioning
+### 1.10 Grouping and Partitioning
+
+See
+- [GroupingAndPartitioningTest](../book-code/corejava/v2ch01/pawarv/GroupingAndPartitioningTest.java)
+- [GroupingAndPartitioning](../assets/diagrams/GroupingAndPartitioning.excalidraw)
+
+The `groupingBy` method returns a Collector. It takes a classifier function as an argument. It returns a Collector that groups the input elements according to a classification function.
+
+The `partitioningBy` method returns a Collector. It takes a predicate as an argument. It returns a Collector that partitions the input elements according to a predicate.
 
 1.11 Downstream Collectors
 
@@ -280,9 +289,6 @@ The `maxBy` method returns a Collector. It takes a Comparator as an argument. It
 
 The `minBy` method returns a Collector. It takes a Comparator as an argument. It returns a Collector that returns the minimum element according to the specified Comparator.
 
-The `groupingBy` method returns a Collector. It takes a classifier function as an argument. It returns a Collector that groups the input elements according to a classification function.
-
-The `partitioningBy` method returns a Collector. It takes a predicate as an argument. It returns a Collector that partitions the input elements according to a predicate.
 
 The `mapping` method returns a Collector. It takes a function and a downstream collector as arguments. It returns a Collector that applies a mapping function to the input elements before accumulating them.
 
