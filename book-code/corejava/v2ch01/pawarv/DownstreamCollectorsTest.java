@@ -25,6 +25,7 @@ public class DownstreamCollectorsTest {
                 .collect(Collectors.groupingBy(
                         Person::country));
         System.out.println("***grouped0 :" + grouped0);
+        System.out.println("***grouped0 US :" + grouped0.get("US"));
 
         // a) Get counts for each country
         var grouped = persons.stream()
@@ -37,6 +38,7 @@ public class DownstreamCollectorsTest {
         var grouped01 = persons.stream()
                 .collect(Collectors.counting());
         System.out.println("***grouped :" + grouped01);
+        
 
         // a1) toSet
         var grouped1 = persons.stream()
@@ -44,6 +46,17 @@ public class DownstreamCollectorsTest {
                         Person::country,
                         Collectors.toSet()));
         System.out.println("***grouped1 :" + grouped1);
+        System.out.println("***grouped1 US :" + grouped1.get("US"));
+
+        // a2) collectingAndThen
+        // toSet and then get size
+        var grouped1a = persons.stream()
+                .collect(Collectors.groupingBy(
+                        Person::country,
+                        Collectors.collectingAndThen(
+                                Collectors.toSet(),
+                                set -> set.size())));
+        System.out.println("***grouped1a :" + grouped1a);
 
         // b) mapping to name and create a set
         var grouped2 = persons.stream()
@@ -62,7 +75,7 @@ public class DownstreamCollectorsTest {
                                 person -> person.name().length())));
         System.out.println("***grouped3 :" + grouped3);
 
-        // d) maxBy
+        // d) maxBy - longest name
         var grouped4 = persons.stream()
                 .collect(Collectors.groupingBy(
                         Person::country,
@@ -79,7 +92,7 @@ public class DownstreamCollectorsTest {
                                 Collectors.counting(),  // 1st downstream collector
                                 Collectors.summingInt(  
                                         person -> person.name().length()), // 2nd downstream collector
-                                (count, sum) -> "Count: " + count + ", Sum: " + sum))); // combiner
+                                (count, sum) -> "Person Count: " + count + ", Sum name lengths: " + sum))); // combiner
         System.out.println("***grouped5 :" + grouped5);
 
     }

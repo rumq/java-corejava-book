@@ -19,10 +19,10 @@ Status : IN_PROGRESS
     - [1.7.5 Creating Optional Values](#175-creating-optional-values)
     - [1.7.6 Composing Optional Value Functions with flatMap](#176-composing-optional-value-functions-with-flatmap)
     - [1.7.7 Turning an Optional into a Stream](#177-turning-an-optional-into-a-stream)
-    - [1.8 Collecting Results](#18-collecting-results)
-    - [1.9 Collecting into Maps](#19-collecting-into-maps)
-    - [1.10 Grouping and Partitioning](#110-grouping-and-partitioning)
-    - [1.11 Downstream Collectors](#111-downstream-collectors)
+  - [1.8 Collecting Results](#18-collecting-results)
+  - [1.9 Collecting into Maps](#19-collecting-into-maps)
+  - [1.10 Grouping and Partitioning](#110-grouping-and-partitioning)
+  - [1.11 Downstream Collectors](#111-downstream-collectors)
 
 Streams were introduced in Java 8. They are a new abstraction that allows you to process data **declaratively**. It provides a way to process data in a functional style.
 
@@ -212,7 +212,7 @@ The `stream` method is useful when you want to use a stream method on an optiona
 
 After it's turned into a stream, you can use `flatMap` to drop the empty optionals.
 
-### 1.8 Collecting Results
+## 1.8 Collecting Results
 
 See [CollectingResultsTest](../book-code/corejava/v2ch01/pawarv/CollectingResultsTest.java)
 
@@ -244,7 +244,7 @@ The `summarizingInt` method returns a Collector. It takes an IntFunction as an a
 
 The `joining` method returns a Collector. It returns a Collector that concatenates the input elements, separated by the specified delimiter, in encounter order.
 
-### 1.9 Collecting into Maps
+## 1.9 Collecting into Maps
 
 See
 - [CollectingIntoMapsBasicTest](../book-code/corejava/v2ch01/pawarv/CollectingIntoMapsBasicTest.java)
@@ -264,7 +264,7 @@ Finally, it can take a supplier as the fourth argument which supplier the type o
 
 See this [diagram](../assets/diagrams/toMap.excalidraw).
 
-### 1.10 Grouping and Partitioning
+## 1.10 Grouping and Partitioning
 
 See
 - [GroupingAndPartitioningTest](../book-code/corejava/v2ch01/pawarv/GroupingAndPartitioningTest.java)
@@ -274,29 +274,15 @@ The `groupingBy` method returns a Collector. It takes a classifier function as a
 
 The `partitioningBy` method returns a Collector. It takes a predicate as an argument. It returns a Collector that partitions the input elements according to a predicate.
 
-### 1.11 Downstream Collectors
+## 1.11 Downstream Collectors
 
 See 
 - [DownstreamCollectorsTest](../book-code/corejava/v2ch01/pawarv/DownstreamCollectorsTest.java)
+- [DownstreamCollectorsTeetingTest](../book-code/corejava/v2ch01/pawarv/DownstreamCollectorsTeetingTest.java)
 
-After grouping or partitioning, we can use downstream collectors to further process the results. 
+After grouping or partitioning, we end up with a map that has lists as values. We can use downstream collectors to further process these lists. 
 
-These are the collectors we saw in the previous section.
-
-The `toSet` method returns a Collector. It returns a Collector that accumulates the input elements into a new set.
-
-The `counting` method returns a Collector. It returns a Collector that counts the input elements.
-
-
-The `summingInt` method returns a Collector. It takes an IntFunction as an argument. It returns a Collector that sums the input elements.
-
-The `averagingInt` method returns a Collector. It takes an IntFunction as an argument. It returns a Collector that computes the arithmetic mean of the input elements.
-
-The `maxBy` method returns a Collector. It takes a Comparator as an argument. It returns a Collector that returns the maximum element according to the specified Comparator.
-
-The `minBy` method returns a Collector. It takes a Comparator as an argument. It returns a Collector that returns the minimum element according to the specified Comparator.
-
-The `mapping` method returns a Collector. It takes a function and a downstream collector as arguments. It returns a Collector that applies a mapping function to the input elements and collects the results.
+The methods we saw earlier `toSet`, `toList`, `counting`, `summingInt`, `averagingInt`, `maxBy`, `minBy`, `mapping` can all be used as downstream collectors.
 
 The `collectingAndThen` method returns a Collector. It takes a downstream collector and a function as arguments. It returns a Collector that applies a finisher function to the result of a reduction.
 
