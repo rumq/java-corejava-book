@@ -1,12 +1,9 @@
 package pawarv;
 
 import static java.util.stream.Collectors.*;
-
-import java.util.Comparator;
-
 import pawarv.streams.Person;
 
-public class DownstreamCollectorsTeetingTest {
+public class DownstreamCollectorsTeeingTest {
 
         public static void main(String[] args) {
                 var persons = Person.getPersons();

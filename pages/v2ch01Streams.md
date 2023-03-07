@@ -151,7 +151,7 @@ The `reduce` method can also take an identity value and a binary operator as arg
 
 ## 1.7 The Optional Type
 
-See example 
+Book examples
 - [OptionalTest](../book-code/corejava/v2ch01/optional/OptionalTest.java)
 
 The Optional type is a container object used to contain objects that could be  null. Optional objects are used to represent null with a non-null value. Optional is a final class and cannot be subclassed.
@@ -219,6 +219,8 @@ After it's turned into a stream, you can use `flatMap` to drop the empty optiona
 
 See [CollectingResultsTest](../book-code/corejava/v2ch01/pawarv/CollectingResultsTest.java)
 
+Book examples
+- [CollectingResults](../book-code/corejava/v2ch01/collecting/CollectingResults.java)
 After all the stream operations are done, we can collect the results into a collection or a map.
 
 We can use `forEach` method to consume the elements of a stream. It takes a Consumer as an argument. It consumes the elements of the stream. We can use `forEachOrdered` method to consume the elements of a stream in encounter order. It takes a Consumer as an argument. 
@@ -255,6 +257,10 @@ See
 - [CollectingIntoMapsMergesTest](../book-code/corejava/v2ch01/pawarv/CollectingIntoMapsMergesTest.java)
 
 
+Book examples
+- [CollectingIntoMaps](../book-code/corejava/v2ch01/collecting/CollectingIntoMaps.java)
+
+
 The `toMap` method on Collectors returns a map. 
 
 It can take 2,3 or 4 arguments. It returns a map containing the elements of the stream.
@@ -281,7 +287,12 @@ The `partitioningBy` method returns a Collector. It takes a predicate as an argu
 
 See 
 - [DownstreamCollectorsTest](../book-code/corejava/v2ch01/pawarv/DownstreamCollectorsTest.java)
-- [DownstreamCollectorsTeetingTest](../book-code/corejava/v2ch01/pawarv/DownstreamCollectorsTeetingTest.java)
+- [DownstreamCollectorsTeeingTest](../book-code/corejava/v2ch01/pawarv/DownstreamCollectorsTeeingTest.java)
+
+
+Book examples
+- [DownstreamCollectors](../book-code/corejava/v2ch01/collecting/DownstreamCollectors.java)
+
 
 After grouping or partitioning, we end up with a map that has lists as values. We can use downstream collectors to further process these lists. 
 
@@ -368,6 +379,31 @@ It takes a supplier, an accumulator, and a combiner as arguments. It returns a r
 To make it practical to use it, Collectors class provides a lot of predefined collectors that can be used to perform reduction operations. This we have already seen in the previous section.
 
 ## 1.13 Primitive Type Streams
+
+See 
+- [PrimitiveTypeStreamsTest](../book-code/corejava/v2ch01/pawarv/PrimitiveTypeStreamsTest.java)
+
+The `IntStream`, `LongStream`, and `DoubleStream` classes are specializations of the `Stream` class for the primitive types `int`, `long`, and `double`. They have the same methods as the `Stream` class, but they are specialized for the primitive types.
+
+The `mapToInt`, `mapToLong`, and `mapToDouble` methods on streams return a stream of the corresponding primitive type. They take a function as an argument. They return a stream of the corresponding primitive type.
+
+They have  `sum`, `average`, `min`, and `max` methods that are not present in the `Stream` class. They return the corresponding primitive type.
+
+The `range` and `rangeClosed` methods on the `IntStream` class return a stream of integers. They take two arguments. They return a stream of integers between the two arguments.
+
+The `range` method does not include the second argument in the stream. The `rangeClosed` method includes the second argument in the stream.
+
+The `summaryStatistics` method on the `IntStream` class returns a summary of the stream. It returns an `IntSummaryStatistics` object. It has the following methods:
+
+- `getCount` returns the number of elements in the stream.
+- `getSum` returns the sum of the elements in the stream.
+- `getMin` returns the minimum element in the stream.
+- `getMax` returns the maximum element in the stream.
+- `getAverage` returns the average of the elements in the stream.
+   
+
+
+
 
 ## 1.14 Parallel Streams
 

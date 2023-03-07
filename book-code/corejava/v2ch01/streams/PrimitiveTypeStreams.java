@@ -3,6 +3,7 @@ package streams;
 import java.io.*;
 import java.nio.file.*;
 import java.util.stream.*;
+import static other.Constants.ALICE_TXT;
 
 /**
  * @version 1.02 2021-09-09
@@ -33,7 +34,7 @@ public class PrimitiveTypeStreams
       IntStream is3 = IntStream.rangeClosed(5, 10);
       show("is3", is3);
 
-      Path path = Path.of("../gutenberg/alice30.txt");
+      Path path = Path.of(ALICE_TXT);
       var contents = Files.readString(path);
 
       Stream<String> words = Stream.of(contents.split("\\PL+"));
