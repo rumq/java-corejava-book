@@ -23,6 +23,9 @@ Status : IN_PROGRESS
   - [1.9 Collecting into Maps](#19-collecting-into-maps)
   - [1.10 Grouping and Partitioning](#110-grouping-and-partitioning)
   - [1.11 Downstream Collectors](#111-downstream-collectors)
+  - [1.12 Reduction Operations](#112-reduction-operations)
+  - [1.13 Primitive Type Streams](#113-primitive-type-streams)
+  - [1.14 Parallel Streams](#114-parallel-streams)
 
 Streams were introduced in Java 8. They are a new abstraction that allows you to process data **declaratively**. It provides a way to process data in a functional style.
 
@@ -287,11 +290,86 @@ The methods we saw earlier `toSet`, `toList`, `counting`, `summingInt`, `averagi
 The `collectingAndThen` method returns a Collector. It takes a downstream collector and a function as arguments. It returns a Collector that applies a finisher function to the result of a reduction.
 
 
-1.12 Reduction Operations
+## 1.12 Reduction Operations
+See
+- [BasicReduceTest](../book-code/corejava/v2ch01/pawarv/BasicReduceTest.java)
+- [ReduceWithCombinerTest](../book-code/corejava/v2ch01/pawarv/ReduceWithCombinerTest.java)
+- [DifferentWaysOfSumming](../book-code/corejava/v2ch01/pawarv/DifferentWaysOfSumming.java)
+- [ReductionOperation](../assets/diagrams/ReductionOperation.excalidraw)
+- [ReductionOperationWithCombiner](../assets/diagrams/ReductionOperationWithCombiner.excalidraw)
 
-1.13 Primitive Type Streams
+We'll always use collect, but it's good to know how reduce works.
 
-1.14 Parallel Streams
+The `reduce` method takes an element from the stream, applies the accumulator function which requires two arguments. The first one is the partial result and the second is the current element. 
+
+The initial value of the accumulator is the **identity**.  
+The result of a binary operation on an element with the identity is the element itself.
+For example, 0 is an identity for addition, 1 is an identity for multiplication. So if 0 is added to any element, we get the element back, similarly if 1 is multiplied to any element, we get the element back.
+
+
+If there are no elements in the stream, the identity is returned. 
+
+The **accumulator function** is associative. It can be 
+any function that takes two arguments and returns a value.
+
+**Associative** means that the order of the operands does not matter. For example, addition is associative. So if we add 1 + 2 + 3, we get the same result as 3 + 2 + 1. Similarly, multiplication is associative. So if we multiply 1 * 2 * 3, we get the same result as 3 * 2 * 1. Subtraction is not associative. So if we subtract 1 - 2 - 3, we get a different result than 3 - 2 - 1.
+
+
+
+From the method documentation:
+> 
+> 
+> The `reduce` method performs a reduction on the elements of this stream, using the provided identity value and an associative accumulation function, and returns the reduced value. This is equivalent to:
+
+>```java
+>T result = identity;
+>     for (T element : this stream)
+>         result = accumulator.apply(result, element)
+>     return result;
+>but is not constrained to execute sequentially.
+>```
+>
+>The identity value must be an identity for the accumulator function. This means that for all t, accumulator.apply(identity, t) is equal to t. The accumulator function must be an associative function.
+>
+>This is a terminal operation.
+
+
+
+If we do not give an identity to the reduce method, then the first element of the stream is used as the identity. It also returns an Optional.
+
+Here is the documentation for the overridden  `reduce` method that does not take an identity as an argument:
+
+> Performs a reduction on the elements of this stream, using an associative accumulation function, and returns an Optional describing the reduced value, if any. This is equivalent to:
+
+> ```java
+> boolean foundAny = false;
+>     T result = null;
+>     for (T element : this stream) {
+>         if (!foundAny) {
+>             foundAny = true;
+>             result = element;
+>         }
+>         else
+>             result = accumulator.apply(result, element);
+>     }
+>     return foundAny ? Optional.of(result) : Optional.empty();
+> }
+> ```
+>but is not constrained to execute sequentially.
+>
+>The accumulator function must be an associative function.
+>
+>This is a terminal operation.
+
+
+The `collect` method can also be used to perform reduction operations. It is more generic. 
+It takes a supplier, an accumulator, and a combiner as arguments. It returns a result of the reduction operation.
+
+To make it practical to use it, Collectors class provides a lot of predefined collectors that can be used to perform reduction operations. This we have already seen in the previous section.
+
+## 1.13 Primitive Type Streams
+
+## 1.14 Parallel Streams
 
 // TODO
 
