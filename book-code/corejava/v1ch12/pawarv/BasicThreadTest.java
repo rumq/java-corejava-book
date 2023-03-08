@@ -18,16 +18,27 @@ public class BasicThreadTest {
             }
         };
 
-        // 2. Creating a threads
+        // 2. Creating  threads
         Thread t = new Thread(r);
         Thread t2 = new Thread(r2);
+        Thread t3 = new Thread(new RunnableDemo());
 
-        // 3. Starting a thread
+        // 3. Starting threads
         t.start();
         t2.start();
+        t3.start();
 
         // Main thread
-        for (int i = 100; i <= 110; i++)
+        for (int i = 101; i < 110; i++)
+            System.out.println("From " + Thread.currentThread().getName() + " :" + i);
+    }
+
+}
+
+class RunnableDemo implements Runnable {
+    @Override
+    public void run() {
+        for (int i = 20; i < 30; i++)
             System.out.println("From " + Thread.currentThread().getName() + " :" + i);
     }
 }
