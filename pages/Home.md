@@ -11,6 +11,7 @@
 - [v1ch05Inheritance](v1ch05Inheritance.md)
 - [v1ch06InterfacesLamddaInnetClasses](v1ch06InterfacesLamddaInnetClasses.md)
 - [v1ch09Collections](v1ch09Collections.md)
+- [v1ch12Concurrency](v1ch12Concurrency.md)
 - [v2ch01Streams](v2ch01Streams.md)
 - [v2ch09TheJavaPlatformModuleSystem](v2ch09TheJavaPlatformModuleSystem.md)
 

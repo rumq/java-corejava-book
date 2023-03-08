@@ -2,7 +2,7 @@
 
 # Volume 2 Chapter 1 Streams
 
-Status : IN_PROGRESS
+Status : DONE
 
 - [Volume 2 Chapter 1 Streams](#volume-2-chapter-1-streams)
   - [1.1 From Iterating to Stream Operations](#11-from-iterating-to-stream-operations)
