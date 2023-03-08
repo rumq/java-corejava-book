@@ -249,6 +249,11 @@ The `summarizingInt` method returns a Collector. It takes an IntFunction as an a
 
 The `joining` method returns a Collector. It returns a Collector that concatenates the input elements, separated by the specified delimiter, in encounter order.
 
+The `mapping` method returns a Collector. It takes a function and a downstream collector as arguments. It returns a Collector that applies a mapping function to the input elements before accumulating them.
+
+The `reducing` method returns a Collector. It takes an identity, a function, and a combiner as arguments. It returns a Collector that applies a reduction function to the input elements.
+
+
 ## 1.9 Collecting into Maps
 
 See
@@ -401,24 +406,31 @@ The `summaryStatistics` method on the `IntStream` class returns a summary of the
 - `getMax` returns the maximum element in the stream.
 - `getAverage` returns the average of the elements in the stream.
    
-
-
-
-
 ## 1.14 Parallel Streams
 
-// TODO
+See
+- [ParallelStreamsTest](../book-code/corejava/v2ch01/pawarv/ParallelStreamsTest.java)
 
 
+Streams makes it easy to process data in parallel.
 
 
+The `parallel` method on the `Stream` class returns a parallel stream. It takes no arguments. It returns a parallel stream.
 
+The `parallelStream` method on the `Collection` interface returns a parallel stream. It takes no arguments. It returns a parallel stream.
 
-The `mapping` method returns a Collector. It takes a function and a downstream collector as arguments. It returns a Collector that applies a mapping function to the input elements before accumulating them.
+The `sequential` method on the `Stream` class returns a sequential stream. It takes no arguments. It returns a sequential stream.
 
-The `reducing` method returns a Collector. It takes an identity, a function, and a combiner as arguments. It returns a Collector that applies a reduction function to the input elements.
+The operations on a parallel stream are performed in parallel as opposed to a sequential stream where the operations are performed in sequence. 
 
+The operations have to be **associative** (order should not matter) & **stateless** for the parallel stream to work. If the operations are not associative or stateless, then the result of the parallel stream will be different from the result of the sequential stream.
 
-
+> 
+> Keep these issues in mind:
+> - There is a substantial overhead to parallelization that will only pay off for very large data sets.
+> - Parallelizing a stream is only a win if the underlying data source can be effectively split into multiple parts.
+> - The thread pool that is used by parallel streams can be starved by blocking operations such as file I/O or network access.
+>
+    
 
 > [Home](HOME.md)
