@@ -4,21 +4,6 @@
 
 Status : 
 
-- [Volume 1 Chapter 12 Concurrency](#volume-1-chapter-12-concurrency)
-  - [12.1 What Are Threads?](#121-what-are-threads)
-  - [12.2 Thread States](#122-thread-states)
-    - [12.2.1 New](#1221-new)
-    - [12.2.2 Runnable Threads](#1222-runnable-threads)
-    - [12.2.3 Blocked and Waiting Threads](#1223-blocked-and-waiting-threads)
-    - [12.2.4 Terminated Threads](#1224-terminated-threads)
-  - [12.3 Thread Properties](#123-thread-properties)
-  - [12.4 Synchronization](#124-synchronization)
-  - [12.5 Thread-Safe Collections](#125-thread-safe-collections)
-  - [12.6 Tasks and Thread Pools](#126-tasks-and-thread-pools)
-  - [12.7 Asynchronous Computations](#127-asynchronous-computations)
-  - [12.8 Processe](#128-processe)
-
-
 *Multitasking* is the ability of the operating system to run several programs each running in its own process at the same time. The operating system switches between the processes very quickly, so that it appears that they are running at the same time. The operating system gives each process a CPU time slice, which is the amount of time that the process can run before the operating system switches to another process.
 
 *Multithreading* is the ability of a program to run several tasks at the same time. Each task is called a *thread*. Such a program is called a *multithreaded program*.
@@ -41,6 +26,8 @@ Concurrent programming is hard and as an application programmer you only need to
 
 
 ## 12.1 What Are Threads?
+
+See [BasicThreadTest](../book-code/corejava/v1ch12/pawarv/BasicThreadTest.java)
 
 Steps to create a thread:
 1. Define a class that implements the `Runnable` interface.
@@ -99,7 +86,7 @@ A thread is in the *timed waiting* state when it is waiting for another thread t
    - Thread.join
    - Lock.tryLock
    - Condition.await
- - 
+  
 The [Thread.State](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Thread.State.html) enum has these six states.
 
 [Thread States](../assets/diagrams/ThreadStates.excalidraw) diagram.
@@ -109,8 +96,35 @@ The [Thread.State](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/
 
 A thread is in the *terminated* state when it has exited. It can no longer be scheduled for execution. It is terminated either by normal termination or by an uncaught exception.
 
-
 ## 12.3 Thread Properties
+
+We'll discuss the following thread properties:
+
+### 12.3.1 Interrupting Threads
+
+A thread exits when its `run` method returns or when an uncaught exception is thrown.
+
+If a thread has not exited, it can be interrupted.
+
+The `interrupt` method interrupts the thread. It sets a flag that indicates that the thread should be interrupted. 
+
+The `interrupted` method tests whether the current thread has been interrupted. It also clears the interrupted status.
+
+
+The `isInterrupted` method tests whether the thread has been interrupted. 
+
+The `sleep` method throws an `InterruptedException` if the thread is interrupted while sleeping.
+
+A run method should check the `isInterrupted` flag frequently and exit if it is set.
+
+
+
+### 12.3.2 Daemon Threads
+### 12.3.3 Thread Names
+### 12.3.4 Handlers for Uncaught Exceptions
+### 12.3.5 Thread Priorities
+
+
 ## 12.4 Synchronization
 ## 12.5 Thread-Safe Collections
 ## 12.6 Tasks and Thread Pools
