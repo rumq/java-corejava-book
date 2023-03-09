@@ -1,13 +1,26 @@
 package pawarv;
 
-public class RaceConditionTest {
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class RaceConditionReentrantLockTest {
 
     private static class Counter {
+
+        private Lock lock = new ReentrantLock();
         private int value = 0;
 
-        // private synchronized void increment(){
+        // private void increment(){
+        //     value = value + 1 ;
+        // }
+
         private void increment(){
-            value = value + 1 ;
+            lock.lock();
+            try {
+                value = value + 1 ;
+            } finally {
+                lock.unlock();
+            }
         }
 
         public int getValue() {

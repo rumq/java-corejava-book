@@ -148,6 +148,43 @@ A *race condition* occurs when two or more threads access a shared variable and 
 
 See [RaceConditionTest](../book-code/corejava/v1ch12/pawarv/RaceConditionTest.java)
 
+### 12.4.2 Race Condition Explained
+
+In the above example two threads try to carry out the below operations on the same variable `counter`:
+
+```java
+
+value = value + 1;
+
+```
+This is not an atomic operation. 
+
+If it was an atomic operation,  operations would be executed in the following order:
+
+Suppose the value is 0.
+
+1. Thread 1 reads `value` and gets 0, adds 1 to 0 and gets 1. It moves 1 to `value`.
+2. Thread 2 reads `value` and gets 1, adds 1 to 1 and gets 2. It moves 2 to `value`.
+
+The final value of `value` is 2. Which is correct.
+
+It is actually three operations:
+
+1. Read `value`
+2. Add 1 to `value`
+3. Move the result to `value`
+
+If the two threads execute these operations in the following order:
+
+1. Thread 1 reads `value` and gets 0.
+2. Thread 2 reads `value` and gets 0.
+3. Thread 1 adds 1 to 0 and gets 1.
+4. Thead 2 adds 1 to 0 and gets 1.
+5. Thread 1 moves 1 to `value`.
+6. Thread 2 moves 1 to `value`.
+
+The final value of `value` is 1. Which is incorrect.
+
 
 ## 12.5 Thread-Safe Collections
 ## 12.6 Tasks and Thread Pools
