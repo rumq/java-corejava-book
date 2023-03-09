@@ -121,15 +121,34 @@ The `sleep` method throws an `InterruptedException` if the thread is interrupted
 
 A run method should check the `isInterrupted` flag frequently and exit if it is set.
 
-
-
 ### 12.3.2 Daemon Threads
+
+A *daemon thread* is a thread that runs in the background to perform tasks such as garbage collection. When the only threads running are all daemon threads, the Java virtual machine exits.
+
+The `setDaemon` method marks a thread as a daemon thread. It must be called before the thread is started.
+
 ### 12.3.3 Thread Names
+
+The `setName` method sets the name of a thread. The `getName` method gets the name of a thread.
+
+ 
 ### 12.3.4 Handlers for Uncaught Exceptions
+
+See later.
+
 ### 12.3.5 Thread Priorities
 
+Don't have to use thread priorities. They are not reliable.
 
 ## 12.4 Synchronization
+
+A *race condition* occurs when two or more threads access a shared variable and they interfere with each other, so that the result depends on the order of the operations.
+
+### 12.4.1 An Example of Race Condition
+
+See [RaceConditionTest](../book-code/corejava/v1ch12/pawarv/RaceConditionTest.java)
+
+
 ## 12.5 Thread-Safe Collections
 ## 12.6 Tasks and Thread Pools
 ## 12.7 Asynchronous Computations
