@@ -98,9 +98,13 @@ A thread is in the *terminated* state when it has exited. It can no longer be sc
 
 ## 12.3 Thread Properties
 
+
 We'll discuss the following thread properties:
 
 ### 12.3.1 Interrupting Threads
+
+See [InterruptTest](../book-code/corejava/v1ch12/pawarv/InterruptTest.java)
+See [InterruptedTest](../book-code/corejava/v1ch12/pawarv/InterruptedTest.java)
 
 A thread exits when its `run` method returns or when an uncaught exception is thrown.
 
