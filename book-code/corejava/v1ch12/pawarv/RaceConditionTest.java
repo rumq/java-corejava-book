@@ -56,7 +56,7 @@ class CounterA {
     }
 
     public void incrementLargeNumber() {
-        for (int i = 0; i < 1000000; i++) {
+        for (int i = 0; i < 1000; i++) {
             increment();
             // System.out.println("Thread: " + Thread.currentThread().getName() + " Value: " + value);
         }

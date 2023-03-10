@@ -238,14 +238,61 @@ Every object has the method `wait` to suspend the thread and `notify` or `notify
 
 ### 12.4.6 Synchronized Blocks
 
-See [RaceConditionSynchronizedBlockTest](../book-code/corejava/v1ch12/pawarv/RaceConditionSynchronizedBlockTest.java)
+We can use the `synchronized` keyword to mark a block of code as a critical section.
+
+syntax:
+
+```java
+
+synchronized (lockObject) {
+    // critical section
+}
+
+```
+Ensure that the lock object is the same for all threads that need to execute the critical section. And it is not a string literal.
+
+The object can be any object, and it may have been created for this purpose.
 
 
-### 12.4.7 THe Monitor Concepp
+### 12.4.7 The Monitor Concept
+
+Java's primitives for synchronization are based on the *monitor concept*, but not completely.
+
+Monitor have the following properties:
+- A monitor is a class that has only private fields
+- Each object of a monitor class has an associated lock
+- All methods are locked by the same lock
+- The lock can have any number of conditions.
+  
 
 ### 12.4.8 Volatile Fields
 
+Issues
+1. Processors may save the value of a variable in a register or in a cache, so that it does not have to be read from memory every time it is used. So the value of a variable may not be the same in different processors. If the threads are running on different processors, this can cause problems.
+2. Compilers may reorder the execution of statements in a method without taking into consideration that the memory values may be changed by another thread.
+
+The `volatile` keyword can be used to mark a field as *volatile*. Then the compiler will ensure that change done by one thread is visible to other threads.
+
+It is useful when we only perform assignments on shared variables.
+
+> Brian Goetz coined the following “synchronization motto”: “If you write a
+> variable which may next be read by another thread, or you read a variable
+> which  may  have  last  been  written  by  another  thread,  you  must  use
+> synchronization.”
+>
+> 
+>  The  volatile  keyword  offers  a  lock-free  mechanism  for  synchronizing
+> access  to  an  instance  field.  If  you  declare  a  field  as  volatile,  then  the
+> compiler  and  the  virtual  machine  take  into  account  that  the  field  may  be
+> concurrently updated by another thread
+
+
+
 ### 12.4.9 Final Variables
+
+A final variable is a variable that is initialized exactly once. It can be safely accessed by multiple threads without synchronization or declaration as volatile.
+
+
 
 ### 12.4.10 Atomics
 
