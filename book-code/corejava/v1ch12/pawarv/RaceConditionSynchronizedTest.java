@@ -5,7 +5,7 @@ import java.time.Instant;
 public class RaceConditionSynchronizedTest {
 
     public static void main(String[] args)  {
-        final Counter counter = new Counter();
+        final CounterD counter = new CounterD();
 
         Thread t1 = firstThread(counter);
         Thread t2 = secondThread(counter);
@@ -20,10 +20,10 @@ public class RaceConditionSynchronizedTest {
             e.printStackTrace();
         }
 
-        System.out.println("Counter value: " + counter.getValue());
+        System.out.println("CounterD value: " + counter.getValue());
     }
 
-    static Thread firstThread(Counter counter) {
+    static Thread firstThread(CounterD counter) {
         Runnable r1 = new Runnable() {
             public void run() {
                 counter.incrementLargeNumber();
@@ -35,7 +35,7 @@ public class RaceConditionSynchronizedTest {
         return t1;
     }
 
-    static Thread secondThread(Counter counter) {
+    static Thread secondThread(CounterD counter) {
         Runnable r2 = new Runnable() {
             public void run() {
                 counter.incrementLargeNumber();
@@ -49,7 +49,7 @@ public class RaceConditionSynchronizedTest {
 
 }
 
-class Counter {
+class CounterD {
     // private Lock lock;
     
     private int value;
@@ -62,7 +62,7 @@ class Counter {
     //     value = value + 1 ;
     // }
 
-    Counter() {        
+    CounterD() {        
         value = 0;
         // lock = new ReentrantLock();
         // A) Create a condition object
@@ -75,7 +75,7 @@ class Counter {
         // lock.lock();
         System.out.println(Thread.currentThread().getName() + " : Locked");
         try {
-            while (elapsedTime() < 100000){
+            while (elapsedTime() < 3){
                 // B) await
                 // System.out.println(Thread.currentThread().getName() + ": Waiting");
                 System.out.println(Thread.currentThread().getName() + ": Awaiting");
@@ -114,7 +114,8 @@ class Counter {
     }
 
     public void incrementLargeNumber() {
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 3
+        ; i++) {
             increment();
       
         }

@@ -223,7 +223,23 @@ It becomes active again when the other threads acquire the lock and call the `si
 
 See [RaceConditionSynchronizedTest](../book-code/corejava/v1ch12/pawarv/RaceConditionSynchronizedTest.java)
 
+The `synchronized` keyword can be used to mark a method as a critical section. 
+
+This simplifies the code in comparison to using a lock object & condition object.
+
+Every object has an *internal lock* or *intrinsic lock* or *monitor lock*. 
+
+When a thread invokes a synchronized method, it automatically acquires the lock of the object on which the method is called.
+
+When the thread exits the critical section, it releases the lock.
+
+Every object has the method `wait` to suspend the thread and `notify` or `notifyAll` to wake up the suspended thread. These methods must be called from a synchronized method. And they are analogous to the `await` and `signal` or `signalAll` methods of the condition object.
+
+
 ### 12.4.6 Synchronized Blocks
+
+See [RaceConditionSynchronizedBlockTest](../book-code/corejava/v1ch12/pawarv/RaceConditionSynchronizedBlockTest.java)
+
 
 ### 12.4.7 THe Monitor Concepp
 
