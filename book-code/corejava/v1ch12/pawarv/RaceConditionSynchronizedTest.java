@@ -1,14 +1,11 @@
 package pawarv;
 
 import java.time.Instant;
-import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
-public class RaceConditionReentrantLockConditionTest {
+public class RaceConditionSynchronizedTest {
 
     public static void main(String[] args)  {
-        final CounterC counter = new CounterC();
+        final Counter counter = new Counter();
 
         Thread t1 = firstThread(counter);
         Thread t2 = secondThread(counter);
@@ -23,10 +20,10 @@ public class RaceConditionReentrantLockConditionTest {
             e.printStackTrace();
         }
 
-        System.out.println("CounterC value: " + counter.getValue());
+        System.out.println("Counter value: " + counter.getValue());
     }
 
-    static Thread firstThread(CounterC counter) {
+    static Thread firstThread(Counter counter) {
         Runnable r1 = new Runnable() {
             public void run() {
                 counter.incrementLargeNumber();
@@ -38,7 +35,7 @@ public class RaceConditionReentrantLockConditionTest {
         return t1;
     }
 
-    static Thread secondThread(CounterC counter) {
+    static Thread secondThread(Counter counter) {
         Runnable r2 = new Runnable() {
             public void run() {
                 counter.incrementLargeNumber();
@@ -52,12 +49,12 @@ public class RaceConditionReentrantLockConditionTest {
 
 }
 
-class CounterC {
-    private Lock lock;
+class Counter {
+    // private Lock lock;
     
     private int value;
 
-    private Condition condition;
+    // private Condition condition;
 
     private long start;
 
@@ -65,25 +62,25 @@ class CounterC {
     //     value = value + 1 ;
     // }
 
-    CounterC() {        
+    Counter() {        
         value = 0;
-        lock = new ReentrantLock();
-
+        // lock = new ReentrantLock();
         // A) Create a condition object
-        condition = lock.newCondition();
+        // condition = lock.newCondition();
         start = Instant.now().toEpochMilli();
     }
     
-    private void increment()  {
+    private synchronized void increment()  {
         
-        lock.lock();
+        // lock.lock();
         System.out.println(Thread.currentThread().getName() + " : Locked");
         try {
-            while (elasedTime() < 5){
+            while (elapsedTime() < 100000){
                 // B) await
                 // System.out.println(Thread.currentThread().getName() + ": Waiting");
                 System.out.println(Thread.currentThread().getName() + ": Awaiting");
-                condition.await();
+                // condition.await();
+                wait();
                 System.out.println(Thread.currentThread().getName() + ": Awaiting done");
 
             }
@@ -94,15 +91,16 @@ class CounterC {
         } catch (InterruptedException e) {            
             e.printStackTrace();
         } finally {
-            System.out.println(Thread.currentThread().getName() + " : Unlocking");
-            lock.unlock();
+            // System.out.println(Thread.currentThread().getName() + " : Unlocking");
+            // lock.unlock();
         }
     }
 
-    private long elasedTime() {
+    private long elapsedTime() {
         // D) signalAll
         System.out.println(Thread.currentThread().getName() + " : Signalling");
-        condition.signalAll();
+        // condition.signalAll();
+        notifyAll();
         return Instant.now().toEpochMilli() - start;
     }
 
@@ -116,7 +114,7 @@ class CounterC {
     }
 
     public void incrementLargeNumber() {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 1000; i++) {
             increment();
       
         }

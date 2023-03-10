@@ -3,7 +3,7 @@ package pawarv;
 public class RaceConditionTest {
 
     public static void main(String[] args) {
-        final Counter counter = new Counter();
+        final CounterA counter = new CounterA();
 
         Thread t1 = firstThread(counter);
         Thread t2 = secondThread(counter);
@@ -16,13 +16,13 @@ public class RaceConditionTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("Counter value: " + counter.getValue());
+        System.out.println("CounterA value: " + counter.getValue());
     }
 
-    static Thread firstThread(Counter counter) {
+    static Thread firstThread(CounterA counter) {
         Runnable r1 = new Runnable() {
             public void run() {
-                counter.incrementThousand();
+                counter.incrementLargeNumber();
             }
         };
 
@@ -30,10 +30,10 @@ public class RaceConditionTest {
         return t1;
     }
 
-    static Thread secondThread(Counter counter) {
+    static Thread secondThread(CounterA counter) {
         Runnable r2 = new Runnable() {
             public void run() {
-                counter.incrementThousand();
+                counter.incrementLargeNumber();
             }
         };
 
@@ -43,7 +43,7 @@ public class RaceConditionTest {
 
 }
 
-class Counter {
+class CounterA {
     private int value = 0;
 
     // private synchronized void increment(){
@@ -55,7 +55,7 @@ class Counter {
         return value;
     }
 
-    public void incrementThousand() {
+    public void incrementLargeNumber() {
         for (int i = 0; i < 1000000; i++) {
             increment();
             // System.out.println("Thread: " + Thread.currentThread().getName() + " Value: " + value);

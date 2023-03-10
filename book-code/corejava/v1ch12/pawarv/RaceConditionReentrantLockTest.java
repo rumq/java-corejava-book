@@ -6,7 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class RaceConditionReentrantLockTest {
 
     public static void main(String[] args) {
-        final Counter counter = new Counter();
+        final CounterB counter = new CounterB();
 
         Thread t1 = firstThread(counter);
         Thread t2 = secondThread(counter);
@@ -19,13 +19,13 @@ public class RaceConditionReentrantLockTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("Counter value: " + counter.getValue());
+        System.out.println("CounterB value: " + counter.getValue());
     }
 
-    static Thread firstThread(Counter counter) {
+    static Thread firstThread(CounterB counter) {
         Runnable r1 = new Runnable() {
             public void run() {
-                counter.incrementThousand();
+                counter.incrementLargeNumber();
             }
         };
 
@@ -33,10 +33,10 @@ public class RaceConditionReentrantLockTest {
         return t1;
     }
 
-    static Thread secondThread(Counter counter) {
+    static Thread secondThread(CounterB counter) {
         Runnable r2 = new Runnable() {
             public void run() {
-                counter.incrementThousand();
+                counter.incrementLargeNumber();
             }
         };
 
@@ -46,7 +46,7 @@ public class RaceConditionReentrantLockTest {
 
 }
 
-class Counter {
+class CounterB {
     private Lock lock = new ReentrantLock();
     private int value = 0;
 
@@ -67,7 +67,7 @@ class Counter {
         return value;
     }
 
-    public void incrementThousand() {
+    public void incrementLargeNumber() {
         for (int i = 0; i < 100000; i++) {
             increment();
             // System.out.println("Thread: " + Thread.currentThread().getName() + " Value: "
