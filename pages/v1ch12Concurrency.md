@@ -185,6 +185,61 @@ If the two threads execute these operations in the following order:
 
 The final value of `value` is 1. Which is incorrect.
 
+### 12.4.3 Lock Objects
+
+See [RaceConditionReentrantLockTest](../book-code/corejava/v1ch12/pawarv/RaceConditionReentrantLockTest.java.java)
+
+One way to ensure only one thread at a time can execute a section of code is to use a *lock object*.
+
+A *lock object* is an object that is used to control access to a shared resource.
+
+We can use  `ReentrantLock` class to create a lock object. It has the method `lock` to lock the object and `unlock` to unlock the object. 
+
+The `lock` is called at the beginning of the section of code that needs to be executed by only one thread at a time. 
+
+The `unlock` is called at the end of the section of code. 
+
+To ensure that the `unlock` is called even if an exception is thrown, we can use the `try-finally` construct. 
+
+It is called *reentrant* because if the same thread tries to lock the same lock object twice, it will succeed. The thread must call `unlock` twice to release the lock.
+
+### 12.4.4 Condition Objects
+
+See [RaceConditionReentrantLockConditionTest](../book-code/corejava/v1ch12/pawarv/RaceConditionReentrantLockConditionTest.java)
+
+A *condition object* is an object that is associated with a lock object and is used to control access to a shared resource. 
+
+If a particular condition has to be true for a thread to execute the critical section, that condition cannot be checked outside the critical section. So a thread has to acquire a lock. 
+
+But if the thread acquires a lock and finds that the condition is not true, it can't do its work, and it also will be blocking other threads from doing their work.
+
+To overcome this problem, after acquiring a lock, a thread can wait for a particular condition to be true by calling the `await` method of the condition object. 
+
+After calling the `await` method, the thread releases the lock object and becomes suspended.  is different from a thread waiting to acquire a lock as the thread is now inside the critical section.
+
+It becomes active again when the other threads acquire the lock and call the `signal` or `signalAll` method of the condition object. Then it competes for lock with other threads, and proceeds only when it acquires the lock. But of course, the condition must be true for the thread to execute the critical section. If the condition is not true, the thread will again call the `await` method and release the lock.
+
+### 12.4.5 The synchronized Keyword
+
+See [RaceConditionSynchronizedTest](../book-code/corejava/v1ch12/pawarv/RaceConditionSynchronizedTest.java)
+
+### 12.4.6 Synchronized Blocks
+
+### 12.4.7 THe Monitor Concepp
+
+### 12.4.8 Volatile Fields
+
+### 12.4.9 Final Variables
+
+### 12.4.10 Atomics
+
+### 12.4.11 Deadlocks
+
+### 12.4.12 Why the stop and suspend Methods Are Deprecated
+
+### 12.4.13 On-Demand Initialization
+
+### 12.4.14 Thread-local Variables
 
 ## 12.5 Thread-Safe Collections
 ## 12.6 Tasks and Thread Pools
