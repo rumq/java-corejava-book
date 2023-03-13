@@ -387,7 +387,9 @@ As JVM does this using a lock, we don't have to handle the synchronization.
 
 ### 12.4.14 Thread-local Variables
 
-See [ThreadLocalTest](../book-code/corejava/v1ch12/pawarv/ThreadLocalTest.java)
+See 
+- [ThreadLocalTest](../book-code/corejava/v1ch12/pawarv/ThreadLocalTest.java)
+- [CountThreadLocalTest](../book-code/corejava/v1ch12/pawarv/CountThreadLocalTest.java)
 
 A *thread-local variable* is a variable that is associated with a thread. Each thread has its own copy of a thread-local variable. Thread-local variables are typically private static fields in classes that wish to associate state with a thread (e.g., a user ID or transaction ID).
 

@@ -1,38 +1,15 @@
 package pawarv;
 
 public class ThreadLocalTest {
-
-    private static Integer classCount = 0;
     private static ThreadLocal<Integer> threadLocalCount = ThreadLocal.withInitial(() -> 0);
-    private static Object lock = new Object();
-    private  Integer objectCount = 0;
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
 
-        ThreadLocalTest sharedObject  = new ThreadLocalTest();
-        
-        Runnable r = () -> {
-            ThreadLocalTest localObject = new ThreadLocalTest();
-            var name = Thread.currentThread().getName();
+        threadLocalCount.set(threadLocalCount.get() + 1);
+        System.out.println("ThreadLocalTest.main() " + threadLocalCount.get());
 
-            synchronized (lock) {          
-                localObject.objectCount = localObject.objectCount + 1;
-                sharedObject.objectCount = sharedObject.objectCount + 1;      
-                 
-                threadLocalCount.set(threadLocalCount.get() + 1);
-                classCount = classCount + 1;
-            }
-            System.out.println(name + ": localObjectCount " +  localObject.objectCount + ":" + localObject);
-            System.out.println(name + ": threadLocalCount " + threadLocalCount.get());
-            System.out.println(name + ": sharedObjectCount " + sharedObject.objectCount + ":" + sharedObject);
-            System.out.println(name + ": classCount : " + classCount);
-        };
-        Thread t1 = new Thread(r);
-        Thread t2 = new Thread(r);
-        t1.start();
-        t2.start();
-        t1.join();
-        t2.join();
+        threadLocalCount.set(threadLocalCount.get() + 1);
+        System.out.println("ThreadLocalTest.main() " + threadLocalCount.get());
 
     }
 }
