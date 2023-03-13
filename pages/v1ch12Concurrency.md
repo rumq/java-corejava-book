@@ -316,7 +316,7 @@ For example, in the below code, all threads will see the accounts variable after
 
 ```java
 final var accounts = new HashMap<String, Double>()
-````
+```
 
 
 ### 12.4.10 Atomics
@@ -372,9 +372,29 @@ public void transfer(Account from, Account to, int amount) {
 
 ### 12.4.12 Why the stop and suspend Methods Are Deprecated
 
+The `stop` and `suspend` methods are deprecated because they can cause deadlocks. So, you should not use them.
+
 ### 12.4.13 On-Demand Initialization
 
+See [OnDemandInitializationTest](../book-code/corejava/v1ch12/pawarv/OnDemandInitializationTest.java)
+
+If we want to initialize a data structure only when it is needed, and that too only once, we can use the *on-demand initialization* idiom.
+
+We can use the fact that the static initialization happens only once when the class is first used.
+
+As JVM does this using a lock, we don't have to handle the synchronization.
+
+
 ### 12.4.14 Thread-local Variables
+
+See [ThreadLocalTest](../book-code/corejava/v1ch12/pawarv/ThreadLocalTest.java)
+
+A *thread-local variable* is a variable that is associated with a thread. Each thread has its own copy of a thread-local variable. Thread-local variables are typically private static fields in classes that wish to associate state with a thread (e.g., a user ID or transaction ID).
+
+```java
+private static ThreadLocal<LocalDate> date = ThreadLocal.withInitial(() -> LocalDate.now());
+```
+
 
 ## 12.5 Thread-Safe Collections
 ### 12.5.1 Blocking Queues
