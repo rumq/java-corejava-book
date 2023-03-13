@@ -399,7 +399,22 @@ private static ThreadLocal<LocalDate> date = ThreadLocal.withInitial(() -> Local
 
 
 ## 12.5 Thread-Safe Collections
+
+If multiple threads modify a data structure, it is easy to damage it. In such cases, you need to use a *thread-safe* data structure.
+
 ### 12.5.1 Blocking Queues
+
+See [BlockingQueueTest](../book-code/corejava/v1ch12/pawarv/BlockingQueueTest.java)
+
+A threading problem can sometimes be solved by using one or more queues.
+
+A blocking queue can be used to transfer data between threads. For example, a thread can put data into a queue, and another thread can take data from the queue.
+
+A *blocking queue* is a queue that blocks when you try to remove an element from it and the queue is empty, or if you try to add an element to it and the queue is full.
+
+The `java.util.concurrent` package contains the `BlockingQueue` interface, which extends the `Queue` interface. The `BlockingQueue` interface defines methods that wait for the queue to become nonempty when retrieving an element, and wait for space to become available in the queue when storing an element.
+
+
 ### 12.5.2 Efficient Maps, Sets, and Queues
 ### 12.5.3 Atomic update of Map Entries
 ### 12.5.4 Bulk Operations on Concurrent Hash Maps
