@@ -3,80 +3,31 @@ package pawarv;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class AtomicIntegerTest {
-    
-        public static void main(String[] args) {
-            final CounterE counter = new CounterE();
-    
-            Thread t1 = firstThread(counter);
-            Thread t2 = secondThread(counter);
-            t1.start();
-            t2.start();
-    
-            try {
-                t1.join();
-                t2.join();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            System.out.println("CounterE value: " + counter.getValue());
-        }
-    
-        static Thread firstThread(CounterE counter) {
-            Runnable r1 = new Runnable() {
-                public void run() {
-                    counter.incrementLargeNumber();
-                }
-            };
-    
-            Thread t1 = new Thread(r1);
-            t1.setName("firstThread");
-            return t1;
-        }
-    
-        static Thread secondThread(CounterE counter) {
-            Runnable r2 = new Runnable() {
-                public void run() {
-                    counter.incrementLargeNumber();
-                }
-            };
-    
-            Thread t2 = new Thread(r2);
-            t2.setName("secondThread");
-            return t2;
-        }
-    
-}
+    private static AtomicInteger value = new AtomicInteger(0);
+    public static void main(String[] args) {
+
+        
+        System.out.println("value = " + value.get());
+        System.out.println("value = " + value.incrementAndGet());
+        System.out.println("value = " + value.getAndIncrement());
+        System.out.println("value = " + value.get());
+        System.out.println("value = " + value.decrementAndGet());
+        System.out.println("value = " + value.getAndDecrement());
+        System.out.println("value = " + value.get());
+        System.out.println("value = " + value.addAndGet(10));
+        //getAndAdd(int delta)
+        //compareAndSet(int expect, int update)
+        System.out.println("value = " + value.compareAndSet(10, 20));
+        System.out.println("value = " + value.get());
+        //accumulateAndGet(int x, IntBinaryOperator accumulatorFunction)
+        System.out.println("value = " + value.accumulateAndGet(10, (x, y) -> x + y));
+        System.out.println("value = " + value.accumulateAndGet(10, (x, y) -> x * y));
+        //getAndUpdate(IntUnaryOperator updateFunction)
+        System.out.println("value = " + value.getAndUpdate(x -> x + 10));
+        System.out.println("value = " + value.get());
 
 
 
 
-class CounterE {
-    // private int value = 0;
-    private AtomicInteger value = new AtomicInteger(0);
-
-    // private synchronized void increment(){
-    private void increment(){
-        value.incrementAndGet();
     }
-    // private void increment(){
-    //     value = value + 1 ;
-    // }
-
-
-    public AtomicInteger getValue() {
-        return value;
-    }
-
-    // public int getValue() {
-    //     return value;
-    // }
-
-
-    public void incrementLargeNumber() {
-        for (int i = 0; i < 1000000; i++) {
-            increment();
-            // System.out.println("Thread: " + Thread.currentThread().getName() + " Value: " + value);
-        }
-    }
-
 }

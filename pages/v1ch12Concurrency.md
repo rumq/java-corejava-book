@@ -2,6 +2,8 @@
 
 # Volume 1 Chapter 12 Concurrency   
 
+
+
 Status : 
 
 *Multitasking* is the ability of the operating system to run several programs each running in its own process at the same time. The operating system switches between the processes very quickly, so that it appears that they are running at the same time. The operating system gives each process a CPU time slice, which is the amount of time that the process can run before the operating system switches to another process.
@@ -253,6 +255,7 @@ Ensure that the lock object is the same for all threads that need to execute the
 
 The object can be any object, and it may have been created for this purpose.
 
+If you are calling methods from an object that already use the object's intrinsic lock, and you use synchronized blocks for further synchronization,  you'd be locking the same object. This is client-side locking. We don't need to do this.
 
 ### 12.4.7 The Monitor Concept
 
@@ -267,13 +270,13 @@ Monitor have the following properties:
 
 ### 12.4.8 Volatile Fields
 
+See [volatile](../assets/diagrams/volatile.excalidraw)
+
 Issues
 1. Processors may save the value of a variable in a register or in a cache, so that it does not have to be read from memory every time it is used. So the value of a variable may not be the same in different processors. If the threads are running on different processors, this can cause problems.
 2. Compilers may reorder the execution of statements in a method without taking into consideration that the memory values may be changed by another thread.
 
 The `volatile` keyword can be used to mark a field as *volatile*. Then the compiler will ensure that change done by one thread is visible to other threads.
-
-It is useful when we only perform assignments on shared variables.
 
 > Brian Goetz coined the following “synchronization motto”: “If you write a
 > variable which may next be read by another thread, or you read a variable
@@ -286,17 +289,85 @@ It is useful when we only perform assignments on shared variables.
 > compiler  and  the  virtual  machine  take  into  account  that  the  field  may  be
 > concurrently updated by another thread
 
+You can use it as below where you are not doing any operations on the variable, but just assigning or reading it.
+   
+```java
+private volatile boolean done; 
+public boolean isDone() { return done; } 
+public void setDone() { done = true; }
+```
+
+However, volatile variables do not provide atomicity.
+```java
+private volatile boolean done; 
+public void flipDone() { done = !done; } // not atomic
+
+private volatile int count;
+public increment() { count = count + 1; } // not atomic
+
+```
 
 
 ### 12.4.9 Final Variables
 
-A final variable is a variable that is initialized exactly once. It can be safely accessed by multiple threads without synchronization or declaration as volatile.
+If you know you won't change a variable after declaring it or assigning value to it once, you can declare it as `final`. This will also ensure that different threads see the same value.
 
+For example, in the below code, all threads will see the accounts variable after the construction of the HashMap.
+
+```java
+final var accounts = new HashMap<String, Double>()
+````
 
 
 ### 12.4.10 Atomics
 
+See 
+- [RaceConditionAtomicIntegerTest](../book-code/corejava/v1ch12/pawarv/RaceConditionAtomicIntegerTest.java)
+- [AtomicIntegerTest](../book-code/corejava/v1ch12/pawarv/AtomicIntegerTest.java)
+
+The `java.util.concurrent.atomic` package contains classes that provide atomic operations on variables, so that you don't have to use synchronization.
+
+For example, the `AtomicInteger` class provides atomic operations on an integer variable. Similarly, `AtomicLong` and `AtomicBoolean` provide atomic operations on long and boolean variables.
+
+```java
+var counter = new AtomicInteger();
+counter.incrementAndGet();
+
+var counter2 = new AtomicLong();
+counter2.incrementAndGet();
+
+```
+
+> LongAccumulator - This class is usually preferable to AtomicLong when multiple threads update a common value that is used for purposes such as collecting statistics, not for fine-grained synchronization control. Under low update contention, the two classes have similar characteristics. But under high contention, expected throughput of this class is significantly higher, at the expense of higher space consumption.
+
+
+
 ### 12.4.11 Deadlocks
+
+See 
+- [RaceConditionDeadLockTest](../book-code/corejava/v1ch12/pawarv/RaceConditionDeadLockTest.java)
+- [DeadlockedTransfersTest](../book-code/corejava/v1ch12/pawarv/DeadlockedTransfersTest.java)
+
+A *deadlock* occurs when two or more threads are blocked forever, waiting for each other.
+
+For example, in the below code, thread 1 is waiting for thread 2 to release the lock on the account object, and thread 2 is waiting for thread 1 to release the lock on the other account object.
+
+```java
+public void transfer(Account from, Account to, int amount) {
+    synchronized (from) {
+        synchronized (to) {
+            if (from.getBalance() < amount) {
+                throw new IllegalArgumentException();
+            }
+            else {
+                from.debit(amount);
+                to.credit(amount);
+            }
+        }
+    }
+}
+```
+
 
 ### 12.4.12 Why the stop and suspend Methods Are Deprecated
 
@@ -305,8 +376,28 @@ A final variable is a variable that is initialized exactly once. It can be safel
 ### 12.4.14 Thread-local Variables
 
 ## 12.5 Thread-Safe Collections
+### 12.5.1 Blocking Queues
+### 12.5.2 Efficient Maps, Sets, and Queues
+### 12.5.3 Atomic updpate of Map Entries
+### 12.5.4 Bulk Operations on Concurrent Hash Maps
+### 12.5.5 Concurrent Set Views
+### 12.5.6 Copy on Write arrays
+### 12.5.7 Paralle Array Alogoithms
+### 12.5.8 Older Thread-Safe Collections
+
 ## 12.6 Tasks and Thread Pools
+### 12.6.1 Callables and Futures
+### 12.6.2 Executors
+### 12.6.3 Controlling Groups of Tasks
+### 12.6.4 The Fork-Join Framework
+
 ## 12.7 Asynchronous Computations
-## 12.8 Processe
+### 12.7.1 Completable Futures
+### 12.7.2 Composing Completable Futures
+### 12.7.3 Long-Running Tasks in User Interface Callbacks
+## 12.8 Processes
+### 12.8.1 Building a Process
+### 12.8.2 Running a Process
+### 12.8.3 Process Handles 
 
 >[Home](HOME.md)

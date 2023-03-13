@@ -44,10 +44,11 @@ public class RaceConditionTest {
 }
 
 class CounterA {
-    private int value = 0;
+    private volatile int value = 0;  // no use of volatile
+    // private int value = 0;
 
-    // private synchronized void increment(){
-    private void increment(){
+    private  void increment(){
+    // private void increment(){
         value = value + 1 ;
     }
 

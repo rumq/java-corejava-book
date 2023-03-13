@@ -5,10 +5,10 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class RaceConditionReentrantLockConditionTest {
+public class RaceConditionDeadLockTest {
 
     public static void main(String[] args)  {
-        final CounterC counter = new CounterC();
+        final CounterF counter = new CounterF();
 
         Thread t1 = firstThread(counter);
         Thread t2 = secondThread(counter);
@@ -23,10 +23,10 @@ public class RaceConditionReentrantLockConditionTest {
             e.printStackTrace();
         }
 
-        System.out.println("CounterC value: " + counter.getValue());
+        System.out.println("CounterF value: " + counter.getValue());
     }
 
-    static Thread firstThread(CounterC counter) {
+    static Thread firstThread(CounterF counter) {
         Runnable r1 = new Runnable() {
             public void run() {
                 counter.incrementLargeNumber();
@@ -38,7 +38,7 @@ public class RaceConditionReentrantLockConditionTest {
         return t1;
     }
 
-    static Thread secondThread(CounterC counter) {
+    static Thread secondThread(CounterF counter) {
         Runnable r2 = new Runnable() {
             public void run() {
                 counter.incrementLargeNumber();
@@ -52,7 +52,7 @@ public class RaceConditionReentrantLockConditionTest {
 
 }
 
-class CounterC {
+class CounterF {
     private Lock lock;
     
     private int value;
@@ -65,7 +65,7 @@ class CounterC {
     //     value = value + 1 ;
     // }
 
-    CounterC() {        
+    CounterF() {        
         value = 0;
         lock = new ReentrantLock();
 
@@ -79,7 +79,9 @@ class CounterC {
         lock.lock();
         System.out.println(Thread.currentThread().getName() + " : Locked");
         try {
-            while (elapsedTime() < 5){
+            // while (elapsedTime() < 5){
+            while (value < 1){
+
                 // B) await
                 // System.out.println(Thread.currentThread().getName() + ": Waiting");
                 System.out.println(Thread.currentThread().getName() + ": Awaiting");
