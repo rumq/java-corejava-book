@@ -9,11 +9,11 @@ import java.util.concurrent.BlockingQueue;
  *  One producer thread and multiple consumer threads
  *  Increase the number of consumer threads to see the difference
  */
-public class BlockingQueueTest {
+public class BasicBlockingQueueTest {
     public static final String LAST_MESSAGE = "LAST_MESSAGE";
     public static final int NO_OF_MESSAGES = 1000;
 
-    private static final int NO_OF_CONSUMER_THREADS = 3;
+    private static final int NO_OF_CONSUMER_THREADS = 10;
     private static final int QUEUE_CAPACITY = 1;
 
     public static void main(String[] args) throws InterruptedException {
@@ -63,10 +63,10 @@ class Producer implements Runnable {
     public void run() {
         try {
             int count = 0;
-            while (count++ < BlockingQueueTest.NO_OF_MESSAGES) {
+            while (count++ < BasicBlockingQueueTest.NO_OF_MESSAGES) {
                 queue.put(produce());
             }
-            queue.put(BlockingQueueTest.LAST_MESSAGE);
+            queue.put(BasicBlockingQueueTest.LAST_MESSAGE);
         } catch (InterruptedException ex) {
             ex.printStackTrace();
         }
@@ -89,12 +89,12 @@ class Consumer implements Runnable {
             boolean done = false;
             while (!done) {
                 String msg = queue.take();
-                if (BlockingQueueTest.LAST_MESSAGE.equals(msg)) {
+                if (BasicBlockingQueueTest.LAST_MESSAGE.equals(msg)) {
                     done = true;
                     // Put the last message back in the queue
                     // so that other consumer threads can also
                     // exit
-                    queue.put(BlockingQueueTest.LAST_MESSAGE);
+                    queue.put(BasicBlockingQueueTest.LAST_MESSAGE);
                 } else
                     consume(msg);
 

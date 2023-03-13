@@ -54,16 +54,20 @@ public class CHMDemo
       int processors = Runtime.getRuntime().availableProcessors();
       ExecutorService executor = Executors.newFixedThreadPool(processors);
       Path pathToRoot = Path.of(".");
-      for (Path p : descendants(pathToRoot))
+      for (Path p : descendants(pathToRoot))      
       {
-         if (p.getFileName().toString().endsWith(".java"))
+         
+         if (p.getFileName().toString().endsWith(".java")) {
             executor.execute(() -> process(p));
+            // System.out.println(p);
+
+         }
       }
       executor.shutdown();
       executor.awaitTermination(10, TimeUnit.MINUTES);
       map.forEach((k, v) -> 
          { 
-            if (v >= 10) 
+            if (v >= 30) 
                System.out.println(k + " occurs " + v + " times");
          });
    }

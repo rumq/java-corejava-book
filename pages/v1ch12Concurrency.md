@@ -148,7 +148,9 @@ A *race condition* occurs when two or more threads access a shared variable and 
 
 ### 12.4.1 An Example of Race Condition
 
-See [RaceConditionTest](../book-code/corejava/v1ch12/pawarv/RaceConditionTest.java)
+See 
+- [RaceConditionTest](../book-code/corejava/v1ch12/pawarv/RaceConditionTest.java)
+- [UnsynchBankTest](../book-code/corejava/v1ch12/unsynch/UnsynchBankTest.java)
 
 ### 12.4.2 Race Condition Explained
 
@@ -189,7 +191,9 @@ The final value of `value` is 1. Which is incorrect.
 
 ### 12.4.3 Lock Objects
 
-See [RaceConditionReentrantLockTest](../book-code/corejava/v1ch12/pawarv/RaceConditionReentrantLockTest.java.java)
+See 
+- [RaceConditionReentrantLockTest](../book-code/corejava/v1ch12/pawarv/RaceConditionReentrantLockTest.java.java)
+- [SynchBankTest](../book-code/corejava/v1ch12/synch/SynchBankTest.java)
 
 One way to ensure only one thread at a time can execute a section of code is to use a *lock object*.
 
@@ -207,7 +211,9 @@ It is called *reentrant* because if the same thread tries to lock the same lock 
 
 ### 12.4.4 Condition Objects
 
-See [RaceConditionReentrantLockConditionTest](../book-code/corejava/v1ch12/pawarv/RaceConditionReentrantLockConditionTest.java)
+See 
+- [RaceConditionReentrantLockConditionTest](../book-code/corejava/v1ch12/pawarv/RaceConditionReentrantLockConditionTest.java)
+  
 
 A *condition object* is an object that is associated with a lock object and is used to control access to a shared resource. 
 
@@ -223,7 +229,9 @@ It becomes active again when the other threads acquire the lock and call the `si
 
 ### 12.4.5 The synchronized Keyword
 
-See [RaceConditionSynchronizedTest](../book-code/corejava/v1ch12/pawarv/RaceConditionSynchronizedTest.java)
+See 
+- [RaceConditionSynchronizedTest](../book-code/corejava/v1ch12/pawarv/RaceConditionSynchronizedTest.java)
+- [SynchBankTest2](../book-code/corejava/v1ch12/synch2/SynchBankTest2.java)
 
 The `synchronized` keyword can be used to mark a method as a critical section. 
 
@@ -404,7 +412,9 @@ If multiple threads modify a data structure, it is easy to damage it. In such ca
 
 ### 12.5.1 Blocking Queues
 
-See [BlockingQueueTest](../book-code/corejava/v1ch12/pawarv/BlockingQueueTest.java)
+See 
+- [BasicBlockingQueueTest](../book-code/corejava/v1ch12/pawarv/BasicBlockingQueueTest.java)
+- [BlockingQueueTest](../book-code/corejava/v1ch12/blockingQueue/BlockingQueueTest.java) 
 
 A threading problem can sometimes be solved by using one or more queues.
 
@@ -416,16 +426,67 @@ The `java.util.concurrent` package contains the `BlockingQueue` interface, which
 
 
 ### 12.5.2 Efficient Maps, Sets, and Queues
+
+Later (Advanced)
+
+The `java.util.concurrent` package contains several classes that implement the `Map`, `Set`, and `Queue` interfaces. These classes are thread-safe and efficient.
+
+For example, the `ConcurrentHashMap` class implements the `Map` interface. It is a hash table that supports full concurrency of retrievals and high expected concurrency for updates. 
+
+
 ### 12.5.3 Atomic update of Map Entries
+Later (Advanced)
+
+see 
+- [CHMDemo](../book-code/corejava/v1ch12/concurrentHashMap/CHMDemo.java)
+
+A ConcurrentHashMap's internal data structure is not destroyed when the map is used by multiple threads unlike a HashMap. So, it is safe to use a ConcurrentHashMap in a multithreaded program.
+
+However, a ConcurrentHashMap still needs to be used with care. For example, if you want to increment a counter in a map, you should use the `compute` method, which atomically updates the map entry.
+
+```java
+map.compute(key, (k, v) -> v == null ? 1 : v + 1);
+```
+
+Or even better, use the `merge` method, which is more concise.
+
+```java
+map.merge(key, 1, Integer::sum);
+```
+
 ### 12.5.4 Bulk Operations on Concurrent Hash Maps
+Later (Advanced)
 ### 12.5.5 Concurrent Set Views
+Later (Advanced)
+
+
+
+Can get a ConcurrentSet from a ConcurrentHashMap.
+
+For example, the `keySet` method returns a `Set` view of the keys. This set is backed by the map, so changes to the map are reflected in the set, and vice-versa.
+
+The `newKeySet` method returns a `ConcurrentHashMap.KeySetView` object, which is a `Set` view of the keys. This set is backed by the map, so changes to the map are reflected in the set, and vice-versa. 
+
+
 ### 12.5.6 Copy on Write arrays
+Later (Advanced)
 ### 12.5.7 Parallel Array Algorithms
+Later (Advanced)
+
 ### 12.5.8 Older Thread-Safe Collections
+Later (Advanced)
 
 ## 12.6 Tasks and Thread Pools
+
+Threads are expensive to create and destroy. So, it is better to reuse threads. This is the idea behind *thread pools*.
+
+
 ### 12.6.1 Callables and Futures
+
+Later (Advanced) and all the below.
+
 ### 12.6.2 Executors
+
 ### 12.6.3 Controlling Groups of Tasks
 ### 12.6.4 The Fork-Join Framework
 
