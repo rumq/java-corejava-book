@@ -48,7 +48,6 @@ public class DeadlockedTransfersTest {
     public static void transfer(Account from, Account to, int amount) {
         
         synchronized (from) {
-            // System.out.println("Sync from");
             synchronized (to) {
                 System.out.println(count.incrementAndGet() + ":" + Thread.currentThread().getName() + " - transfering " + amount + " from " + from + " to " + to );
 

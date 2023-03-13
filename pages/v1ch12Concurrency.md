@@ -324,6 +324,7 @@ final var accounts = new HashMap<String, Double>()
 See 
 - [RaceConditionAtomicIntegerTest](../book-code/corejava/v1ch12/pawarv/RaceConditionAtomicIntegerTest.java)
 - [AtomicIntegerTest](../book-code/corejava/v1ch12/pawarv/AtomicIntegerTest.java)
+- [LongAccumulatorTest](../book-code/corejava/v1ch12/pawarv/LongAccumulatorTest.java)
 
 The `java.util.concurrent.atomic` package contains classes that provide atomic operations on variables, so that you don't have to use synchronization.
 
@@ -378,11 +379,11 @@ public void transfer(Account from, Account to, int amount) {
 ## 12.5 Thread-Safe Collections
 ### 12.5.1 Blocking Queues
 ### 12.5.2 Efficient Maps, Sets, and Queues
-### 12.5.3 Atomic updpate of Map Entries
+### 12.5.3 Atomic update of Map Entries
 ### 12.5.4 Bulk Operations on Concurrent Hash Maps
 ### 12.5.5 Concurrent Set Views
 ### 12.5.6 Copy on Write arrays
-### 12.5.7 Paralle Array Alogoithms
+### 12.5.7 Parallel Array Algorithms
 ### 12.5.8 Older Thread-Safe Collections
 
 ## 12.6 Tasks and Thread Pools
