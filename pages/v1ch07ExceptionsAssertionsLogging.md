@@ -1,0 +1,199 @@
+>[Home](Home.md)
+
+# Chapter 7: Exceptions, Assertions, and Logging
+Status : IN_PROGRESS 
+
+
+We'll cover Exceptions, Assertions and Logging in this chapter.
+
+In one line we can say that Exceptions are used to handle errors, Assertions are used to check for conditions that should never occur and Logging is used to record events that occur while a program is running.
+
+
+## 7.1     Dealing with Errors
+
+Errors can occur because of these reasons
+- User input errors 
+- Device/Network errors
+- Resource errors - memory/disk space
+- Programming errors
+
+In traditional programming languages, errors are handled by returning error codes. For example, the C library function fopen returns a null pointer if the file cannot be opened. The caller of fopen must check the return value to see if the file was opened successfully. This approach is called error codes. The problem with error codes is that they are easy to forget. If you forget to check the return value, you may not notice that the file was not opened successfully.
+
+Sometimes it is not possible to return an error code. For example, suppose you are writing a method that computes the square root of a number. If the number is negative, the method cannot return a value. What error code should it return? 
+
+Java uses exceptions to handle errors. An exception is an object that represents an error. When an error occurs, the Java runtime system creates an exception object and hands it to the part of the program that is responsible for handling the error. The part of the program that handles the error is called an exception handler. The exception handler decides what to do with the exception. It can either handle the error or pass the exception to another exception handler. If the exception is not handled, the program terminates.
+
+Note that the method exits at the point the exception is thrown, so no return value is needed.
+
+Exceptions have a type. The type of an exception object indicates what went wrong. For example, if a file cannot be opened, the exception object has type FileNotFoundException. 
+
+These have a type hierarchy which will be looked at next.
+
+### 7.1.1 The Classification of Exceptions
+
+
+```mermaid
+classDiagram
+    Object <|-- Throwable
+    Throwable <|-- Exception 
+    Throwable <|-- Error
+    Error <|-- IOException
+    Exception <|-- RuntimeException
+
+```
+
+The `Error` class is a subclass of `Throwable` that indicates serious problems that a reasonable application should not try to catch. Most such errors are abnormal conditions. The `ThreadDeath` class is a subclass of Error that indicates that a thread has exited.
+
+The `Exception` class is a subclass of `Throwable` that indicates conditions that a reasonable application might want to catch. Checked exceptions are subclasses of `Exception` that must be caught by the code that calls the method. Unchecked exceptions are subclasses of `RuntimeException`. They are also called runtime exceptions. Runtime exceptions do not need to be declared in a method or constructor’s throws clause if they can be thrown by the execution of the method or constructor and propagate outside the method or constructor boundary.
+
+`RuntimeException` occurs when a program is incorrect, i.e., the programmer has made a mistake. For example, an `ArrayIndexOutOfBoundsException` is a runtime exception that occurs when you try to access an element of an array with an illegal index. The `NullPointerException` is a runtime exception that occurs when you try to use a null object where an object is required.
+
+The other exceptions mean that something went wrong that is outside the control of the programmer. For example, a `FileNotFoundException` occurs when you try to open a file that does not exist. A `SocketException` occurs when you try to use a socket that has been closed. Please note that these also occur when the program is running, not just runtime exceptions.
+
+
+### 7.1.2 Declaring Checked Exceptions
+
+A method can declare that it throws an exception. This is done by including a throws clause in the method’s declaration. The throws clause specifies the types of exceptions that the method might throw. For example, the following method declares that it throws an `IOException` and a `FileNotFoundException`:
+
+```java
+// Class ReadGenericFile
+public void readFile(String fileName) throws IOException, FileNotFoundException
+{
+   ...
+}
+```
+These can occur because the readFile will invoke methods that throw these exceptions. For example, the readFile method might invoke the `FileInputStream` constructor, which throws a `FileNotFoundException`. The `readFile` method might also invoke the read method, which throws an IOException.
+
+The caller of `readFile` must either catch the exception or declare that it throws the exception. For example, the following method declares that it throws an `IOException`:
+
+```java
+
+public void callReadFileA() throws IOException, FileNotFoundException
+{
+   readFile("myfile.txt");
+}
+```
+
+Whereas the following method catches the exception:
+
+```java 
+public void callReadFileB
+{
+   try
+   {
+      readFile("myfile.txt");
+   }
+   catch (IOException exception)
+   {
+      ...
+   }
+      catch (FileNotFoundException exception)
+   {
+      ...
+   }
+}
+```
+
+There is no need to catch a runtime exception. For example, the following method does not need to catch an `ArrayIndexOutOfBoundsException`:
+
+```java
+public void naiveArrayAccess()
+{
+   int[] a = new int[10];
+   a[11] = 99;
+}
+```
+
+**Considerations with subclasses**
+
+You could also catch a super class of the exception for example IOException is a super class of FileNotFoundException, so you could declare as below. But then you won't know the exact exception that occurred :
+
+```java
+
+// Class ReadGenericFile
+public void readFile(String fileName) throws IOException
+{
+   ...
+}
+```
+
+So it is better to declare the exact exception(s) that can occur.
+
+Also when you extend a class and **override** a method, you can only throw a subclass of the exception that the super class method throws. For example, the following method is illegal because it declares that it throws an `IOException`, which is a superclass of `FileNotFoundException` thrown by the readFile method in the superclass:
+
+```java
+// Overriding method in a superclass ReadSpecificFile
+public void readFile(String fileName) throws IOException
+{
+   ...
+}
+```
+
+See [Exception Subclass Considerations diagram](../assets/diagrams/ExceptionSubclassConsiderations.excalidraw)
+
+![diagram ](2023-03-14-08-51-59.png)
+
+
+Also the overridden method can't throw any exception that the super class method doesn't throw. 
+
+
+
+
+
+
+7.1.3      How to Throw an Exception
+
+7.1.4      Creating Exception Classes
+
+7.2     Catching Exceptions
+
+7.2.1      Catching an Exception
+
+7.2.2      Catching Multiple Exceptions
+
+7.2.3      Rethrowing and Chaining Exceptions
+
+7.2.4      The finally Clause
+
+7.2.5      The try-with-Resources Statement
+
+7.2.6      Analyzing Stack Trace Elements
+
+7.3     Tips for Using Exceptions
+
+7.4     Using Assertions
+
+7.4.1      The Assertion Concept
+
+7.4.2      Assertion Enabling and Disabling
+
+7.4.3      Using Assertions for Parameter Checking
+
+7.4.4      Using Assertions for Documenting Assumptions
+
+7.5     Logging
+
+7.5.1      Basic Logging
+
+7.5.2      Advanced Logging
+
+7.5.3      Changing the Log Manager Configuration
+
+7.5.4      Localization
+
+7.5.5      Handlers
+
+7.5.6      Filters
+
+7.5.7      Formatters
+
+7.5.8      A Logging Recipe
+
+7.6     Debugging Tips
+
+
+Java uses assertions to check for conditions that should never occur. An assertion is a boolean expression that is evaluated at runtime. If the expression is false, an assertion error is thrown. Assertions are used to check for conditions that should never occur. For example, if a method is supposed to return a nonnegative number, you can assert that the return value is nonnegative.
+
+Java uses logging to record events that occur while a program is running. Logging is a way of keeping a record of events that occur while a program is running. Logging is useful for debugging and monitoring programs. The Java platform provides a logging API that allows you to log messages at different levels of severity. The logging API also allows you to control the amount of logging that is done. For example, you can turn off logging for a particular class or package.
+
+>[Home](HOME.md)

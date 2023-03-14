@@ -5,20 +5,20 @@
 ## Status : IN_PROGRESS 
 
 ## Book Notes
- 
-- [v1ch03FundamentalProgrammingStructures](v1ch03FundamentalProgrammingStructures.md)
-- [v1ch04ObjectsAndClasses](v1ch04ObjectsAndClasses.md)
-- [v1ch05Inheritance](v1ch05Inheritance.md)
-- [v1ch06InterfacesLamddaInnetClasses](v1ch06InterfacesLamddaInnetClasses.md)
-- [v1ch09Collections](v1ch09Collections.md)
-- [v1ch12Concurrency](v1ch12Concurrency.md)
-- [v2ch01Streams](v2ch01Streams.md)
-- [v2ch09TheJavaPlatformModuleSystem](v2ch09TheJavaPlatformModuleSystem.md)
 
+### Volume 1 
+- [v1 ch03 Fundamental Programming Structures](v1ch03FundamentalProgrammingStructures.md)
+- [v1 ch04 Objects And Classes](v1ch04ObjectsAndClasses.md)
+- [v1 ch05 Inheritance](v1ch05Inheritance.md)
+- [v1 ch06 Interfaces Lambda Inner Classes](v1ch06InterfacesLambdaInnerClasses.md)
+- [v1 ch07 Exceptions Assertions Logging](v1ch07ExceptionsAssertionsLogging.md)
+- [v1 ch09 Collections](v1ch09Collections.md)
+- [v1 ch12 Concurrency](v1ch12Concurrency.md)
 
-## Programming Exercises
+### Volume 2
 
-- [v1ch03FundamentalProgrammingStructures](v1ch03FundamentalProgrammingStructures.md)
-- [v1ch04ObjectsAndClasses](v1ch04ObjectsAndClasses.md.md)
+- [v2 ch01 Streams](v2ch01Streams.md)
+- [v2 ch09 TheJavaPlatformModuleSystem](v2ch09TheJavaPlatformModuleSystem.md)
+
 
 >[Home](Home.md)
