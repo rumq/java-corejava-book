@@ -235,7 +235,7 @@ catch (IOException exception)
 ```
 
 
-### 7.2.2      Catching Multiple Exceptions
+### 7.2.2 Catching Multiple Exceptions
 
 You can handle each exception differently. For example, the following catch block catches an `IOException` and a `FileNotFoundException`:
 
@@ -319,17 +319,183 @@ catch (IOException exception)
 }
 ```
 
+### 7.2.3 Rethrowing and Chaining Exceptions
+
+You don't have to catch an exception. You can rethrow it. For example, the following catch block catches an `IOException` and rethrows it:
+
+```java
+try
+{
+   ...
+}
+catch (IOException exception)
+{
+   // rethrow the exception
+   throw exception;
+}
+```
+
+You can also chain exceptions. If you chain exceptions, make sure to set the original exception as the cause of the new exception. 
+
+For example, the following catch block sets the original exception as the cause of the new exception and rethrows it:
+
+```java
+try
+{
+   ...
+}
+catch (IOException exception)
+{
+   // chain the exception, setting the original exception as the cause
+   exception.initCause(exception);
+   throw new ApplicationSpecificException(exception);
+}
+```
+
+Any calling method can then get the cause of an exception using the `getCause` method. For example :
+```java
+try
+{
+   ...
+}
+catch (ApplicationSpecificException exception)
+{
+   // get the cause of the exception and use it to do something
+   Throwable cause = exception.getCause();
+   ...
+}
+```
+
+### 7.2.4 The finally Clause
+
+You can use a finally block to execute code that must be executed regardless of whether an exception is thrown. For example, the following try-catch-finally block catches an `IOException` and rethrows it:
+
+```java
+try
+{
+   ...
+}
+catch (IOException exception)
+{
+   // rethrow the exception
+   throw exception;
+}
+finally
+{
+   // do something regardless of whether an exception is thrown
+   // close the file
+   if (in != null) in.close();
+   ...
+}
+```
+
+Finally can be used to close a file, close a database connection, close a network connection, etc.
+
+It is good practice to close a file in a finally block. If you don't close a file, the operating system may not be able to delete the file.
+
+Finally is executed in the following cases:
+
+1. No exception is thrown. The finally block is executed after the try block and the next statement after the finally block is executed.
+2. Exception is thrown and caught 
+   1. catch itself throws an exception. Finally block is executed and control goes back to caller.
+   2. catch does not throw an exception. Finally block is executed and the next statement after that block is executed.
+3. Exception is thrown and not caught. Finally block is executed and control goes back to caller.
+
+Finally block can be used even if there is no catch block. You can nest this inside another try-catch block. 
+
+```java
+try
+{
+   try
+   {
+      ...
+   }
+   finally
+   {
+      // do something regardless of whether an exception is thrown
+      // close the file
+      if (in != null) in.close();
+      ...
+   }
+}
+catch (IOException exception)
+{
+   // rethrow the exception
+   throw exception;
+}
+```
+
+Finally blocks are executed even if the program exits using the `System.exit` method. For example, the following try-catch-finally block catches an `IOException` and rethrows it:
 
 
+It is possible to put control statements in a finally block. But it is not a good idea to do so. 
+
+### 7.2.5 The try-with-Resources Statement
+
+Earlier we said that we can use a finally block to close a file. But it is no longer the recommended way to do so.
+
+The try-with-resources statement is a try statement that declares one or more resources. A resource is an object that must be closed after the program is finished with it. The try-with-resources statement ensures that each resource is closed at the end of the statement. Any object that implements `java.lang.AutoCloseable`, which includes all objects which implement `java.io.Closeable`, can be used as a resource. Which means it just needs to have a `close` method.
+
+For example, the following try-with-resources statement opens a file and reads from it and closes the file automatically in all situations as we saw with finally in the previous section:
+
+```java
+
+try (BufferedReader in = new BufferedReader(new FileReader("myfile.txt")))
+{
+   String line = in.readLine();
+   ...
+}
+```
+You can specify multiple resources. For example, you create both the input and output resources which are closed automatically when the block exits.
+
+```java
+try (BufferedReader in = new BufferedReader(new FileReader("myfile.txt"));
+     PrintWriter out = new PrintWriter(new FileWriter("myfile.txt")))
+{
+   String line = in.readLine();
+   ...
+}
+```
+
+Final (and efffectively final) variables can be used as well in the try-with-resources statement. 
+
+```java
+final BufferedReader in = new BufferedReader(new FileReader("myfile.txt"));
+try (in)
+{
+   String line = in.readLine();
+   ...
+}
+```
+
+### 7.2.6 Analyzing Stack Trace Elements
+
+See 
+- [SimpleStackTraceTest](SimpleStackTraceTest.java)
+- [StackTraceTest](../book-code/corejava/v1ch07/stackTrace/StackTraceTest.java)
+
+If a program terminates with uncaught exception, the stack trace of the exception is printed.
+
+A stack trace is a list of stack trace elements. The first element in the list represents the top of the stack, which is the method that is currently executing. Each element in the list represents a method invocation. The last element in the list represents the bottom of the stack, which is the method that was invoked first.
 
 
-7.2.3      Rethrowing and Chaining Exceptions
+A stack trace element contains the following information:
 
-7.2.4      The finally Clause
+You can get the stack trace of an exception using the `getStackTrace` method. For example, the following catch block catches an `IOException` and prints the stack trace:
 
-7.2.5      The try-with-Resources Statement
+```java
+try
+{
+   ...
+}
+catch (IOException exception)
+{
+   // print the stack trace
+   for (StackTraceElement element : exception.getStackTrace())
+      System.out.println(element);
+}
+```
 
-7.2.6      Analyzing Stack Trace Elements
 
 7.3     Tips for Using Exceptions
 

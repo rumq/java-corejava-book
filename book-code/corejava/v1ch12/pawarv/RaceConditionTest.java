@@ -15,6 +15,7 @@ public class RaceConditionTest {
             t2.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
+            
         }
         System.out.println("CounterA value: " + counter.getValue());
     }
