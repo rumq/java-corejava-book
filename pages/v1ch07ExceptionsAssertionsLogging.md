@@ -136,20 +136,192 @@ See [Exception Subclass Considerations diagram](../assets/diagrams/ExceptionSubc
 
 Also the overridden method can't throw any exception that the super class method doesn't throw. 
 
+### 7.1.3 How to Throw an Exception
+
+Quite simple, just use the `throw` keyword. 
+
+We can throw an exception in two ways. We can throw an exception that is already defined in the Java API. Or we can throw an exception that we have created.
+
+For example, the following method throws an `IllegalArgumentException` if the argument is negative: 
+
+Here we are using the `IllegalArgumentException` which is a subclass of `RuntimeException` so we don't need to declare it in the method signature.
+
+```java
+public static double sqrt(double x)
+{
+   if (x < 0) throw new IllegalArgumentException("Negative argument.");
+   ...
+}
+```
+
+However, if you want to throw a checked exception, you need to declare it in the method signature. For example, the following method throws an `IOException` if the argument is negative:
+
+```java
+
+public static double readData(Scanner in) throws EOFException
+{
+   ... 
+   if (n < len) throw new EOFException();
+   ...
+}
+```
+
+
+### 7.1.4 Creating Exception Classes
+
+
+Or you can throw an exception that you have created. For example, the following method throws a `NegativeNumberException` if the argument is negative:
+
+```java
+public static double sqrt(double x) throws NegativeNumberException
+{
+   if (x < 0) throw new NegativeNumberException();
+   ...
+}
+
+// Class NegativeNumberException
+public class NegativeNumberException extends Exception
+{
+   public NegativeNumberException(){ }
+
+   public NegativeNumberException(String msg) 
+    {
+        super(msg);
+    }
+}
+```
+
+## 7.2 Catching Exceptions
+
+If an exception is not caught anywhere, the program will terminate and prints a stack trace. 
+
+
+### 7.2.1 Catching an Exception
+
+We use a try-catch block to catch an exception. 
+
+```java
+try
+{
+   ...
+}
+catch (ExceptionType1 e1)
+{
+   ...
+}
+catch (ExceptionType2 e2)
+{
+   ...
+}
+catch (ExceptionType3 e3)
+{
+   ...
+}
+```
+
+The try block contains the code that might throw an exception. The catch blocks contain the code that will be executed if an exception of the specified type is thrown. The catch blocks are executed in the order in which they appear in the source code. The catch blocks are optional. If there is no catch block, the exception is not caught. If there is no catch block for a particular exception type, the exception is not caught.
+
+The catch block can also catch a subclass of the exception type. For example, the following catch block catches an `IOException` and a `FileNotFoundException`:
+
+```java
+try
+{
+   ...
+}
+catch (IOException exception)
+{
+   ...
+}
+```
+
+
+### 7.2.2      Catching Multiple Exceptions
+
+You can handle each exception differently. For example, the following catch block catches an `IOException` and a `FileNotFoundException`:
+
+```java
+try
+{
+   ...
+}
+catch (IOException exception)
+{
+   // do something specific to IOException
+}
+catch (FileNotFoundException exception)
+{
+    // do something specific to FileNotFoundException
+}
+```
+
+
+Or you can catch multiple exceptions in a single catch block. For example, the following catch block catches an `IOException` and a `FileNotFoundException`:
+
+```java
+try
+{
+   ...
+}
+catch (IOException | FileNotFoundException exception)
+{
+   // do something common to both IOException and FileNotFoundException
+}
+```
+
+You can get the exception type using the `instanceof` operator. For example, the following catch block catches an `IOException` and a `FileNotFoundException`:
+
+```java
+try
+{
+   ...
+}
+catch (IOException exception)
+{
+   if (exception instanceof FileNotFoundException)
+   {
+      // do something specific to FileNotFoundException
+   }
+   else
+   {
+      // do something specific to IOException that is not a FileNotFoundException
+   }
+}
+```
+
+You can get the exception message using the `getMessage` method. For example, the following catch block catches an `IOException` and a `FileNotFoundException`:
+
+```java
+try
+{
+   ...
+}
+catch (IOException exception)
+{
+
+  // get the message of the exception and use it to do something
+   String message = exception.getMessage();
+   ...
+}
+```
+
+You can get the class name of the exception using the `getClass` method. For example, the following catch block catches an `IOException` and a `FileNotFoundException`:
+
+```java
+try
+{
+   ...
+}
+catch (IOException exception)
+{
+   // get the class name of the exception and use it to do something
+   String className = exception.getClass().getName();
+   ...
+}
+```
 
 
 
 
-
-7.1.3      How to Throw an Exception
-
-7.1.4      Creating Exception Classes
-
-7.2     Catching Exceptions
-
-7.2.1      Catching an Exception
-
-7.2.2      Catching Multiple Exceptions
 
 7.2.3      Rethrowing and Chaining Exceptions
 
