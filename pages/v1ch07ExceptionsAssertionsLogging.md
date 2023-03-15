@@ -577,7 +577,16 @@ Later
 
 ## 7.5 Logging
 
-Java uses logging to record events that occur while a program is running. Logging is a way of keeping a record of events that occur while a program is running. Logging is useful for debugging and monitoring programs. The Java platform provides a logging API that allows you to log messages at different levels of severity. The logging API also allows you to control the amount of logging that is done. For example, you can turn off logging for a particular class or package.
+Logging is a way of keeping a record of events that occur while a program is running. Java uses logging to **record** events that occur while a program is running. 
+
+Logging is useful for debugging and monitoring programs. 
+
+The Java platform provides a logging API that allows you to log messages at different levels of severity. 
+
+The logging API also allows you to control the amount of logging that is done. For example, you can turn off logging for a particular class or package.
+
+In practice you will use a logging framework such as Log4J, Logback, or Java Util Logging (JUL). But for understanding the logging API, we can use the standard logging API.
+
 
 **Advantages of the logging API**
 
@@ -590,7 +599,7 @@ Java uses logging to record events that occur while a program is running. Loggin
 * Can form hierarchical loggers - a parent logger can control the logging of its child loggers.
 * Can be configured using a configuration file.
 
-In practice you will use a logging framework such as Log4J, Logback, or Java Util Logging (JUL). But for understanding the logging API, we will use the standard logging API.
+
 
 ### 7.5.1 Basic Logging
 
@@ -604,7 +613,10 @@ Get an instance of the global logger using the `getLogger` method. The global lo
 
 ### 7.5.2 Advanced Logging
 
-See [AdvancedLoggingTest](../book-code/corejava/v1ch07/pawarv/AdvancedLoggingTest.java)
+See 
+- [AdvancedLoggingTest](../book-code/corejava/v1ch07/pawarv/AdvancedLoggingTest.java)
+- [ConsoleHandlersTest](../book-code/corejava/v1ch07/pawarv/ConsoleHandlersTest.java)
+- [FileHandlerTest](../book-code/corejava/v1ch07/pawarv/FileHandlerTest.java)
 
 The `Logger` class has a number of methods for logging messages at different levels of severity. The logging levels are `SEVERE`, `WARNING`, `INFO`, `CONFIG`, `FINE`, `FINER`, `FINEST`, and `ALL`. The `SEVERE` level is the highest level of severity. The `ALL` level is the lowest level of severity. The `INFO` level is the default logging level. 
 
