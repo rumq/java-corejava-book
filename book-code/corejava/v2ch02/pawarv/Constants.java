@@ -1,4 +1,4 @@
-package net.rumq;
+package pawarv;
 
 public class Constants {
     public static final String IN_TXT = "in.txt";

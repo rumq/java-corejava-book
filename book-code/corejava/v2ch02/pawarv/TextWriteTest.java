@@ -1,9 +1,9 @@
-package net.rumq;
+package pawarv;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
-import static net.rumq.Constants.*;
+import static pawarv.Constants.*;
 
 /**
  * Demonstrates how to write some text to a file

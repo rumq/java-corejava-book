@@ -1,4 +1,4 @@
-package net.rumq;
+package pawarv;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -7,7 +7,7 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static net.rumq.Constants.IN_OUT_TXT;
+import static pawarv.Constants.IN_OUT_TXT;
 
 public class TextReadUsingFilesTest {
     public static void main(String[] args) throws IOException {

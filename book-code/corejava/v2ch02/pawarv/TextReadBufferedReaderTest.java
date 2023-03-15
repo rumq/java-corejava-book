@@ -1,11 +1,11 @@
-package net.rumq;
+package pawarv;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-import static net.rumq.Constants.IN_OUT_TXT;
+import static pawarv.Constants.IN_OUT_TXT;
 
 public class TextReadBufferedReaderTest {
     public static void main(String[] args) throws IOException {

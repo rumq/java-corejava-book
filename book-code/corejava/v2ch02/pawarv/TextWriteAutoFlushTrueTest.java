@@ -1,4 +1,4 @@
-package net.rumq;
+package pawarv;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -6,7 +6,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 
-import static net.rumq.Constants.IN_OUT_TXT;
+import static pawarv.Constants.IN_OUT_TXT;
 
 /**
  * Demonstrates use of autoflush
