@@ -497,27 +497,134 @@ catch (IOException exception)
 ```
 
 
-7.3     Tips for Using Exceptions
+## 7.3 Tips for Using Exceptions
 
-7.4     Using Assertions
+Some tips 
 
-7.4.1      The Assertion Concept
+**Exceptional condition**
+Use exceptions for exceptional conditions. Don't use them for ordinary control flow.
 
-7.4.2      Assertion Enabling and Disabling
+See [TipExceptionDoesntReplaceTest](../book-code/corejava/v1ch07/pawarv/TipExceptionDoesntReplaceTest.java)
 
-7.4.3      Using Assertions for Parameter Checking
+**Don't do excessive exception handling**
+Try to keep a reasonable number of statements in the try block and catch the potential errors in the catch block rather than surrounding every statement with a try block.
 
-7.4.4      Using Assertions for Documenting Assumptions
+**Use the right exception**
 
-7.5     Logging
+Find one from the API, or create your own. Don't throw exceptions that are too general. For example, don't throw `Exception` or `Throwable`. Don't throw exceptions that the caller knows that'll never happen. For example, don't throw `FileNotFoundException` if the file is guaranteed to exist.
 
-7.5.1      Basic Logging
+**Don't ignore exceptions**
 
-7.5.2      Advanced Logging
+Do not try to catch exception and ignore it. If you do so, you are hiding the error. If you don't know what to do with the exception, then rethrow it.
 
-7.5.3      Changing the Log Manager Configuration
+**Exception is better than returning null** (Throw early)
 
-7.5.4      Localization
+If a method returns null, the caller has to check for null. If the method throws an exception, the caller can handle the exception.
+
+**Nothing wrong with propagating exceptions** (Catch late)
+
+If it makes sense, you can propagate an exception. For example, if you are writing a method that reads a file, you can propagate the exception to the caller. The caller can then handle the exception. They may be able to recover from the exception. 
+
+**Use standard null pointer and index out of bounds exceptions**
+
+Use the objects methods to check for null and index out of bounds. 
+
+For example
+* use `Objects.requireNonNull` to check for null.  
+* Use  `checkIndex`  `checkFromToIndex` `checkFromIndexSize` to check for index out of bounds.
+
+```java
+    
+    Objects.requireNonNull(greeting, "s is null");
+    Objects.checkIndex(1, strings.length);
+    Objects.checkFromToIndex(0, 10, strings.length);
+    Objects.checkFromIndexSize(0, 10, strings.length);
+
+```
+
+**Don't show stack traces to users**
+
+Catch it and show a user friendly message.
+
+## 7.4 Using Assertions
+
+Assertions are a debugging tool that you can use to test your assumptions about your program. They are enabled or disabled using the `-ea` or `-da` command-line options. You can also enable or disable assertions for specific classes or packages.
+
+### 7.4.1 The Assertion Concept
+
+An assertion is a boolean expression that is evaluated at runtime. If the expression is false, an assertion error is thrown. Assertions are used to check for conditions that should never occur. For example, if a method is supposed to return a nonnegative number, you can assert that the return value is nonnegative.
+
+```java
+public static int factorial(int n)
+{
+   assert n >= 0;
+   int r = 1;
+   for (int i = 1; i <= n; i++) r *= i;
+   return r;
+}
+```
+
+### 7.4.2 Assertion Enabling and Disabling
+
+If you run the above example program with the `-ea` option, the assertion is enabled and the program runs normally. If you run it without the `-ea` option or with `-da`, the assertion is disabled and the program runs normally. 
+
+### 7.4.3 Using Assertions for Parameter Checking
+
+Later
+
+### 7.4.4 Using Assertions for Documenting Assumptions
+Later
+
+## 7.5 Logging
+
+Java uses logging to record events that occur while a program is running. Logging is a way of keeping a record of events that occur while a program is running. Logging is useful for debugging and monitoring programs. The Java platform provides a logging API that allows you to log messages at different levels of severity. The logging API also allows you to control the amount of logging that is done. For example, you can turn off logging for a particular class or package.
+
+**Advantages of the logging API**
+
+* You can control the amount of logging that is done - reduce or increase the amount of logging.
+* Can leave the logging code in the program and turn it on or off as needed.
+* Direct the logging output to different destinations (handlers) - console, file, network socket, etc.
+* Can filter the logging output - only log messages with a certain level of severity.
+* Can use different logging levels - info, warning, error, etc.
+* Can be formatted in different ways - XML, HTML, plain text, etc.
+* Can form hierarchical loggers - a parent logger can control the logging of its child loggers.
+* Can be configured using a configuration file.
+
+In practice you will use a logging framework such as Log4J, Logback, or Java Util Logging (JUL). But for understanding the logging API, we will use the standard logging API.
+
+### 7.5.1 Basic Logging
+
+See [BasicLoggingTest](../book-code/corejava/v1ch07/pawarv/BasicLoggingTest.java)
+
+Get an instance of the global logger using the `getLogger` method. The global logger is the root of the logger hierarchy. Use `info` method to log a message. Use `setLevel` method to set the logging level. The default logging level is `INFO`. If you set the logging level to `OFF`, no logging will be done from that point.
+
+```java
+    Logger.getGlobal().info("First Greeting - Hello");
+```
+
+### 7.5.2 Advanced Logging
+
+See [AdvancedLoggingTest](../book-code/corejava/v1ch07/pawarv/AdvancedLoggingTest.java)
+
+The `Logger` class has a number of methods for logging messages at different levels of severity. The logging levels are `SEVERE`, `WARNING`, `INFO`, `CONFIG`, `FINE`, `FINER`, `FINEST`, and `ALL`. The `SEVERE` level is the highest level of severity. The `ALL` level is the lowest level of severity. The `INFO` level is the default logging level. 
+
+Only logs above the logging level will be logged. For example, if the logging level is `INFO`, then `INFO`, `WARNING`, and `SEVERE` messages will be logged. But `FINE`, `FINER`, and `FINEST` messages will not be logged.
+
+
+
+```java
+    Logger.getGlobal().info("First Greeting - Hello");
+    Logger.getGlobal().warning("Second Greeting - Hello");
+    Logger.getGlobal().severe("Third Greeting - Hello");
+```
+
+### 7.5.3 Changing the Log Manager Configuration
+Later
+
+Can update the config file
+
+### 7.5.4 Localization
+Later
 
 7.5.5      Handlers
 
@@ -530,8 +637,7 @@ catch (IOException exception)
 7.6     Debugging Tips
 
 
-Java uses assertions to check for conditions that should never occur. An assertion is a boolean expression that is evaluated at runtime. If the expression is false, an assertion error is thrown. Assertions are used to check for conditions that should never occur. For example, if a method is supposed to return a nonnegative number, you can assert that the return value is nonnegative.
 
-Java uses logging to record events that occur while a program is running. Logging is a way of keeping a record of events that occur while a program is running. Logging is useful for debugging and monitoring programs. The Java platform provides a logging API that allows you to log messages at different levels of severity. The logging API also allows you to control the amount of logging that is done. For example, you can turn off logging for a particular class or package.
+
 
 >[Home](HOME.md)
