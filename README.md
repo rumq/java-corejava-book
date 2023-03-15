@@ -3,7 +3,7 @@
 ## Pages
 
 - [Home](pages/Home.md)
-- [Chapter Notes](pages/Home.md)
+- [Chapter Notes](pages/Home.md)o
 
 
 ## Links

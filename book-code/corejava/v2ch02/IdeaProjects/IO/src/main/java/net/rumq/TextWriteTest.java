@@ -3,17 +3,18 @@ package net.rumq;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
+import static net.rumq.Constants.*;
 
 /**
- * Hello world!
+ * Demonstrates how to write some text to a file
  */
-public class App {
+public class TextWriteTest {
     public static void main(String[] args) throws IOException {
 
-        System.out.println("Hello World!");
+        try (var out = new PrintWriter(IN_OUT_TXT, StandardCharsets.UTF_8);) {
 
-        try (var out = new PrintWriter("out.txt", StandardCharsets.UTF_8);) {
             out.println("First Line");
+            out.println("Second Line");
         }
 
     }

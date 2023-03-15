@@ -1,0 +1,30 @@
+package net.rumq;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
+
+import static net.rumq.Constants.IN_OUT_TXT;
+
+/**
+ * Demonstrates use of autoflush
+ */
+public class TextWriteAutoFlushTrueTest {
+
+    public static void main(String[] args) throws FileNotFoundException {
+
+        try (var out = new PrintWriter(
+                new OutputStreamWriter(new FileOutputStream(IN_OUT_TXT),
+                        StandardCharsets.UTF_8),
+                true);) {
+            out.println("First Line - flushed");
+            out.println("Second Line - flushed");
+            out.println("Third Line - flushed");
+
+        }
+
+    }
+
+}
