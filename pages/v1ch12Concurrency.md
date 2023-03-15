@@ -2,9 +2,59 @@
 
 # Volume 1 Chapter 12 Concurrency   
 
+Status : DONE
 
+- [Volume 1 Chapter 12 Concurrency](#volume-1-chapter-12-concurrency)
+  - [12.1 What Are Threads?](#121-what-are-threads)
+  - [12.2 Thread States](#122-thread-states)
+    - [12.2.1 New](#1221-new)
+    - [12.2.2 Runnable Threads](#1222-runnable-threads)
+    - [12.2.3 Blocked and Waiting Threads](#1223-blocked-and-waiting-threads)
+    - [12.2.4 Terminated Threads](#1224-terminated-threads)
+  - [12.3 Thread Properties](#123-thread-properties)
+    - [12.3.1 Interrupting Threads](#1231-interrupting-threads)
+    - [12.3.2 Daemon Threads](#1232-daemon-threads)
+    - [12.3.3 Thread Names](#1233-thread-names)
+    - [12.3.4 Handlers for Uncaught Exceptions](#1234-handlers-for-uncaught-exceptions)
+    - [12.3.5 Thread Priorities](#1235-thread-priorities)
+  - [12.4 Synchronization](#124-synchronization)
+    - [12.4.1 An Example of Race Condition](#1241-an-example-of-race-condition)
+    - [12.4.2 Race Condition Explained](#1242-race-condition-explained)
+    - [12.4.3 Lock Objects](#1243-lock-objects)
+    - [12.4.4 Condition Objects](#1244-condition-objects)
+    - [12.4.5 The synchronized Keyword](#1245-the-synchronized-keyword)
+    - [12.4.6 Synchronized Blocks](#1246-synchronized-blocks)
+    - [12.4.7 The Monitor Concept](#1247-the-monitor-concept)
+    - [12.4.8 Volatile Fields](#1248-volatile-fields)
+    - [12.4.9 Final Variables](#1249-final-variables)
+    - [12.4.10 Atomics](#12410-atomics)
+    - [12.4.11 Deadlocks](#12411-deadlocks)
+    - [12.4.12 Why the stop and suspend Methods Are Deprecated](#12412-why-the-stop-and-suspend-methods-are-deprecated)
+    - [12.4.13 On-Demand Initialization](#12413-on-demand-initialization)
+    - [12.4.14 Thread-local Variables](#12414-thread-local-variables)
+  - [12.5 Thread-Safe Collections](#125-thread-safe-collections)
+    - [12.5.1 Blocking Queues](#1251-blocking-queues)
+    - [12.5.2 Efficient Maps, Sets, and Queues](#1252-efficient-maps-sets-and-queues)
+    - [12.5.3 Atomic update of Map Entries](#1253-atomic-update-of-map-entries)
+    - [12.5.4 Bulk Operations on Concurrent Hash Maps](#1254-bulk-operations-on-concurrent-hash-maps)
+    - [12.5.5 Concurrent Set Views](#1255-concurrent-set-views)
+    - [12.5.6 Copy on Write arrays](#1256-copy-on-write-arrays)
+    - [12.5.7 Parallel Array Algorithms](#1257-parallel-array-algorithms)
+    - [12.5.8 Older Thread-Safe Collections](#1258-older-thread-safe-collections)
+  - [12.6 Tasks and Thread Pools](#126-tasks-and-thread-pools)
+    - [12.6.1 Callables and Futures](#1261-callables-and-futures)
+    - [12.6.2 Executors](#1262-executors)
+    - [12.6.3 Controlling Groups of Tasks](#1263-controlling-groups-of-tasks)
+    - [12.6.4 The Fork-Join Framework](#1264-the-fork-join-framework)
+  - [12.7 Asynchronous Computations](#127-asynchronous-computations)
+    - [12.7.1 Completable Futures](#1271-completable-futures)
+    - [12.7.2 Composing Completable Futures](#1272-composing-completable-futures)
+    - [12.7.3 Long-Running Tasks in User Interface Callbacks](#1273-long-running-tasks-in-user-interface-callbacks)
+  - [12.8 Processes](#128-processes)
+    - [12.8.1 Building a Process](#1281-building-a-process)
+    - [12.8.2 Running a Process](#1282-running-a-process)
+    - [12.8.3 Process Handles](#1283-process-handles)
 
-Status : 
 
 *Multitasking* is the ability of the operating system to run several programs each running in its own process at the same time. The operating system switches between the processes very quickly, so that it appears that they are running at the same time. The operating system gives each process a CPU time slice, which is the amount of time that the process can run before the operating system switches to another process.
 
@@ -458,8 +508,6 @@ map.merge(key, 1, Integer::sum);
 Later (Advanced)
 ### 12.5.5 Concurrent Set Views
 Later (Advanced)
-
-
 
 Can get a ConcurrentSet from a ConcurrentHashMap.
 
