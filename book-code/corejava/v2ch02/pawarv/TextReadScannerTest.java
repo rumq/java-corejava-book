@@ -10,7 +10,7 @@ public class TextReadScannerTest {
     public static void main(String[] args) throws IOException {
 
 
-        // Default delimiter is whilespace
+        // Default delimiter is whiyespace
         Path filePath = Path.of(IN_OUT_TXT);
         try (Scanner in = new Scanner(filePath);) {
             System.out.println("*** Default delimiter");

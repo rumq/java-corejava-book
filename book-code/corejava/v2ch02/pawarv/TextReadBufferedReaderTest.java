@@ -6,12 +6,15 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 import static pawarv.Constants.IN_OUT_TXT;
-
+/*
+ * Demonstrates how to read some text from a file
+ */
 public class TextReadBufferedReaderTest {
     public static void main(String[] args) throws IOException {
 
         // From InputStream
         // br <- isr <- is
+        // Old fashioned way of reading text from a file
         try (InputStream ins = Files.newInputStream(Path.of(IN_OUT_TXT));
              var br = new BufferedReader(
                      new InputStreamReader(ins, StandardCharsets.UTF_8))) {
@@ -37,6 +40,12 @@ public class TextReadBufferedReaderTest {
                 else
                     System.out.println(line);
             }
+        }
+
+        // BufferedReader with Stream
+        System.out.println("************ Third");
+        try (BufferedReader br = Files.newBufferedReader(Path.of(IN_OUT_TXT))) {
+            br.lines().forEach(System.out::println);
         }
 
 

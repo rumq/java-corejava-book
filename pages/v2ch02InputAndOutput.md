@@ -16,11 +16,11 @@ We'll look into
 
 Input streams read data from a source, and output streams write data to a destination. 
 
-Please note that these streams are not the same as the Streams that are in the package java.util.stream which are used for functional programming. Unfortunately, the Java API uses the same name for both.
+Note that these streams are not the same as the Streams that are in the package java.util.stream which are used for functional programming. Unfortunately, the Java API uses the same name for both.
 
 The source and destination can be a file, an array, a device, or a network connection. The Java I/O API defines a large number of stream classes, and it is easy to get lost in the jungle of classes. The following table lists the most important stream classes.
 
-| Stream Class | Description |
+| Class | Description |
 |--------------|-------------|
 | InputStream | Abstract superclass for all input streams |
 | OutputStream | Abstract superclass for all output streams |
@@ -74,7 +74,7 @@ The OutputStream class defines the following methods:
 **Input and output stream hierarchy**
 ![](2023-03-15-09-36-13.png)
 
-#### Character stream hierarchy
+**Character stream hierarchy**
 ![](2023-03-15-09-37-01.png)
 
 ### 2.1.3 Combining Input/Output Stream Filters
@@ -83,8 +83,13 @@ The OutputStream class defines the following methods:
 ### 2.1.4 Text Input and Output
 
 See 
-- [TextWriteTest](../book-code/corejava/v2ch02/IdeaProjects/IO/src/main/java/net/rumq/TextWriteTest.java)
-- [TextWriteAutoFlushTrueTest](../book-code/corejava/v2ch02/IdeaProjects/IO/src/main/java/net/rumq/TextWriteAutoFlushTrueTest.java)
+- [ReadingAndWritingBytesTest](../book-code/corejava/v2ch02/pawarv/ReadingAndWritingBytesTest.java)
+
+### 2.1.5 How to Write Text Output
+
+When saving data, there are two options: save the data in binary format or save the data in text format. Binary format is more compact, but it is not human-readable. 
+
+When saving as a string, you'll have to consider the character encoding. Java use UTF-16 as the default character encoding. However, UTF-8 is more compact and is used more often.
 
 We can use PrintWriter to write text to a file. The PrintWriter class is a character-based output stream that adds buffering and formatting capabilities to an output stream. The PrintWriter class defines the following methods:
 
@@ -93,6 +98,21 @@ We can use PrintWriter to write text to a file. The PrintWriter class is a chara
 | void print(String s) | Writes a string. |
 | void println(String s) | Writes a string and a line separator. |
 | void printf(String format, Object... args) | Writes a formatted string. |
+
+
+We can use `PrintWriter` as below. The `out` object has the same methods as `System.out`.
+    
+```java
+    PrintWriter out = new PrintWriter("myfile.txt", "UTF-8");
+    out.println("Hello, World!");   
+```       
+See [TextWriteTest](../book-code/corejava/v2ch02/pawarv/TextWriteTest.java)
+
+We do not have to buffer the output. The `PrintWriter` class does it for us.
+By default autoflush is disabled for `PrintWriter`. We can enable it by passing `true` as the second argument to the constructor.
+
+- [TextWriteAutoFlushTrueTest](../book-code/corejava/v2ch02/pawarv/TextWriteAutoFlushTrueTest.java)
+
 
 The Scanner class is a character-based input stream that adds buffering and tokenization capabilities to an input stream. The Scanner class defines the following methods:
 
@@ -106,16 +126,27 @@ The Scanner class is a character-based input stream that adds buffering and toke
 | boolean nextBoolean() | Returns the next boolean. |
 
 
+### 2.1.6 How to Read Text Input
+
+We can use the methods on `Files` to read text from a file. See
+ [TextReadUsingFilesTest](../book-code/corejava/v2ch02/pawarv/TextReadUsingFilesTest.java).
+
+But it's better to use `Scanner` as it has more options to read text, like reading a line, reading an integer, reading a double, etc.
+
+See [TextReadScannerTest](../book-code/corejava/v2ch02/pawarv/TextReadScannerTest.java)
+
+In the early versions of Java, the BufferedReader class was the standard way to read text from a file. See [TextReadBufferedReaderTest](../book-code/corejava/v2ch02/pawarv/TextReadBufferedReaderTest.java)
+
+### 2.1.7 Saving Objects in Text Format
+
+See book example [TextFileTest](../book-code/corejava/v2ch02/textFile/TextFileTest.java)
+
+### 2.1.8 Character Encodings
+
+Character encodings are used to convert between characters and bytes. They are a way to represent characters in a computer using a fixed number of bits. For example, the ASCII character encoding uses 7 bits to represent each character. The Unicode character encoding uses 16 bits to represent each character. The UTF-8 character encoding uses 8 bits to represent each character. The UTF-16 character encoding uses 16 bits to represent each character.
 
 
-
-2.1.5 How to Write Text Output
-
-2.1.6 How to Read Text Input
-
-2.1.7 Saving Objects in Text Format
-
-2.1.8 Character Encodings
+The Java platform uses UTF-16 as the default character encoding. However, UTF-8 is more compact and is used more often.
 
 2.2 Reading and Writing Binary Data
 
