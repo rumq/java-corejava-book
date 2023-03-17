@@ -130,6 +130,61 @@ Bytes class hierarchy is different from character class hierarchy.
 
 ### 2.1.3 Combining Input/Output Stream Filters
 
+The subclasses of FilterInputStream and FilterOutputStream are called stream filters. They are used to modify the behaviour of the underlying stream. 
+
+This is done by chaining the filters together.
+
+For example, the BufferedInputStream class adds buffering to an input stream. The DataInputStream class adds methods for reading Java primitive types. These classes which are subclasses of FilterInputStream can be chained together to add both buffering and data reading to an input stream.
+
+The following diagram shows the class hierarchy of the input stream classes.
+
+```mermaid
+
+classDiagram
+    InputStream <|-- FileInputStream
+    InputStream <|-- FilterInputStream
+    FilterInputStream <|-- BufferedInputStream
+    FilterInputStream <|-- DataInputStream
+    FilterInputStream <|-- ObjectInputStream
+    FilterInputStream <|-- ZipInputStream
+
+```
+
+You can add those capabilities to an existing stream by wrapping it in a filter stream. For example, the following code adds buffering to a FileInputStream.
+
+```java
+
+var stream = new BufferedInputStream(
+                new FileInputStream("myfile.txt"));
+
+```
+
+This following code adds buffering and data reading to a FileInputStream.
+
+```java
+
+var stream = new DataInputStream (
+                new BufferedInputStream(
+                    new FileInputStream("myfile.txt")));
+
+```
+
+This following code adds 
+
+```java
+
+var stream = new ObjectInputStream (
+                new DataInputStream (
+                    new BufferedInputStream(
+                        new FileInputStream("myfile.txt"))));
+
+```
+
+
+
+
+```
+
 ### 2.1.4 Text Input and Output
 
 See

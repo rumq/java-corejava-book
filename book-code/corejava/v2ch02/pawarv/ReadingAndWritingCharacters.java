@@ -54,7 +54,7 @@ public class ReadingAndWritingCharacters {
 
         // }
 
-        // 2. read and write one character at a time
+        // 2. read and write one character at a time as UTF-16 decimal
         try (Reader in = new FileReader(inputFile)) {
             int c;
             while ((c = in.read()) != -1) {
@@ -64,8 +64,8 @@ public class ReadingAndWritingCharacters {
 
         // 3. Write a character to a file using FileWriter
         try (Writer out = new FileWriter(OUT_FILE_TXT)) {
-            out.write("₹");
-            out.write(8377); // decimal value of ₹
+            out.write("₹"); // writing a string 
+            out.write(8377); // writing a character using UTF-16 decimal value of ₹
         }
 
     }
