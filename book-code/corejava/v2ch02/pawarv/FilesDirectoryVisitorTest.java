@@ -8,6 +8,10 @@ import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.stream.Stream;
 
+/**
+ *  Demonstrates how to use Files.walk, Files.find, Files.list, 
+ *  and Files.walkFileTree
+ */
 public class FilesDirectoryVisitorTest {
 
     public static void main(String[] args) throws IOException {
