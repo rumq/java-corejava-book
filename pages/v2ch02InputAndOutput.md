@@ -368,7 +368,7 @@ This saves you from having to create a `FileOutputStream` or `FileInputStream` o
 
 ### 2.4.3 Creating Files and Directories
 
-See [FilesCreatingTest](../book-code/corejava/v2ch02/pawarv/FilesCreatingTest.java)
+See [FilesHandlingTest](../book-code/corejava/v2ch02/pawarv/FilesHandlingTest.java)
 
 We can use `Files` class to create files and directories.
 
@@ -394,13 +394,21 @@ We can use `Files` class to create files and directories.
 | Path move(Path source, Path target, CopyOption... options) throws IOException | Moves a file. |
 
 
-2.4.4 Copying, Moving, and Deleting Files
+### 2.4.4 Copying, Moving, and Deleting Files
 
-2.4.5 Getting File Information
+See [FilesHandlingTest](../book-code/corejava/v2ch02/pawarv/FilesHandlingTest.java)
 
-2.4.6 Visiting Directory Entries
+### 2.4.5 Getting File Information
 
-2.4.7 Using Directory Streams
+See [FilesHandlingTest](../book-code/corejava/v2ch02/pawarv/FilesHandlingTest.java)
+
+### 2.4.6 Visiting Directory Entries
+
+See [FilesDirectoryVisitorTest](../book-code/corejava/v2ch02/pawarv/FilesDirectoryVisitorTest.java)
+
+
+## 2.4.7 Using Directory Streams
+See [FilesDirectoryVisitorTest](../book-code/corejava/v2ch02/pawarv/FilesDirectoryVisitorTest.java)
 
 2.4.8 ZIP File Systems
 
