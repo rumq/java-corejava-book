@@ -55,6 +55,52 @@ The source and destination can be a file, an array, a device, or a network conne
 
 ### 2.1.1 Reading and Writing Bytes
 
+This ascii table shows the byte values of the characters.
+
+This is a table of the first 128 characters in the Unicode character set. The first 32 characters are control characters that are not printable. The next 96 characters are printable ASCII characters. The last 32 characters are control characters that are not printable.
+
+| Character | Decimal | Hexadecimal | Octal | Binary |
+| --------- | ------- | ----------- | ----- | ------ |
+| NUL       | 0       | 0x00        | 000   | 000000 |
+| space     | 32      | 0x20        | 040   | 010000 |
+| LF        | 10      | 0x0A        | 012   | 000010 |
+| CR        | 13      | 0x0D        | 015   | 000011 |
+| A         | 65      | 0x41        | 101   | 100000 |
+| a         | 97      | 0x61        | 141   | 110000 |
+| #         | 35      | 0x23        | 043   | 010011 |
+| $         | 36      | 0x24        | 044   | 010100 |
+| 1         | 49      | 0x31        | 061   | 011001 |
+
+This is a table of Unicode characters that are not in the first 128 characters. T
+
+| Character | Decimal | Hexadecimal | Octal   | Binary         |
+| --------- | ------- | ----------- | ------- | -------------- |
+| €         | 8364    | 0x20AC      | 0202540 | 10000010101100 |
+| £         | 163     | 0x00A3      | 0020033 | 00000010000011 |
+| ¥         | 165     | 0x00A5      | 0020035 | 00000010000101 |
+| ₹         | 8377    | 0x20B9      | 0202551 | 10000010111001 |
+| ₩         | 8361    | 0x20A9      | 0202541 | 10000010101101 |
+
+This is a table of Unicode characters. 
+Unicode is a code point, which is a number that identifies a character.
+UTF-8 is a variable-length encoding of Unicode characters.
+UTF-16 is a fixed-length encoding of Unicode characters.
+UTF-8 decimal is the decimal representation of the UTF-8 bytes.
+UTF-16 decimal is the decimal representation of the UTF-16 bytes.
+
+
+| Character | Unicode | UTF-8          | UTF-16 | UTF-8 decimal | UTF-16 decimal |
+| --------- | ------- | -------------- | ------ | ------------- | -------------- |
+| NUL       | U+0000  | 0x00           | 0x0000 | 0             | 0              |
+| space     | U+0020  | 0x20           | 0x0020 | 32            | 32             |
+| LF        | U+000A  | 0x0A           | 0x000A | 10            | 10             |
+| CR        | U+000D  | 0x0D           | 0x000D | 13            | 13             |
+| A         | U+0041  | 0x41           | 0x0041 | 65            | 65             |
+| ¥         | U+00A5  | 0xC2 0xA5      | 0x00A5 | 194 165       | 165            |
+| €         | U+20AC  | 0xE2 0x82 0xAC | 0x20AC | 226 130 172   | 8364           |
+| ₹         | U+20B9  | 0xE2 0x82 0xB9 | 0x20B9 | 226 130 185   | 8377           |
+| ₩         | U+20A9  | 0xE2 0x82 0xA9 | 0x20A9 | 226 130 169   | 8361           |
+
 The InputStream and OutputStream classes are abstract classes that define the basic input and output operations. The InputStream class defines the following methods:
 
 | Method             | Description                                                                                                                |
@@ -72,6 +118,9 @@ The OutputStream class defines the following methods:
 | void close()         | Closes the stream.                        |
 
 ### 2.1.2 The Complete Stream Zoo
+
+Bytes class hierarchy is different from character class hierarchy.
+
 
 **Input and output stream hierarchy**
 ![](2023-03-15-09-36-13.png)
