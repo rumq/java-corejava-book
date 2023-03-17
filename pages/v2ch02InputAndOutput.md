@@ -345,7 +345,7 @@ If it starts with a slash, it is an absolute path. If it starts with a drive let
 
 ### 2.4.2 Reading and Writing Files
 
-See [FilesTest](../book-code/corejava/v2ch02/pawarv/FilesTest.java)
+See [FilesReadingAndWritingTest](../book-code/corejava/v2ch02/pawarv/FilesReadingAndWritingTest.java)
 
 Files provides the following methods:
 
@@ -366,7 +366,33 @@ Files provides the following methods:
 This saves you from having to create a `FileOutputStream` or `FileInputStream` or `FileReader` or `FileWriter`.
 
 
-2.4.3 Creating Files and Directories
+### 2.4.3 Creating Files and Directories
+
+See [FilesCreatingTest](../book-code/corejava/v2ch02/pawarv/FilesCreatingTest.java)
+
+We can use `Files` class to create files and directories.
+
+| Method                                                                 | Description                                                                 |
+| ---------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| boolean exists(Path path, LinkOption... options)                       | Returns true if the file exists.                           |
+| boolean notExists(Path path, LinkOption... options)                    | Returns true if the file does not exist.                      |
+| boolean isDirectory(Path path, LinkOption... options)                  | Returns true if the file is a directory.                      |
+| boolean isRegularFile(Path path, LinkOption... options)                | Returns true if the file is a regular file.                      |
+| boolean isSymbolicLink(Path path)                                      | Returns true if the file is a symbolic link.                                                |
+| boolean isHidden(Path path)                                            | Returns true if the file is hidden.                               |
+| boolean isReadable(Path path)                                          | Returns true if the file is readable.                               |
+| boolean isWritable(Path path)                                          | Returns true if the file is writable.                               |
+| boolean isExecutable(Path path)                                        | Returns true if the file is executable.                               |
+| Path createFile(Path path, FileAttribute<?>... attrs) throws IOException | Creates a new file.                                              |
+| Path createDirectory(Path path, FileAttribute<?>... attrs) throws IOException | Creates a new directory. |
+| Path createDirectories(Path path, FileAttribute<?>... attrs) throws IOException | Creates a new directory and all necessary parent directories. |
+| Path createSymbolicLink(Path link, Path target, FileAttribute<?>... attrs) throws IOException | Creates a new symbolic link. |
+| Path createLink(Path link, Path existing) throws IOException | Creates a new hard link. |
+| Path delete(Path path) throws IOException | Deletes a file. |
+| Path deleteIfExists(Path path) throws IOException | Deletes a file if it exists. |
+| Path copy(Path source, Path target, CopyOption... options) throws IOException | Copies a file. |
+| Path move(Path source, Path target, CopyOption... options) throws IOException | Moves a file. |
+
 
 2.4.4 Copying, Moving, and Deleting Files
 

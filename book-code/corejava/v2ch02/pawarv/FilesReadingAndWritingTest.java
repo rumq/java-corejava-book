@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 
 import static other.Constants.*;
 
-public class FilesTest {
+public class FilesReadingAndWritingTest {
     private static final String OUT_FILE_1_TXT = "out_file_1.txt";
     private static final String IN_FILE_1_TXT = "in_file_1.txt";
 
