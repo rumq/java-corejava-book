@@ -1,0 +1,4 @@
+out file data 2oline 1
+oline 2
+oline 3
+out file data 3

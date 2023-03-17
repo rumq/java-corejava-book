@@ -6,7 +6,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 
-import static pawarv.Constants.IN_OUT_TXT;
+import other.Constants;
 
 /**
  * Demonstrates use of autoflush
@@ -16,7 +16,7 @@ public class TextWriteAutoFlushTrueTest {
     public static void main(String[] args) throws FileNotFoundException {
 
         try (var out = new PrintWriter(
-                new OutputStreamWriter(new FileOutputStream(IN_OUT_TXT),
+                new OutputStreamWriter(new FileOutputStream(Constants.IN_OUT_TXT),
                         StandardCharsets.UTF_8),
                 true);) {
             out.println("First Line - flushed");

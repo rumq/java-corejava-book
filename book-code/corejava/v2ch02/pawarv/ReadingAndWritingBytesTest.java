@@ -16,11 +16,13 @@ import java.nio.file.Paths;
  * 
  */
 public class ReadingAndWritingBytesTest {
+    
+
     public static void main(String[] args) throws IOException {
 
         // String inputFile = DATA_DIRECTORY + "american_dollar.txt" ; // $ U+0024  | hex-UTF8 24         | decimal 36          | hex-UTF16 0024 decimal 36
         // String inputFile = DATA_DIRECTORY + "british_pound.txt" ;   // £ U+00A3  | hex-UTF8 A3         | decimal 163         | hex-UTF16 A3 decimal 163
-        String inputFile = DATA_DIRECTORY + "indian_rupee.txt" ;    // ₹ U+20B9  | hex-UTF8 E2  82 B9  | decimal 226 130 185 | hex-UTF16 20B9 decimal 8353
+        String inputFile = DATA_DIRECTORY + INDIAN_RUPEE_TXT ;    // ₹ U+20B9  | hex-UTF8 E2  82 B9  | decimal 226 130 185 | hex-UTF16 20B9 decimal 8353
         // String inputFile = DATA_DIRECTORY + "won.txt" ;             // ₩ U+20A9  | hex-UTF8 E2  82 A9  | decimal 226 130 169 | hex-UTF16 20A9 decimal 8361
         // String inputFile = DATA_DIRECTORY + "character_a.txt" ;     // a U+0061  | hex-UTF8 61         | decimal 97          | hex-UTF16 0061 decimal 97
         // String inputFile = DATA_DIRECTORY + "character_A.txt" ;     // A U+0041  | hex-UTF8 41         | decimal 65          | hex-UTF16 0041 decimal 65

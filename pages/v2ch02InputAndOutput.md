@@ -345,7 +345,27 @@ If it starts with a slash, it is an absolute path. If it starts with a drive let
 
 ### 2.4.2 Reading and Writing Files
 
-See 
+See [FilesTest](../book-code/corejava/v2ch02/pawarv/FilesTest.java)
+
+Files provides the following methods:
+
+
+| Method                                                                 | Description                                                                 |
+| ---------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| byte[] readAllBytes(Path path) throws IOException                       | Returns the contents of the file as a byte array.                           |
+| List\<String\> readAllLines(Path path) throws IOException                 | Returns the contents of the file as a list of strings.                      |
+| List\<String\> readAllLines(Path path, Charset cs) throws IOException     | Returns the contents of the file as a list of strings.                      |
+| Stream\<String\> lines(Path path) throws IOException                        | Returns a stream of strings.                                                |
+| String readString(Path path) throws IOException                         | Returns the contents of the file as a string.                               |
+| String readString(Path path, Charset cs) throws IOException             | Returns the contents of the file as a string.                               |
+| Path write(Path path, byte[] bytes, OpenOption... options) throws IOException | Writes a byte array to a file.                                              |
+| Path write(Path path, Iterable<? extends CharSequence> lines, Charset cs, OpenOption... options) throws IOException | Writes a list of strings to a file. |
+| Path write(Path path, Iterable<? extends CharSequence> lines, OpenOption... options) throws IOException | Writes a list of strings to a file. |
+| Path writeString(Path path, CharSequence csq, OpenOption... options) throws IOException | Writes a string to a file. |
+
+This saves you from having to create a `FileOutputStream` or `FileInputStream` or `FileReader` or `FileWriter`.
+
+
 2.4.3 Creating Files and Directories
 
 2.4.4 Copying, Moving, and Deleting Files
