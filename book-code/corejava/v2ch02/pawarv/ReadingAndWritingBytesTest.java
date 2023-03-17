@@ -10,6 +10,8 @@ import static other.Constants.*;
 public class ReadingAndWritingBytesTest {
     public static void main(String[] args) throws IOException {
 
+        
+
         System.out.println(System.getProperty("user.dir"));
         try (InputStream in = new FileInputStream(SMALL_FILE_TXT);
                 OutputStream out = new FileOutputStream(OUT_FILE_TXT);) {

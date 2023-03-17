@@ -1,11 +1,11 @@
->[Home](Home.md)
-
+> [Home](Home.md)
 
 # Volume 2 Chapter 2: Input and Output
 
-Status : IN_PROGRESS 
+Status : IN_PROGRESS
 
 We'll look into
+
 - Read and write data to files
 - Access files and directories
 - Read binary and text formatted files
@@ -14,60 +14,62 @@ We'll look into
 
 ## 2.1 Input/Output Streams
 
-Input streams read data from a source, and output streams write data to a destination. 
+In Java I/O, a stream is a sequence of bytes. Note that these streams are not the same as the Streams that are in the package java.util.stream which are used for functional programming. Unfortunately, the Java API uses the same name for both.
 
-Note that these streams are not the same as the Streams that are in the package java.util.stream which are used for functional programming. Unfortunately, the Java API uses the same name for both.
+Input streams read data from a source, and output streams write data to a destination.
+
+To read and write text data (Unicode), we can use the `Reader` and `Writer` classes. These classes are abstract classes that define the basic input and output operations.
 
 The source and destination can be a file, an array, a device, or a network connection. The Java I/O API defines a large number of stream classes, and it is easy to get lost in the jungle of classes. The following table lists the most important stream classes.
 
-| Class | Description |
-|--------------|-------------|
-| InputStream | Abstract superclass for all input streams |
-| OutputStream | Abstract superclass for all output streams |
-| Reader | Abstract superclass for all character-based input streams |
-| Writer | Abstract superclass for all character-based output streams |
-| FileInputStream | Reads raw bytes from a file |
-| FileOutputStream | Writes raw bytes to a file |
-| FileReader | Reads characters from a file |
-| FileWriter | Writes characters to a file |
-| ByteArrayInputStream | Reads raw bytes from an array |
-| ByteArrayOutputStream | Writes raw bytes to an array |
-| CharArrayReader | Reads characters from an array |
-| CharArrayWriter | Writes characters to an array |
-| StringReader | Reads characters from a string |
-| StringWriter | Writes characters to a string |
-| PipedInputStream | Reads raw bytes from a pipe |
-| PipedOutputStream | Writes raw bytes to a pipe |
-| PipedReader | Reads characters from a pipe |
-| PipedWriter | Writes characters to a pipe |
-| ObjectInputStream | Reads objects from a stream |
-| ObjectOutputStream | Writes objects to a stream |
-| DataInputStream | Reads primitive data types from a stream |
-| DataOutputStream | Writes primitive data types to a stream |
-| BufferedInputStream | Adds buffering to an input stream |
-| BufferedOutputStream | Adds buffering to an output stream |
-| BufferedReader | Adds buffering and line-oriented reading to a character-based input stream |
-| BufferedWriter | Adds buffering and line-oriented writing to a character-based output stream |
-| PrintStream | Writes formatted data to an output stream |
-| PrintWriter | Writes formatted data to a character-based output stream |
+| Class                 | Description                                                                 |
+| --------------------- | --------------------------------------------------------------------------- |
+| InputStream           | Abstract superclass for all input streams                                   |
+| OutputStream          | Abstract superclass for all output streams                                  |
+| Reader                | Abstract superclass for all character-based input streams                   |
+| Writer                | Abstract superclass for all character-based output streams                  |
+| FileInputStream       | Reads raw bytes from a file                                                 |
+| FileOutputStream      | Writes raw bytes to a file                                                  |
+| FileReader            | Reads characters from a file                                                |
+| FileWriter            | Writes characters to a file                                                 |
+| ByteArrayInputStream  | Reads raw bytes from an array                                               |
+| ByteArrayOutputStream | Writes raw bytes to an array                                                |
+| CharArrayReader       | Reads characters from an array                                              |
+| CharArrayWriter       | Writes characters to an array                                               |
+| StringReader          | Reads characters from a string                                              |
+| StringWriter          | Writes characters to a string                                               |
+| PipedInputStream      | Reads raw bytes from a pipe                                                 |
+| PipedOutputStream     | Writes raw bytes to a pipe                                                  |
+| PipedReader           | Reads characters from a pipe                                                |
+| PipedWriter           | Writes characters to a pipe                                                 |
+| ObjectInputStream     | Reads objects from a stream                                                 |
+| ObjectOutputStream    | Writes objects to a stream                                                  |
+| DataInputStream       | Reads primitive data types from a stream                                    |
+| DataOutputStream      | Writes primitive data types to a stream                                     |
+| BufferedInputStream   | Adds buffering to an input stream                                           |
+| BufferedOutputStream  | Adds buffering to an output stream                                          |
+| BufferedReader        | Adds buffering and line-oriented reading to a character-based input stream  |
+| BufferedWriter        | Adds buffering and line-oriented writing to a character-based output stream |
+| PrintStream           | Writes formatted data to an output stream                                   |
+| PrintWriter           | Writes formatted data to a character-based output stream                    |
 
 ### 2.1.1 Reading and Writing Bytes
 
 The InputStream and OutputStream classes are abstract classes that define the basic input and output operations. The InputStream class defines the following methods:
 
-| Method | Description |
-|--------|-------------|
-| int read() | Reads a single byte. Returns -1 if the end of the stream has been reached. |
+| Method             | Description                                                                                                                |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------- |
+| int read()         | Reads a single byte. Returns -1 if the end of the stream has been reached.                                                 |
 | int read(byte[] b) | Reads a sequence of bytes into an array. Returns the number of bytes read or -1 if the end of the stream has been reached. |
-| void close() | Closes the stream. |
+| void close()       | Closes the stream.                                                                                                         |
 
 The OutputStream class defines the following methods:
 
-| Method | Description |
-|--------|-------------|
-| void write(int b) | Writes a single byte. |
+| Method               | Description                               |
+| -------------------- | ----------------------------------------- |
+| void write(int b)    | Writes a single byte.                     |
 | void write(byte[] b) | Writes a sequence of bytes from an array. |
-| void close() | Closes the stream. |
+| void close()         | Closes the stream.                        |
 
 ### 2.1.2 The Complete Stream Zoo
 
@@ -79,33 +81,33 @@ The OutputStream class defines the following methods:
 
 ### 2.1.3 Combining Input/Output Stream Filters
 
-
 ### 2.1.4 Text Input and Output
 
-See 
+See
+
 - [ReadingAndWritingBytesTest](../book-code/corejava/v2ch02/pawarv/ReadingAndWritingBytesTest.java)
 
 ### 2.1.5 How to Write Text Output
 
-When saving data, there are two options: save the data in binary format or save the data in text format. Binary format is more compact, but it is not human-readable. 
+When saving data, there are two options: save the data in binary format or save the data in text format. Binary format is more compact, but it is not human-readable.
 
 When saving as a string, you'll have to consider the character encoding. Java use UTF-16 as the default character encoding. However, UTF-8 is more compact and is used more often.
 
 We can use PrintWriter to write text to a file. The PrintWriter class is a character-based output stream that adds buffering and formatting capabilities to an output stream. The PrintWriter class defines the following methods:
 
-| Method | Description |
-|--------|-------------|
-| void print(String s) | Writes a string. |
-| void println(String s) | Writes a string and a line separator. |
-| void printf(String format, Object... args) | Writes a formatted string. |
-
+| Method                                     | Description                           |
+| ------------------------------------------ | ------------------------------------- |
+| void print(String s)                       | Writes a string.                      |
+| void println(String s)                     | Writes a string and a line separator. |
+| void printf(String format, Object... args) | Writes a formatted string.            |
 
 We can use `PrintWriter` as below. The `out` object has the same methods as `System.out`.
-    
+
 ```java
     PrintWriter out = new PrintWriter("myfile.txt", "UTF-8");
-    out.println("Hello, World!");   
-```       
+    out.println("Hello, World!");
+```
+
 See [TextWriteTest](../book-code/corejava/v2ch02/pawarv/TextWriteTest.java)
 
 We do not have to buffer the output. The `PrintWriter` class does it for us.
@@ -113,23 +115,21 @@ By default autoflush is disabled for `PrintWriter`. We can enable it by passing 
 
 - [TextWriteAutoFlushTrueTest](../book-code/corejava/v2ch02/pawarv/TextWriteAutoFlushTrueTest.java)
 
-
 The Scanner class is a character-based input stream that adds buffering and tokenization capabilities to an input stream. The Scanner class defines the following methods:
 
-| Method | Description |
-|--------|-------------|
-| boolean hasNext() | Returns true if there is another token. |
-| String next() | Returns the next token. |
-| String nextLine() | Returns the next line. |
-| int nextInt() | Returns the next integer. |
-| double nextDouble() | Returns the next double. |
-| boolean nextBoolean() | Returns the next boolean. |
-
+| Method                | Description                             |
+| --------------------- | --------------------------------------- |
+| boolean hasNext()     | Returns true if there is another token. |
+| String next()         | Returns the next token.                 |
+| String nextLine()     | Returns the next line.                  |
+| int nextInt()         | Returns the next integer.               |
+| double nextDouble()   | Returns the next double.                |
+| boolean nextBoolean() | Returns the next boolean.               |
 
 ### 2.1.6 How to Read Text Input
 
 We can use the methods on `Files` to read text from a file. See
- [TextReadUsingFilesTest](../book-code/corejava/v2ch02/pawarv/TextReadUsingFilesTest.java).
+[TextReadUsingFilesTest](../book-code/corejava/v2ch02/pawarv/TextReadUsingFilesTest.java).
 
 But it's better to use `Scanner` as it has more options to read text, like reading a line, reading an integer, reading a double, etc.
 
@@ -144,7 +144,6 @@ See book example [TextFileTest](../book-code/corejava/v2ch02/textFile/TextFileTe
 ### 2.1.8 Character Encodings
 
 Character encodings are used to convert between characters and bytes. They are a way to represent characters in a computer using a fixed number of bits. For example, the ASCII character encoding uses 7 bits to represent each character. The Unicode character encoding uses 16 bits to represent each character. The UTF-8 character encoding uses 8 bits to represent each character. The UTF-16 character encoding uses 16 bits to represent each character.
-
 
 The Java platform uses UTF-16 as the default character encoding. However, UTF-8 is more compact and is used more often.
 
@@ -213,4 +212,5 @@ The Java platform uses UTF-16 as the default character encoding. However, UTF-8 
 2.7.6 Replacing Matches
 
 2.7.7 Flags
->[Home](HOME.md)
+
+> [Home](HOME.md)

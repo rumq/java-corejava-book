@@ -3,13 +3,39 @@
 # Chapter 7: Exceptions, Assertions, and Logging
 Status : IN_PROGRESS 
 
+- [Chapter 7: Exceptions, Assertions, and Logging](#chapter-7-exceptions-assertions-and-logging)
+  - [7.1 Dealing with Errors](#71-dealing-with-errors)
+    - [7.1.1 The Classification of Exceptions](#711-the-classification-of-exceptions)
+    - [7.1.2 Declaring Checked Exceptions](#712-declaring-checked-exceptions)
+    - [7.1.3 How to Throw an Exception](#713-how-to-throw-an-exception)
+    - [7.1.4 Creating Exception Classes](#714-creating-exception-classes)
+  - [7.2 Catching Exceptions](#72-catching-exceptions)
+    - [7.2.1 Catching an Exception](#721-catching-an-exception)
+    - [7.2.2 Catching Multiple Exceptions](#722-catching-multiple-exceptions)
+    - [7.2.3 Rethrowing and Chaining Exceptions](#723-rethrowing-and-chaining-exceptions)
+    - [7.2.4 The finally Clause](#724-the-finally-clause)
+    - [7.2.5 The try-with-Resources Statement](#725-the-try-with-resources-statement)
+    - [7.2.6 Analyzing Stack Trace Elements](#726-analyzing-stack-trace-elements)
+  - [7.3 Tips for Using Exceptions](#73-tips-for-using-exceptions)
+  - [7.4 Using Assertions](#74-using-assertions)
+    - [7.4.1 The Assertion Concept](#741-the-assertion-concept)
+    - [7.4.2 Assertion Enabling and Disabling](#742-assertion-enabling-and-disabling)
+    - [7.4.3 Using Assertions for Parameter Checking](#743-using-assertions-for-parameter-checking)
+    - [7.4.4 Using Assertions for Documenting Assumptions](#744-using-assertions-for-documenting-assumptions)
+  - [7.5 Logging](#75-logging)
+    - [7.5.1 Basic Logging](#751-basic-logging)
+    - [7.5.2 Advanced Logging](#752-advanced-logging)
+    - [7.5.3 Changing the Log Manager Configuration](#753-changing-the-log-manager-configuration)
+    - [7.5.4 Localization](#754-localization)
+
+
 
 We'll cover Exceptions, Assertions and Logging in this chapter.
 
 In one line we can say that Exceptions are used to handle errors, Assertions are used to check for conditions that should never occur and Logging is used to record events that occur while a program is running.
 
 
-## 7.1     Dealing with Errors
+## 7.1 Dealing with Errors
 
 Errors can occur because of these reasons
 - User input errors 
