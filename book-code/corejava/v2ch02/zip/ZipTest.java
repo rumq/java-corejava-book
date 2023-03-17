@@ -6,6 +6,7 @@ import java.nio.file.*;
 import java.nio.file.attribute.*;
 import java.util.*;
 import java.util.zip.*;
+import static other.Constants.*;
 
 /**
  * @version 1.42 2018-03-17
@@ -15,7 +16,8 @@ public class ZipTest
 {
    public static void main(String[] args) throws IOException
    {
-      String zipname = args[0];
+      // String zipname = args[0];
+      String zipname = DATA_DIRECTORY + "exercises.zip";
       showContents(zipname);
       System.out.println("---");
       showContents2(zipname);

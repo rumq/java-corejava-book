@@ -58,8 +58,7 @@ The source and destination can be a file, an array, a device, or a network conne
 ### 2.1.1 Reading and Writing Bytes
 
 - [ReadingAndWritingBytesTest](../book-code/corejava/v2ch02/pawarv/ReadingAndWritingBytesTest.java)
-- 
-This ascii table shows the byte values of the characters.
+- This ascii table shows the byte values of the characters.
 
 This is a table of the first 128 characters in the Unicode character set. The first 32 characters are control characters that are not printable. The next 96 characters are printable ASCII characters. The last 32 characters are control characters that are not printable.
 
@@ -85,13 +84,12 @@ This is a table of Unicode characters that are not in the first 128 characters. 
 | ₹         | 8377    | 0x20B9      | 0202551 | 10000010111001 |
 | ₩         | 8361    | 0x20A9      | 0202541 | 10000010101101 |
 
-This is a table of Unicode characters. 
+This is a table of Unicode characters.
 Unicode is a code point, which is a number that identifies a character.
 UTF-8 is a variable-length encoding of Unicode characters.
 UTF-16 is a fixed-length encoding of Unicode characters.
 UTF-8 decimal is the decimal representation of the UTF-8 bytes.
 UTF-16 decimal is the decimal representation of the UTF-16 bytes.
-
 
 | Character | Unicode | UTF-8          | UTF-16 | UTF-8 decimal | UTF-16 decimal |
 | --------- | ------- | -------------- | ------ | ------------- | -------------- |
@@ -133,7 +131,7 @@ Bytes class hierarchy is different from character class hierarchy.
 
 ### 2.1.3 Combining Input/Output Stream Filters
 
-The subclasses of FilterInputStream and FilterOutputStream are called stream filters. They are used to modify the behaviour of the underlying stream. 
+The subclasses of FilterInputStream and FilterOutputStream are called stream filters. They are used to modify the behaviour of the underlying stream.
 
 This is done by chaining the filters together.
 
@@ -191,7 +189,6 @@ var stream = new DataInputStream (
 
 ```
 
-
 The following diagram shows a sequence diagram of how the `read` method is called on the DataInputStream.
 
 ```mermaid
@@ -204,31 +201,27 @@ sequenceDiagram
 
     Client->>DataInputStream: read()
     DataInputStream->>ZipInputStream: read()
-    ZipInputStream->>FileInputStream: read()    
+    ZipInputStream->>FileInputStream: read()
     FileInputStream-->>ZipInputStream: read()
     ZipInputStream-->>DataInputStream: read()
     DataInputStream-->>Client: read()
 
 ```
 
-
 ### 2.1.4 Text Input and Output
 
 See
+
 - [ReadingAndWritingCharacters](../book-code/corejava/v2ch02/pawarv/ReadingAndWritingCharacters.java)
 - [TestInputAndOutputStreamReader](../book-code/corejava/v2ch02/pawarv/TestInputAndOutputStreamReader.java)
-- 
-
-The InputStreamReader class converts bytes to characters. The OutputStreamWriter class converts characters to bytes. This is a bridge between byte streams and character streams.
-
-
-
-
-### 2.1.5 How to Write Text Output
 
 When saving data, there are two options: save the data in binary format or save the data in text format. Binary format is more compact, but it is not human-readable.
 
-When saving as a string, you'll have to consider the character encoding. Java use UTF-16 as the default character encoding. However, UTF-8 is more compact and is used more often.
+The InputStreamReader class converts bytes to characters. The OutputStreamWriter class converts characters to bytes. This is a bridge between byte streams and character streams. When saving text data, we have to consider the character encoding.
+
+Both of these take Charset as an argument. By default, the Charset is UTF-8. However you can specify other character sets. Java internally uses UTF-16 for character encoding. Therefore, when you cast a character to an integer, you get the UTF-16 code point.
+
+### 2.1.5 How to Write Text Output
 
 We can use PrintWriter to write text to a file. The PrintWriter class is a character-based output stream that adds buffering and formatting capabilities to an output stream. The PrintWriter class defines the following methods:
 
@@ -284,36 +277,75 @@ Character encodings are used to convert between characters and bytes. They are a
 
 The Java platform uses UTF-16 as the default character encoding. However, UTF-8 is more compact and is used more often.
 
-2.2 Reading and Writing Binary Data
+See the examples from previous sections.
 
-2.2.1 The DataInput and DataOutput Interfaces
+- [ReadingAndWritingBytesTest](../book-code/corejava/v2ch02/pawarv/ReadingAndWritingBytesTest.java)
+- [ReadingAndWritingCharacters](../book-code/corejava/v2ch02/pawarv/ReadingAndWritingCharacters.java)
 
-2.2.2 Random-Access Files
+### 2.2 Reading and Writing Binary Data
 
-2.2.3 ZIP Archives
+See book examples (this came later)
 
-2.3 Object Input/Output Streams and Serialization
+- [RandomAccessTest](../book-code/corejava/v2ch02/randomAccess/RandomAccessTest.java)
+- [DataIO](../book-code/corejava/v2ch02/randomAccess/DataIO.java)
 
-2.3.1 Saving and Loading Serializable Objects
+### 2.2.1 The DataInput and DataOutput Interfaces
 
-2.3.2 Understanding the Object Serialization File Format
+Use to read and write binary data.
 
-2.3.3 Modifying the Default Serialization Mechanism
+See [DataIO](../book-code/corejava/v2ch02/randomAccess/DataIO.java)
 
-2.3.4 The readResolve and writeReplace Methods
+### 2.2.2 Random-Access Files
 
-2.3.5 Versioning
+Use to access a file at random locations.
 
-2.3.6 Using Serialization for Cloning
+See book example [RandomAccessTest](../book-code/corejava/v2ch02/randomAccess/RandomAccessTest.java)
 
-2.3.7 Deserialization and Security
+### 2.2.3 ZIP Archives
 
-2.4 Working with Files
+Use to work with ZIP archives.
 
-2.4.1 Paths
+See book example [ZipTest](../book-code/corejava/v2ch02/zip/ZipTest.java)
 
-2.4.2 Reading and Writing Files
+### 2.3 Object Input/Output Streams and Serialization
 
+Use to read and write objects.
+
+See book example [ObjectInputStreamTest](../book-code/corejava/v2ch02/serial/ObjectStreamTest.java)
+
+### 2.3.1 Saving and Loading Serializable Objects (later)
+
+### 2.3.2 Understanding the Object Serialization File Format (later)
+
+### 2.3.3 Modifying the Default Serialization Mechanism (later)
+
+### 2.3.4 The readResolve and writeReplace Methods (later)
+
+### 2.3.5 Versioning (later)
+
+### 2.3.6 Using Serialization for Cloning (later)
+
+### 2.3.7 Deserialization and Security (later)
+
+## 2.4 Working with Files
+
+You use `Path` and `Files` class to work with files. Do not use `File` which was used in the early versions of Java.
+
+### 2.4.1 Paths
+
+Path is an interface that represents a path to a file. It is a sequence of directory names and a file name. The `Paths` class defines the following methods:
+
+| Method                                 | Description                                                             |
+| -------------------------------------- | ----------------------------------------------------------------------- |
+| Path get(String first, String... more) | Returns a path that is a concatenation of the given strings.            |
+| Path get(URI uri)                      | Returns a path that is a URI.                                           |
+| Path resolve(Path other)               | Returns a path that is a concatenation of this path and the given path. |
+
+If it starts with a slash, it is an absolute path. If it starts with a drive letter, it is an absolute path. Otherwise, it is a relative path.
+
+### 2.4.2 Reading and Writing Files
+
+See 
 2.4.3 Creating Files and Directories
 
 2.4.4 Copying, Moving, and Deleting Files

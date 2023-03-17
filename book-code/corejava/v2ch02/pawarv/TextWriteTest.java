@@ -13,8 +13,15 @@ public class TextWriteTest {
 
         try (var out = new PrintWriter(IN_OUT_TXT, StandardCharsets.UTF_8);) {
 
-            out.println("First Line");
-            out.println("Second Line");
+            String one = "First";
+            String two = "Second";
+            double three = 3.0;
+            out.print(one);
+            out.print(", ");
+            out.print(two);
+            out.print(", ");
+            out.print(three);
+            out.println();
         }
 
     }

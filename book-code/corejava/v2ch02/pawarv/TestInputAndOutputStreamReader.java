@@ -15,7 +15,7 @@ class TestInputAndOutputStreamReader {
         System.out.println("\n **** Using the utf8 file");
         try (var in = new InputStreamReader(
                 new FileInputStream(DATA_DIRECTORY + "indian_rupee.txt")); // Default on systems
-                // new FileInputStream(DATA_DIRECTORY + "indian_rupee.txt"), StandardCharsets.UTF_8); // Default on systems
+                // new FileInputStream(DATA_DIRECTORY + "indian_rupee.txt"), StandardCharsets.UTF_8); // Default on my system
                 // new FileInputStream(DATA_DIRECTORY + "indian_rupee.txt"), // StandardCharsets.UTF_16); // Will read as garbage
                 var out = new OutputStreamWriter(
                         // can write as UTF-16, provided we read as such later
