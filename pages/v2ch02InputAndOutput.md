@@ -282,7 +282,7 @@ See the examples from previous sections.
 - [ReadingAndWritingBytesTest](../book-code/corejava/v2ch02/pawarv/ReadingAndWritingBytesTest.java)
 - [ReadingAndWritingCharacters](../book-code/corejava/v2ch02/pawarv/ReadingAndWritingCharacters.java)
 
-### 2.2 Reading and Writing Binary Data
+## 2.2 Reading and Writing Binary Data
 
 See book examples (this came later)
 
@@ -307,7 +307,7 @@ Use to work with ZIP archives.
 
 See book example [ZipTest](../book-code/corejava/v2ch02/zip/ZipTest.java)
 
-### 2.3 Object Input/Output Streams and Serialization
+## 2.3 Object Input/Output Streams and Serialization
 
 Use to read and write objects.
 
@@ -407,10 +407,12 @@ See [FilesHandlingTest](../book-code/corejava/v2ch02/pawarv/FilesHandlingTest.ja
 See [FilesDirectoryVisitorTest](../book-code/corejava/v2ch02/pawarv/FilesDirectoryVisitorTest.java)
 
 
-## 2.4.7 Using Directory Streams
+###  2.4.7 Using Directory Streams
 See [FilesDirectoryVisitorTest](../book-code/corejava/v2ch02/pawarv/FilesDirectoryVisitorTest.java)
 
-2.4.8 ZIP File Systems
+### 2.4.8 ZIP File Systems
+
+See [ZipInputStream](../book-code/corejava/v2ch02/zip/ZipTest.java)
 
 2.5 Memory-Mapped Files
 
