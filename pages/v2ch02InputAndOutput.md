@@ -14,6 +14,8 @@ We'll look into
 
 ## 2.1 Input/Output Streams
 
+### Introduction
+
 In Java I/O, a stream is a sequence of bytes. Note that these streams are not the same as the Streams that are in the package java.util.stream which are used for functional programming. Unfortunately, the Java API uses the same name for both.
 
 Input streams read data from a source, and output streams write data to a destination.
@@ -55,6 +57,8 @@ The source and destination can be a file, an array, a device, or a network conne
 
 ### 2.1.1 Reading and Writing Bytes
 
+- [ReadingAndWritingBytesTest](../book-code/corejava/v2ch02/pawarv/ReadingAndWritingBytesTest.java)
+- 
 This ascii table shows the byte values of the characters.
 
 This is a table of the first 128 characters in the Unicode character set. The first 32 characters are control characters that are not printable. The next 96 characters are printable ASCII characters. The last 32 characters are control characters that are not printable.
@@ -120,7 +124,6 @@ The OutputStream class defines the following methods:
 ### 2.1.2 The Complete Stream Zoo
 
 Bytes class hierarchy is different from character class hierarchy.
-
 
 **Input and output stream hierarchy**
 ![](2023-03-15-09-36-13.png)
@@ -189,7 +192,7 @@ var stream = new DataInputStream (
 ```
 
 
-The following diagram shows a sequence diagram of how the read method is called on the DataInputStream.
+The following diagram shows a sequence diagram of how the `read` method is called on the DataInputStream.
 
 ```mermaid
 
@@ -209,20 +212,17 @@ sequenceDiagram
 ```
 
 
-
-
-
-
-```
-
-```
-
-
 ### 2.1.4 Text Input and Output
 
 See
+- [ReadingAndWritingCharacters](../book-code/corejava/v2ch02/pawarv/ReadingAndWritingCharacters.java)
+- [TestInputAndOutputStreamReader](../book-code/corejava/v2ch02/pawarv/TestInputAndOutputStreamReader.java)
+- 
 
-- [ReadingAndWritingBytesTest](../book-code/corejava/v2ch02/pawarv/ReadingAndWritingBytesTest.java)
+The InputStreamReader class converts bytes to characters. The OutputStreamWriter class converts characters to bytes. This is a bridge between byte streams and character streams.
+
+
+
 
 ### 2.1.5 How to Write Text Output
 
