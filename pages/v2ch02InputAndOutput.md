@@ -169,21 +169,54 @@ var stream = new DataInputStream (
 
 ```
 
-This following code adds 
+This following code combines Zip and File input streams.
 
 ```java
 
-var stream = new ObjectInputStream (
-                new DataInputStream (
-                    new BufferedInputStream(
-                        new FileInputStream("myfile.txt"))));
+var stream = new ZipInputStream (
+                new FileInputStream("myfile.zip"));
+
+```
+
+The following combines DataInputStream, ZipInputStream, and FileInputStream.
+
+```java
+
+var stream = new DataInputStream (
+                new ZipInputStream (
+                    new FileInputStream("myfile.zip")));
+
+```
+
+
+The following diagram shows a sequence diagram of how the read method is called on the DataInputStream.
+
+```mermaid
+
+sequenceDiagram
+    participant Client
+    participant DataInputStream
+    participant ZipInputStream
+    participant FileInputStream
+
+    Client->>DataInputStream: read()
+    DataInputStream->>ZipInputStream: read()
+    ZipInputStream->>FileInputStream: read()    
+    FileInputStream-->>ZipInputStream: read()
+    ZipInputStream-->>DataInputStream: read()
+    DataInputStream-->>Client: read()
 
 ```
 
 
 
 
+
+
 ```
+
+```
+
 
 ### 2.1.4 Text Input and Output
 
