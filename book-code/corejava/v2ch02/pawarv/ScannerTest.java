@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 import other.Constants;
 
-public class TextReadScannerTest {
+public class ScannerTest {
     public static void main(String[] args) throws IOException {
 
 

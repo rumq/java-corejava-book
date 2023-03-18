@@ -9,7 +9,7 @@ import static other.Constants.*;
 /*
  * Demonstrates how to read some text from a file
  */
-public class TextReadBufferedReaderTest {
+public class BufferedReaderTest {
     public static void main(String[] args) throws IOException {
 
         // From InputStream

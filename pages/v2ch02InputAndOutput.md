@@ -57,59 +57,17 @@ The source and destination can be a file, an array, a device, or a network conne
 
 ### 2.1.1 Reading and Writing Bytes
 
-- [ReadingAndWritingBytesTest](../book-code/corejava/v2ch02/pawarv/ReadingAndWritingBytesTest.java)
-- This ascii table shows the byte values of the characters.
+- [InputStreamAndOutputStreamTest](../book-code/corejava/v2ch02/pawarv/InputStreamAndOutputStreamTest.java)
 
-This is a table of the first 128 characters in the Unicode character set. The first 32 characters are control characters that are not printable. The next 96 characters are printable ASCII characters. The last 32 characters are control characters that are not printable.
+The InputStream and OutputStream classes are abstract classes that define the basic input and output operations. 
 
-| Character | Decimal | Hexadecimal | Octal | Binary |
-| --------- | ------- | ----------- | ----- | ------ |
-| NUL       | 0       | 0x00        | 000   | 000000 |
-| space     | 32      | 0x20        | 040   | 010000 |
-| LF        | 10      | 0x0A        | 012   | 000010 |
-| CR        | 13      | 0x0D        | 015   | 000011 |
-| A         | 65      | 0x41        | 101   | 100000 |
-| a         | 97      | 0x61        | 141   | 110000 |
-| #         | 35      | 0x23        | 043   | 010011 |
-| $         | 36      | 0x24        | 044   | 010100 |
-| 1         | 49      | 0x31        | 061   | 011001 |
+The InputStream class defines the following methods:
 
-This is a table of Unicode characters that are not in the first 128 characters. T
-
-| Character | Decimal | Hexadecimal | Octal   | Binary         |
-| --------- | ------- | ----------- | ------- | -------------- |
-| €         | 8364    | 0x20AC      | 0202540 | 10000010101100 |
-| £         | 163     | 0x00A3      | 0020033 | 00000010000011 |
-| ¥         | 165     | 0x00A5      | 0020035 | 00000010000101 |
-| ₹         | 8377    | 0x20B9      | 0202551 | 10000010111001 |
-| ₩         | 8361    | 0x20A9      | 0202541 | 10000010101101 |
-
-This is a table of Unicode characters.
-Unicode is a code point, which is a number that identifies a character.
-UTF-8 is a variable-length encoding of Unicode characters.
-UTF-16 is a fixed-length encoding of Unicode characters.
-UTF-8 decimal is the decimal representation of the UTF-8 bytes.
-UTF-16 decimal is the decimal representation of the UTF-16 bytes.
-
-| Character | Unicode | UTF-8          | UTF-16 | UTF-8 decimal | UTF-16 decimal |
-| --------- | ------- | -------------- | ------ | ------------- | -------------- |
-| NUL       | U+0000  | 0x00           | 0x0000 | 0             | 0              |
-| space     | U+0020  | 0x20           | 0x0020 | 32            | 32             |
-| LF        | U+000A  | 0x0A           | 0x000A | 10            | 10             |
-| CR        | U+000D  | 0x0D           | 0x000D | 13            | 13             |
-| A         | U+0041  | 0x41           | 0x0041 | 65            | 65             |
-| ¥         | U+00A5  | 0xC2 0xA5      | 0x00A5 | 194 165       | 165            |
-| €         | U+20AC  | 0xE2 0x82 0xAC | 0x20AC | 226 130 172   | 8364           |
-| ₹         | U+20B9  | 0xE2 0x82 0xB9 | 0x20B9 | 226 130 185   | 8377           |
-| ₩         | U+20A9  | 0xE2 0x82 0xA9 | 0x20A9 | 226 130 169   | 8361           |
-
-The InputStream and OutputStream classes are abstract classes that define the basic input and output operations. The InputStream class defines the following methods:
-
-| Method             | Description                                                                                                                |
-| ------------------ | -------------------------------------------------------------------------------------------------------------------------- |
-| int read()         | Reads a single byte. Returns -1 if the end of the stream has been reached.                                                 |
-| int read(byte[] b) | Reads a sequence of bytes into an array. Returns the number of bytes read or -1 if the end of the stream has been reached. |
-| void close()       | Closes the stream.                                                                                                         |
+| Method             | Description                                                                     |
+| ------------------ | ------------------------------------------------------------------------------- |
+| int read()         | Reads a single byte. Returns -1 if the end of the stream has been reached.      |
+| int read(byte[] b) | Reads a sequence of bytes into an array. Returns the number of bytes read or -1 |
+| void close()       | Closes the stream.                                                              |
 
 The OutputStream class defines the following methods:
 
@@ -211,9 +169,7 @@ sequenceDiagram
 ### 2.1.4 Text Input and Output
 
 See
-
-- [ReadingAndWritingCharacters](../book-code/corejava/v2ch02/pawarv/ReadingAndWritingCharacters.java)
-- [TestInputAndOutputStreamReader](../book-code/corejava/v2ch02/pawarv/TestInputAndOutputStreamReader.java)
+- [ReaderAndWriterTest](../book-code/corejava/v2ch02/pawarv/ReaderAndWriterTest.java)
 
 When saving data, there are two options: save the data in binary format or save the data in text format. Binary format is more compact, but it is not human-readable.
 
@@ -238,12 +194,12 @@ We can use `PrintWriter` as below. The `out` object has the same methods as `Sys
     out.println("Hello, World!");
 ```
 
-See [TextWriteTest](../book-code/corejava/v2ch02/pawarv/TextWriteTest.java)
+See [PrintWriterTest](../book-code/corejava/v2ch02/pawarv/PrintWriterTest.java)
 
 We do not have to buffer the output. The `PrintWriter` class does it for us.
 By default autoflush is disabled for `PrintWriter`. We can enable it by passing `true` as the second argument to the constructor.
 
-- [TextWriteAutoFlushTrueTest](../book-code/corejava/v2ch02/pawarv/TextWriteAutoFlushTrueTest.java)
+- [PrintWriterFlushTest](../book-code/corejava/v2ch02/pawarv/PrintWriterFlushTest.java)
 
 The Scanner class is a character-based input stream that adds buffering and tokenization capabilities to an input stream. The Scanner class defines the following methods:
 
@@ -259,13 +215,13 @@ The Scanner class is a character-based input stream that adds buffering and toke
 ### 2.1.6 How to Read Text Input
 
 We can use the methods on `Files` to read text from a file. See
-[TextReadUsingFilesTest](../book-code/corejava/v2ch02/pawarv/TextReadUsingFilesTest.java).
+[FilesReadingAndWritingTest](../book-code/corejava/v2ch02/pawarv/FilesReadingAndWritingTest.java).
 
 But it's better to use `Scanner` as it has more options to read text, like reading a line, reading an integer, reading a double, etc.
 
-See [TextReadScannerTest](../book-code/corejava/v2ch02/pawarv/TextReadScannerTest.java)
+See [ScannerTest](../book-code/corejava/v2ch02/pawarv/ScannerTest.java)
 
-In the early versions of Java, the BufferedReader class was the standard way to read text from a file. See [TextReadBufferedReaderTest](../book-code/corejava/v2ch02/pawarv/TextReadBufferedReaderTest.java)
+In the early versions of Java, the BufferedReader class was the standard way to read text from a file. See [BufferedReaderTest](../book-code/corejava/v2ch02/pawarv/BufferedReaderTest.java)
 
 ### 2.1.7 Saving Objects in Text Format
 
@@ -277,10 +233,65 @@ Character encodings are used to convert between characters and bytes. They are a
 
 The Java platform uses UTF-16 as the default character encoding. However, UTF-8 is more compact and is used more often.
 
-See the examples from previous sections.
+See
+- [UTF16AndUTF8DifferenceTest](../book-code/corejava/v2ch02/pawarv/UTF16AndUTF8DifferenceTest.java)
 
-- [ReadingAndWritingBytesTest](../book-code/corejava/v2ch02/pawarv/ReadingAndWritingBytesTest.java)
-- [ReadingAndWritingCharacters](../book-code/corejava/v2ch02/pawarv/ReadingAndWritingCharacters.java)
+See also the examples from previous sections.
+- [InputStreamAndOutputStreamTest](../book-code/corejava/v2ch02/pawarv/InputStreamAndOutputStreamTest.java)]
+- [ReaderAndWriterTest](../book-code/corejava/v2ch02/pawarv/ReaderAndWriterTest.java)
+
+
+**Character to byte conversion table**
+
+This ascii table shows the byte values of the characters.
+
+This is a table of the some characters from the first 128 characters in the Unicode character set. The first 32 characters are control characters that are not printable. The next 96 characters are printable ASCII characters. The last 32 characters are control characters that are not printable.
+
+| Character | Decimal | Hexadecimal | Octal | Binary |
+| --------- | ------- | ----------- | ----- | ------ |
+| NUL       | 0       | 0x00        | 000   | 000000 |
+| space     | 32      | 0x20        | 040   | 010000 |
+| LF        | 10      | 0x0A        | 012   | 000010 |
+| CR        | 13      | 0x0D        | 015   | 000011 |
+| A         | 65      | 0x41        | 101   | 100000 |
+| a         | 97      | 0x61        | 141   | 110000 |
+| #         | 35      | 0x23        | 043   | 010011 |
+| $         | 36      | 0x24        | 044   | 010100 |
+| 1         | 49      | 0x31        | 061   | 011001 |
+
+This is a table of Unicode characters that are not in the first 128 characters.
+
+| Character | Decimal | Hexadecimal | Octal   | Binary         |
+| --------- | ------- | ----------- | ------- | -------------- |
+| €         | 8364    | 0x20AC      | 0202540 | 10000010101100 |
+| £         | 163     | 0x00A3      | 0020033 | 00000010000011 |
+| ¥         | 165     | 0x00A5      | 0020035 | 00000010000101 |
+| ₹         | 8377    | 0x20B9      | 0202551 | 10000010111001 |
+| ₩         | 8361    | 0x20A9      | 0202541 | 10000010101101 |
+
+**Unicode, UTF-8 and UTF-16 Table**
+
+This is a table of Unicode characters.
+Unicode is a code point, which is a number that identifies a character.
+UTF-8 is a variable-length encoding of Unicode characters.
+UTF-16 is a fixed-length encoding of Unicode characters.
+UTF-8 decimal is the decimal representation of the UTF-8 bytes.
+UTF-16 decimal is the decimal representation of the UTF-16 bytes.
+
+| Character | Unicode | UTF-8          | UTF-16 | UTF-8 decimal | UTF-16 decimal |
+| --------- | ------- | -------------- | ------ | ------------- | -------------- |
+| NUL       | U+0000  | 0x00           | 0x0000 | 0             | 0              |
+| space     | U+0020  | 0x20           | 0x0020 | 32            | 32             |
+| LF        | U+000A  | 0x0A           | 0x000A | 10            | 10             |
+| CR        | U+000D  | 0x0D           | 0x000D | 13            | 13             |
+| $         | U+0024  | 0x24           | 0x0024 | 36            | 36             |
+| A         | U+0041  | 0x41           | 0x0041 | 65            | 65             |
+| ¥         | U+00A5  | 0xC2 0xA5      | 0x00A5 | 194 165       | 165            |
+| €         | U+20AC  | 0xE2 0x82 0xAC | 0x20AC | 226 130 172   | 8364           |
+| ₹         | U+20B9  | 0xE2 0x82 0xB9 | 0x20B9 | 226 130 185   | 8377           |
+| ₩         | U+20A9  | 0xE2 0x82 0xA9 | 0x20A9 | 226 130 169   | 8361           |
+
+the UTF-8 of $ is 0x24, which is 36 in decimal and the UTF-16 of $ is 0x0024, which is 36 in decimal.
 
 ## 2.2 Reading and Writing Binary Data
 
@@ -349,22 +360,20 @@ See [FilesReadingAndWritingTest](../book-code/corejava/v2ch02/pawarv/FilesReadin
 
 Files provides the following methods:
 
-
-| Method                                                                 | Description                                                                 |
-| ---------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| byte[] readAllBytes(Path path) throws IOException                       | Returns the contents of the file as a byte array.                           |
-| List\<String\> readAllLines(Path path) throws IOException                 | Returns the contents of the file as a list of strings.                      |
-| List\<String\> readAllLines(Path path, Charset cs) throws IOException     | Returns the contents of the file as a list of strings.                      |
-| Stream\<String\> lines(Path path) throws IOException                        | Returns a stream of strings.                                                |
-| String readString(Path path) throws IOException                         | Returns the contents of the file as a string.                               |
-| String readString(Path path, Charset cs) throws IOException             | Returns the contents of the file as a string.                               |
-| Path write(Path path, byte[] bytes, OpenOption... options) throws IOException | Writes a byte array to a file.                                              |
-| Path write(Path path, Iterable<? extends CharSequence> lines, Charset cs, OpenOption... options) throws IOException | Writes a list of strings to a file. |
-| Path write(Path path, Iterable<? extends CharSequence> lines, OpenOption... options) throws IOException | Writes a list of strings to a file. |
-| Path writeString(Path path, CharSequence csq, OpenOption... options) throws IOException | Writes a string to a file. |
+| Method                                                                                                              | Description                                            |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| byte[] readAllBytes(Path path) throws IOException                                                                   | Returns the contents of the file as a byte array.      |
+| List\<String\> readAllLines(Path path) throws IOException                                                           | Returns the contents of the file as a list of strings. |
+| List\<String\> readAllLines(Path path, Charset cs) throws IOException                                               | Returns the contents of the file as a list of strings. |
+| Stream\<String\> lines(Path path) throws IOException                                                                | Returns a stream of strings.                           |
+| String readString(Path path) throws IOException                                                                     | Returns the contents of the file as a string.          |
+| String readString(Path path, Charset cs) throws IOException                                                         | Returns the contents of the file as a string.          |
+| Path write(Path path, byte[] bytes, OpenOption... options) throws IOException                                       | Writes a byte array to a file.                         |
+| Path write(Path path, Iterable<? extends CharSequence> lines, Charset cs, OpenOption... options) throws IOException | Writes a list of strings to a file.                    |
+| Path write(Path path, Iterable<? extends CharSequence> lines, OpenOption... options) throws IOException             | Writes a list of strings to a file.                    |
+| Path writeString(Path path, CharSequence csq, OpenOption... options) throws IOException                             | Writes a string to a file.                             |
 
 This saves you from having to create a `FileOutputStream` or `FileInputStream` or `FileReader` or `FileWriter`.
-
 
 ### 2.4.3 Creating Files and Directories
 
@@ -372,27 +381,26 @@ See [FilesHandlingTest](../book-code/corejava/v2ch02/pawarv/FilesHandlingTest.ja
 
 We can use `Files` class to create files and directories.
 
-| Method                                                                 | Description                                                                 |
-| ---------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| boolean exists(Path path, LinkOption... options)                       | Returns true if the file exists.                           |
-| boolean notExists(Path path, LinkOption... options)                    | Returns true if the file does not exist.                      |
-| boolean isDirectory(Path path, LinkOption... options)                  | Returns true if the file is a directory.                      |
-| boolean isRegularFile(Path path, LinkOption... options)                | Returns true if the file is a regular file.                      |
-| boolean isSymbolicLink(Path path)                                      | Returns true if the file is a symbolic link.                                                |
-| boolean isHidden(Path path)                                            | Returns true if the file is hidden.                               |
-| boolean isReadable(Path path)                                          | Returns true if the file is readable.                               |
-| boolean isWritable(Path path)                                          | Returns true if the file is writable.                               |
-| boolean isExecutable(Path path)                                        | Returns true if the file is executable.                               |
-| Path createFile(Path path, FileAttribute<?>... attrs) throws IOException | Creates a new file.                                              |
-| Path createDirectory(Path path, FileAttribute<?>... attrs) throws IOException | Creates a new directory. |
-| Path createDirectories(Path path, FileAttribute<?>... attrs) throws IOException | Creates a new directory and all necessary parent directories. |
-| Path createSymbolicLink(Path link, Path target, FileAttribute<?>... attrs) throws IOException | Creates a new symbolic link. |
-| Path createLink(Path link, Path existing) throws IOException | Creates a new hard link. |
-| Path delete(Path path) throws IOException | Deletes a file. |
-| Path deleteIfExists(Path path) throws IOException | Deletes a file if it exists. |
-| Path copy(Path source, Path target, CopyOption... options) throws IOException | Copies a file. |
-| Path move(Path source, Path target, CopyOption... options) throws IOException | Moves a file. |
-
+| Method                                                                                        | Description                                                   |
+| --------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| boolean exists(Path path, LinkOption... options)                                              | Returns true if the file exists.                              |
+| boolean notExists(Path path, LinkOption... options)                                           | Returns true if the file does not exist.                      |
+| boolean isDirectory(Path path, LinkOption... options)                                         | Returns true if the file is a directory.                      |
+| boolean isRegularFile(Path path, LinkOption... options)                                       | Returns true if the file is a regular file.                   |
+| boolean isSymbolicLink(Path path)                                                             | Returns true if the file is a symbolic link.                  |
+| boolean isHidden(Path path)                                                                   | Returns true if the file is hidden.                           |
+| boolean isReadable(Path path)                                                                 | Returns true if the file is readable.                         |
+| boolean isWritable(Path path)                                                                 | Returns true if the file is writable.                         |
+| boolean isExecutable(Path path)                                                               | Returns true if the file is executable.                       |
+| Path createFile(Path path, FileAttribute<?>... attrs) throws IOException                      | Creates a new file.                                           |
+| Path createDirectory(Path path, FileAttribute<?>... attrs) throws IOException                 | Creates a new directory.                                      |
+| Path createDirectories(Path path, FileAttribute<?>... attrs) throws IOException               | Creates a new directory and all necessary parent directories. |
+| Path createSymbolicLink(Path link, Path target, FileAttribute<?>... attrs) throws IOException | Creates a new symbolic link.                                  |
+| Path createLink(Path link, Path existing) throws IOException                                  | Creates a new hard link.                                      |
+| Path delete(Path path) throws IOException                                                     | Deletes a file.                                               |
+| Path deleteIfExists(Path path) throws IOException                                             | Deletes a file if it exists.                                  |
+| Path copy(Path source, Path target, CopyOption... options) throws IOException                 | Copies a file.                                                |
+| Path move(Path source, Path target, CopyOption... options) throws IOException                 | Moves a file.                                                 |
 
 ### 2.4.4 Copying, Moving, and Deleting Files
 
@@ -406,8 +414,8 @@ See [FilesHandlingTest](../book-code/corejava/v2ch02/pawarv/FilesHandlingTest.ja
 
 See [FilesDirectoryVisitorTest](../book-code/corejava/v2ch02/pawarv/FilesDirectoryVisitorTest.java)
 
+### 2.4.7 Using Directory Streams
 
-###  2.4.7 Using Directory Streams
 See [FilesDirectoryVisitorTest](../book-code/corejava/v2ch02/pawarv/FilesDirectoryVisitorTest.java)
 
 ### 2.4.8 ZIP File Systems

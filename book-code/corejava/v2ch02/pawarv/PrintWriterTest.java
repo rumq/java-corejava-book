@@ -11,7 +11,7 @@ import static pawarv.Constants.*;
 /**
  * Demonstrates how to write some text to a file
  */
-public class TextWriteTest {
+public class PrintWriterTest {
     public static void main(String[] args) throws IOException {
 
         try (var out = new PrintWriter(Constants.IN_OUT_TXT, StandardCharsets.UTF_8);) {

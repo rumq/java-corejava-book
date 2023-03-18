@@ -11,7 +11,7 @@ import other.Constants;
 /**
  * Demonstrates use of autoflush
  */
-public class TextWriteAutoFlushTrueTest {
+public class PrintWriterFlushTest {
 
     public static void main(String[] args) throws FileNotFoundException {
 
