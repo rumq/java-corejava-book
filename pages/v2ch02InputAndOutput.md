@@ -24,36 +24,6 @@ To read and write text data (Unicode), we can use the `Reader` and `Writer` clas
 
 The source and destination can be a file, an array, a device, or a network connection. The Java I/O API defines a large number of stream classes, and it is easy to get lost in the jungle of classes. The following table lists the most important stream classes.
 
-| Class                 | Description                                                                 |
-| --------------------- | --------------------------------------------------------------------------- |
-| InputStream           | Abstract superclass for all input streams                                   |
-| OutputStream          | Abstract superclass for all output streams                                  |
-| Reader                | Abstract superclass for all character-based input streams                   |
-| Writer                | Abstract superclass for all character-based output streams                  |
-| FileInputStream       | Reads raw bytes from a file                                                 |
-| FileOutputStream      | Writes raw bytes to a file                                                  |
-| FileReader            | Reads characters from a file                                                |
-| FileWriter            | Writes characters to a file                                                 |
-| ByteArrayInputStream  | Reads raw bytes from an array                                               |
-| ByteArrayOutputStream | Writes raw bytes to an array                                                |
-| CharArrayReader       | Reads characters from an array                                              |
-| CharArrayWriter       | Writes characters to an array                                               |
-| StringReader          | Reads characters from a string                                              |
-| StringWriter          | Writes characters to a string                                               |
-| PipedInputStream      | Reads raw bytes from a pipe                                                 |
-| PipedOutputStream     | Writes raw bytes to a pipe                                                  |
-| PipedReader           | Reads characters from a pipe                                                |
-| PipedWriter           | Writes characters to a pipe                                                 |
-| ObjectInputStream     | Reads objects from a stream                                                 |
-| ObjectOutputStream    | Writes objects to a stream                                                  |
-| DataInputStream       | Reads primitive data types from a stream                                    |
-| DataOutputStream      | Writes primitive data types to a stream                                     |
-| BufferedInputStream   | Adds buffering to an input stream                                           |
-| BufferedOutputStream  | Adds buffering to an output stream                                          |
-| BufferedReader        | Adds buffering and line-oriented reading to a character-based input stream  |
-| BufferedWriter        | Adds buffering and line-oriented writing to a character-based output stream |
-| PrintStream           | Writes formatted data to an output stream                                   |
-| PrintWriter           | Writes formatted data to a character-based output stream                    |
 
 ### 2.1.1 Reading and Writing Bytes
 
@@ -87,7 +57,44 @@ Bytes class hierarchy is different from character class hierarchy.
 **Character stream hierarchy**
 ![](2023-03-15-09-37-01.png)
 
+**Input and Ouput classes**
+
+| Class                 | Description                                                                 |
+| --------------------- | --------------------------------------------------------------------------- |
+| InputStream           | Abstract superclass for all input streams                                   |
+| OutputStream          | Abstract superclass for all output streams                                  |
+| Reader                | Abstract superclass for all character-based input streams                   |
+| Writer                | Abstract superclass for all character-based output streams                  |
+| FileInputStream       | Reads raw bytes from a file                                                 |
+| FileOutputStream      | Writes raw bytes to a file                                                  |
+| FileReader            | Reads characters from a file                                                |
+| FileWriter            | Writes characters to a file                                                 |
+| ByteArrayInputStream  | Reads raw bytes from an array                                               |
+| ByteArrayOutputStream | Writes raw bytes to an array                                                |
+| CharArrayReader       | Reads characters from an array                                              |
+| CharArrayWriter       | Writes characters to an array                                               |
+| StringReader          | Reads characters from a string                                              |
+| StringWriter          | Writes characters to a string                                               |
+| PipedInputStream      | Reads raw bytes from a pipe                                                 |
+| PipedOutputStream     | Writes raw bytes to a pipe                                                  |
+| PipedReader           | Reads characters from a pipe                                                |
+| PipedWriter           | Writes characters to a pipe                                                 |
+| ObjectInputStream     | Reads objects from a stream                                                 |
+| ObjectOutputStream    | Writes objects to a stream                                                  |
+| DataInputStream       | Reads primitive data types from a stream                                    |
+| DataOutputStream      | Writes primitive data types to a stream                                     |
+| BufferedInputStream   | Adds buffering to an input stream                                           |
+| BufferedOutputStream  | Adds buffering to an output stream                                          |
+| BufferedReader        | Adds buffering and line-oriented reading to a character-based input stream  |
+| BufferedWriter        | Adds buffering and line-oriented writing to a character-based output stream |
+| PrintStream           | Writes formatted data to an output stream                                   |
+| PrintWriter           | Writes formatted data to a character-based output stream                    |
+
 ### 2.1.3 Combining Input/Output Stream Filters
+
+
+See
+- [CombiningFiltersTest](../book-code/corejava/v2ch02/pawarv/CombiningFiltersTest.java)
 
 The subclasses of FilterInputStream and FilterOutputStream are called stream filters. They are used to modify the behaviour of the underlying stream.
 
@@ -179,6 +186,10 @@ Both of these take Charset as an argument. By default, the Charset is UTF-8. How
 
 ### 2.1.5 How to Write Text Output
 
+- [PrintWriterTest](../book-code/corejava/v2ch02/pawarv/PrintWriterTest.java)
+- [PrintWriterFlushTest](../book-code/corejava/v2ch02/pawarv/PrintWriterFlushTest.java)
+- [ScannerTest](../book-code/corejava/v2ch02/pawarv/ScannerTest.java)
+- 
 We can use PrintWriter to write text to a file. The PrintWriter class is a character-based output stream that adds buffering and formatting capabilities to an output stream. The PrintWriter class defines the following methods:
 
 | Method                                     | Description                           |
@@ -194,13 +205,13 @@ We can use `PrintWriter` as below. The `out` object has the same methods as `Sys
     out.println("Hello, World!");
 ```
 
-See [PrintWriterTest](../book-code/corejava/v2ch02/pawarv/PrintWriterTest.java)
+See 
 
 We do not have to buffer the output. The `PrintWriter` class does it for us.
-By default autoflush is disabled for `PrintWriter`. We can enable it by passing `true` as the second argument to the constructor.
+By default `autoflush` is disabled for `PrintWriter`. We can enable it by passing `true` as the second argument to the constructor.
 
-- [PrintWriterFlushTest](../book-code/corejava/v2ch02/pawarv/PrintWriterFlushTest.java)
 
+  
 The Scanner class is a character-based input stream that adds buffering and tokenization capabilities to an input stream. The Scanner class defines the following methods:
 
 | Method                | Description                             |
@@ -214,14 +225,17 @@ The Scanner class is a character-based input stream that adds buffering and toke
 
 ### 2.1.6 How to Read Text Input
 
+See
+- [BufferedReaderTest](../book-code/corejava/v2ch02/pawarv/BufferedReaderTest.java)
+- [FilesReadingAndWritingTest](../book-code/corejava/v2ch02/pawarv/FilesReadingAndWritingTest.java).
+- [ScannerTest](../book-code/corejava/v2ch02/pawarv/ScannerTest.java)
+
+In the early versions of Java, the BufferedReader class was the standard way to read text from a file. 
+
 We can use the methods on `Files` to read text from a file. See
-[FilesReadingAndWritingTest](../book-code/corejava/v2ch02/pawarv/FilesReadingAndWritingTest.java).
 
 But it's better to use `Scanner` as it has more options to read text, like reading a line, reading an integer, reading a double, etc.
 
-See [ScannerTest](../book-code/corejava/v2ch02/pawarv/ScannerTest.java)
-
-In the early versions of Java, the BufferedReader class was the standard way to read text from a file. See [BufferedReaderTest](../book-code/corejava/v2ch02/pawarv/BufferedReaderTest.java)
 
 ### 2.1.7 Saving Objects in Text Format
 
@@ -247,27 +261,27 @@ This ascii table shows the byte values of the characters.
 
 This is a table of the some characters from the first 128 characters in the Unicode character set. The first 32 characters are control characters that are not printable. The next 96 characters are printable ASCII characters. The last 32 characters are control characters that are not printable.
 
-| Character | Decimal | Hexadecimal | Octal | Binary |
-| --------- | ------- | ----------- | ----- | ------ |
-| NUL       | 0       | 0x00        | 000   | 000000 |
-| space     | 32      | 0x20        | 040   | 010000 |
-| LF        | 10      | 0x0A        | 012   | 000010 |
-| CR        | 13      | 0x0D        | 015   | 000011 |
-| A         | 65      | 0x41        | 101   | 100000 |
-| a         | 97      | 0x61        | 141   | 110000 |
-| #         | 35      | 0x23        | 043   | 010011 |
-| $         | 36      | 0x24        | 044   | 010100 |
-| 1         | 49      | 0x31        | 061   | 011001 |
+| Character | Decimal | Hexadecimal | 
+| --------- | ------- | ----------- | 
+| NUL       | 0       | 0x00        | 
+| space     | 32      | 0x20        | 
+| LF        | 10      | 0x0A        | 
+| CR        | 13      | 0x0D        | 
+| A         | 56      | 0x41        | 
+| a         | 97      | 0x61        | 
+| #         | 35      | 0x23        | 
+| $         | 36      | 0x24        | 
+| 1         | 49      | 0x31        | 
 
 This is a table of Unicode characters that are not in the first 128 characters.
 
-| Character | Decimal | Hexadecimal | Octal   | Binary         |
-| --------- | ------- | ----------- | ------- | -------------- |
-| €         | 8364    | 0x20AC      | 0202540 | 10000010101100 |
-| £         | 163     | 0x00A3      | 0020033 | 00000010000011 |
-| ¥         | 165     | 0x00A5      | 0020035 | 00000010000101 |
-| ₹         | 8377    | 0x20B9      | 0202551 | 10000010111001 |
-| ₩         | 8361    | 0x20A9      | 0202541 | 10000010101101 |
+| Character | Decimal | Hexadecimal | 
+| --------- | ------- | ----------- | 
+| €         | 8364    | 0x20AC      | 
+| £         | 163     | 0x00A3      | 
+| ¥         | 165     | 0x00A5      | 
+| ₹         | 8377    | 0x20B9      | 
+| ₩         | 8361    | 0x20A9      | 
 
 **Unicode, UTF-8 and UTF-16 Table**
 

@@ -9,8 +9,9 @@ public class Constants {
     // public static final String INDIAN_RUPEE_TXT = "indian_rupee.txt";
     public static final String DATA_DIRECTORY = "book-code/corejava/data/";
     public static final String OUT_FILE_TXT = "out_file.txt";
-    public static final String IN_FILE_TXT = "in_file.txt";
+    public static final String IN_FILE_NAME = "in_file.txt";
     public static final String IN_FILE_1_TXT = "in_file_1.txt";
+    public static final String OUT_FILE_1_TXT = "out_file_1.txt";
     // public static final String IN_FILE_TXT = "in_file_unicode.txt";
     public static final String ALICE_TXT = "book-code/corejava/gutenberg/alice30.txt";
     public static final String SMALL_FILE_TXT = "book-code/corejava/gutenberg/small_file.txt";
@@ -28,4 +29,7 @@ public class Constants {
     public static final String CHARACTER_LF = DATA_DIRECTORY + "character_LF.txt" ;      //LF U+000A | hex-UTF8 0A       | decimal 10          | hex-UTF16 000A decimal 10
     public static final String CHARACTER_CR = DATA_DIRECTORY + "character_CR.txt" ;      //LF U+000A | hex-UTF8 0A       | decimal 10          | hex-UTF16 000A decimal 10
     public static final String AMERICAN_DOLLAR = DATA_DIRECTORY + "american_dollar.txt"; // $ U+0024 | hex-UTF8 24       | decimal 36          | hex-UTF16 0024 decimal 36
+    public static final String IN_FILE = DATA_DIRECTORY + IN_FILE_NAME;
+    public static final String IN_FILE_1 = DATA_DIRECTORY + IN_FILE_1_TXT;
+    public static final String OUT_FILE_1 = DATA_DIRECTORY + OUT_FILE_1_TXT;
 }

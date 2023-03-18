@@ -1,27 +1,21 @@
 package pawarv;
 
-import static other.Constants.DATA_DIRECTORY;
+import static other.Constants.AMERICAN_DOLLAR;
+import static other.Constants.INDIAN_RUPEE;
+import static other.Constants.OUT_FILE_TXT;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 
 class UTF16AndUTF8DifferenceTest {
     public static void main(String[] args) throws IOException {
 
         System.out.println("\n **** Using the utf8 file");
-        try (var in = new InputStreamReader(
-                new FileInputStream(DATA_DIRECTORY + "indian_rupee.txt")); // Default on systems
-                // new FileInputStream(DATA_DIRECTORY + "indian_rupee.txt"), StandardCharsets.UTF_8); // Default on my system
-                // new FileInputStream(DATA_DIRECTORY + "indian_rupee.txt"), // StandardCharsets.UTF_16); // Will read as garbage
-                var out = new OutputStreamWriter(
-                        // can write as UTF-16, provided we read as such later
-                        new FileOutputStream(DATA_DIRECTORY + "indian_rupee_utf16.txt"), StandardCharsets.UTF_16)) {
-            // new FileOutputStream(DATA_DIRECTORY + "indian_rupee_utf16.txt"),
-            // StandardCharsets.UTF_8)) {
+
+        try (var in = new FileReader(INDIAN_RUPEE, StandardCharsets.UTF_8); // UTF-16 will read as garbage
+                var out = new FileWriter(OUT_FILE_TXT, StandardCharsets.UTF_16)) {
 
             int c;
             while ((c = in.read()) != -1) {
@@ -32,17 +26,13 @@ class UTF16AndUTF8DifferenceTest {
         }
 
         System.out.println("\n\n **** Using the utf16 file");
-        try (var in = new InputStreamReader(
-                // As we are writing as UTF-16, it's ok to read as UTF-16
-                new FileInputStream(DATA_DIRECTORY + "indian_rupee_utf16.txt"), StandardCharsets.UTF_16)) {
-                // new FileInputStream(DATA_DIRECTORY + "indian_rupee_utf16.txt"))) { // Read as UTF-8 and therefore garbage
+
+        try (var in = new FileReader(OUT_FILE_TXT, StandardCharsets.UTF_16)) { // UTF-8 will read as garbage
             int c;
             while ((c = in.read()) != -1) {
                 System.out.printf("\nRead character: as int %s, as char %s", c, (char) c);
             }
         }
-
-        System.out.println("\n");
 
     }
 }

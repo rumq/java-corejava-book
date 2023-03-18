@@ -23,7 +23,7 @@ public class InputStreamAndOutputStreamTest {
         // 1. read one byte at a time
         try (InputStream in = new FileInputStream(INDIAN_RUPEE);) {
 
-            int c; // read() returns an int, not a byte
+            int c; // read() returns an int
             // read one byte at a time, until end of file
             // read() returns -1 at end of file
             while ((c = in.read()) != -1) {
@@ -33,7 +33,7 @@ public class InputStreamAndOutputStreamTest {
         }
 
         // 2. read bytes without blocking
-        try (InputStream in = new FileInputStream(OUT_FILE_TXT);) {
+        try (InputStream in = new FileInputStream(IN_FILE);) {
 
             int bytesAvailable = in.available();
             System.out.println("Bytes available: " + bytesAvailable);
@@ -44,26 +44,26 @@ public class InputStreamAndOutputStreamTest {
                 byte[] bytes = new byte[bytesAvailable];
                 in.read(bytes); // read into byte array
                 System.out.println("Bytes read: " + bytes.length);
-                System.out.println("Output file contents:" + new String(bytes));
+                System.out.println("Contents:" + new String(bytes));
             }
 
         }
 
         // 3. Using InputStream.readAllBytes() method
         // read all bytes into a byte array
-        try (InputStream in = new FileInputStream(OUT_FILE_TXT);) {
+        try (InputStream in = new FileInputStream(IN_FILE);) {
             byte[] bytes = in.readAllBytes();
             System.out.println("Bytes read: " + bytes.length);
             System.out.println("Output file contents:" + new String(bytes));
         }
 
         // easier to do with readAllBytes() method
-        byte[] bytes = Files.readAllBytes(Paths.get(OUT_FILE_TXT));
+        byte[] bytes = Files.readAllBytes(Paths.get(IN_FILE));
         System.out.println("Bytes read: " + bytes.length);
         System.out.println("Output file contents:" + new String(bytes));
 
         // 4. Read and write at the same time
-        try (InputStream in = new FileInputStream(INDIAN_RUPEE);
+        try (InputStream in = new FileInputStream(IN_FILE);
                 OutputStream out = new FileOutputStream(OUT_FILE_TXT);) {
 
             int c; // read() returns an int, not a byte

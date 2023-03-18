@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 
-import other.Constants;
+import static other.Constants.*;
 
-import static pawarv.Constants.*;
+
 
 /**
  * Demonstrates how to write some text to a file
@@ -14,7 +14,7 @@ import static pawarv.Constants.*;
 public class PrintWriterTest {
     public static void main(String[] args) throws IOException {
 
-        try (var out = new PrintWriter(Constants.IN_OUT_TXT, StandardCharsets.UTF_8);) {
+        try (var out = new PrintWriter(OUT_FILE_TXT, StandardCharsets.UTF_8);) {
 
             String one = "First";
             String two = "Second";

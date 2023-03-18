@@ -7,17 +7,13 @@ import java.nio.file.Path;
 
 import static other.Constants.*;
 /*
- * Demonstrates how to read some text from a file
+ * New methods in BufferedReader lines()
  */
 public class BufferedReaderTest {
     public static void main(String[] args) throws IOException {
 
-        // From InputStream
-        // br <- isr <- is
-        // Old fashioned way of reading text from a file
-        try (InputStream ins = Files.newInputStream(Path.of(DATA_DIRECTORY, IN_FILE_1_TXT));
-             var br = new BufferedReader(
-                     new InputStreamReader(ins, StandardCharsets.UTF_8))) {
+        // Use readLine() and while loop (old way)
+        try (var br = new BufferedReader(new FileReader(IN_FILE, StandardCharsets.UTF_8))) {                     
             boolean done = false;
             while (!done) {
                 String line = br.readLine();
@@ -29,20 +25,13 @@ public class BufferedReaderTest {
             }
         }
 
-        // From BufferedReader
+        // From BufferedReader (new way 1)
         System.out.println("************ Second");
-        try (BufferedReader br = Files.newBufferedReader(Path.of(DATA_DIRECTORY, IN_FILE_1_TXT))) {
-            boolean done = false;
-            while (!done) {
-                var line = br.readLine();
-                if (line == null)
-                    done = true;
-                else
-                    System.out.println(line);
-            }
+        try (var br = new BufferedReader(new FileReader(IN_FILE, StandardCharsets.UTF_8))) {                     
+            br.lines().forEach(System.out::println);
         }
 
-        // BufferedReader with Stream
+        // BufferedReader with Stream (new way 2)
         System.out.println("************ Third");
         try (BufferedReader br = Files.newBufferedReader(Path.of(DATA_DIRECTORY, IN_FILE_1_TXT))) {
             br.lines().forEach(System.out::println);
