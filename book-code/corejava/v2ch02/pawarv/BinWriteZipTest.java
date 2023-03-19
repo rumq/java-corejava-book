@@ -8,15 +8,15 @@ import java.util.zip.ZipOutputStream;
 
 public class BinWriteZipTest {
     public static void main(String[] args) throws IOException {
-        var fout = new FileOutputStream("test.zip");
-        var zout = new ZipOutputStream(fout);
+        // var fout = new FileOutputStream("test.zip");
+        // var zout = new ZipOutputStream(fout);
 
-        var ze = new ZipEntry("file1.txt");
-        zout.putNextEntry(ze);
+        // var ze = new ZipEntry("file1.txt");
+        // zout.putNextEntry(ze);
 
-        zout.
+        // zout.
 
-        zout.closeEntry();
+        // zout.closeEntry();
         
 
     }

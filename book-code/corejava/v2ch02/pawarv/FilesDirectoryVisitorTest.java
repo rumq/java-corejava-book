@@ -9,8 +9,8 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.util.stream.Stream;
 
 /**
- *  Demonstrates how to use Files.walk, Files.find, Files.list, 
- *  and Files.walkFileTree
+ * Demonstrates how to use Files.walk, Files.find, Files.list,
+ * and Files.walkFileTree
  */
 public class FilesDirectoryVisitorTest {
 
@@ -26,7 +26,7 @@ public class FilesDirectoryVisitorTest {
         System.out.println("Files.find");
         try (Stream<Path> entries = Files.find(
                 Path.of("book-code"),
-                3,
+                1,
                 (path, attr) -> path.toString().endsWith(".java"))) {
             entries.forEach(System.out::println);
         }
@@ -42,6 +42,7 @@ public class FilesDirectoryVisitorTest {
         // walkFileTree
         System.out.println("Files.walkFileTree");
         Files.walkFileTree(Path.of("book-code"), new DirectoryVisitor());
+        Files.walkFileTree(Path.of("book-code"), new DirectoryVisitor2());
 
     }
 
@@ -64,6 +65,25 @@ class DirectoryVisitor extends SimpleFileVisitor<Path> {
     @Override
     public FileVisitResult visitFileFailed(Path file, IOException exc) throws IOException {
         return FileVisitResult.CONTINUE;
+    }
+
+}
+
+class DirectoryVisitor2 extends SimpleFileVisitor<Path> {
+    public FileVisitResult preVisitDirectory(Path path,
+            BasicFileAttributes attrs)
+            throws IOException {
+        System.out.println(path);
+        return FileVisitResult.CONTINUE;
+    }
+
+    public FileVisitResult postVisitDirectory(Path dir,
+            IOException e) {
+        return FileVisitResult.CONTINUE;
+    }
+
+    public FileVisitResult visitFileFailed(Path path, IOException e) throws IOException {
+        return FileVisitResult.SKIP_SUBTREE;
     }
 
 }

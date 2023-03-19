@@ -180,7 +180,7 @@ See
 
 When saving data, there are two options: save the data in binary format or save the data in text format. Binary format is more compact, but it is not human-readable.
 
-The InputStreamReader class converts bytes to characters. The OutputStreamWriter class converts characters to bytes. This is a bridge between byte streams and character streams. When saving text data, we have to consider the character encoding.
+The `InputStreamReader` class converts bytes to characters. The `OutputStreamWriter` class converts characters to bytes. This is a bridge between byte streams and character streams. When saving text data, we have to consider the character encoding.
 
 Both of these take Charset as an argument. By default, the Charset is UTF-8. However you can specify other character sets. Java internally uses UTF-16 for character encoding. Therefore, when you cast a character to an integer, you get the UTF-16 code point.
 
@@ -188,9 +188,8 @@ Both of these take Charset as an argument. By default, the Charset is UTF-8. How
 
 - [PrintWriterTest](../book-code/corejava/v2ch02/pawarv/PrintWriterTest.java)
 - [PrintWriterFlushTest](../book-code/corejava/v2ch02/pawarv/PrintWriterFlushTest.java)
-- [ScannerTest](../book-code/corejava/v2ch02/pawarv/ScannerTest.java)
-- 
-We can use PrintWriter to write text to a file. The PrintWriter class is a character-based output stream that adds buffering and formatting capabilities to an output stream. The PrintWriter class defines the following methods:
+ 
+We can use PrintWriter to write text. The PrintWriter class is a character-based output stream that adds buffering and formatting capabilities to an output stream. The PrintWriter class defines the following methods:
 
 | Method                                     | Description                           |
 | ------------------------------------------ | ------------------------------------- |
@@ -205,13 +204,22 @@ We can use `PrintWriter` as below. The `out` object has the same methods as `Sys
     out.println("Hello, World!");
 ```
 
-See 
-
 We do not have to buffer the output. The `PrintWriter` class does it for us.
 By default `autoflush` is disabled for `PrintWriter`. We can enable it by passing `true` as the second argument to the constructor.
 
+### 2.1.6 How to Read Text Input
 
-  
+See
+- [BufferedReaderTest](../book-code/corejava/v2ch02/pawarv/BufferedReaderTest.java)
+- [FilesReadingAndWritingTest](../book-code/corejava/v2ch02/pawarv/FilesReadingAndWritingTest.java)
+- [ScannerTest](../book-code/corejava/v2ch02/pawarv/ScannerTest.java)
+
+In the early versions of Java, the BufferedReader class was the standard way to read text from a file. 
+
+We can use the methods on `Files` to read text from a file. See
+
+But it's better to use `Scanner` as it has more options to read text, like reading a line, reading an integer, reading a double, etc.
+
 The Scanner class is a character-based input stream that adds buffering and tokenization capabilities to an input stream. The Scanner class defines the following methods:
 
 | Method                | Description                             |
@@ -222,20 +230,6 @@ The Scanner class is a character-based input stream that adds buffering and toke
 | int nextInt()         | Returns the next integer.               |
 | double nextDouble()   | Returns the next double.                |
 | boolean nextBoolean() | Returns the next boolean.               |
-
-### 2.1.6 How to Read Text Input
-
-See
-- [BufferedReaderTest](../book-code/corejava/v2ch02/pawarv/BufferedReaderTest.java)
-- [FilesReadingAndWritingTest](../book-code/corejava/v2ch02/pawarv/FilesReadingAndWritingTest.java).
-- [ScannerTest](../book-code/corejava/v2ch02/pawarv/ScannerTest.java)
-
-In the early versions of Java, the BufferedReader class was the standard way to read text from a file. 
-
-We can use the methods on `Files` to read text from a file. See
-
-But it's better to use `Scanner` as it has more options to read text, like reading a line, reading an integer, reading a double, etc.
-
 
 ### 2.1.7 Saving Objects in Text Format
 
@@ -311,14 +305,20 @@ the UTF-8 of $ is 0x24, which is 36 in decimal and the UTF-16 of $ is 0x0024, wh
 
 See book examples (this came later)
 
-- [RandomAccessTest](../book-code/corejava/v2ch02/randomAccess/RandomAccessTest.java)
 - [DataIO](../book-code/corejava/v2ch02/randomAccess/DataIO.java)
+- [RandomAccessTest](../book-code/corejava/v2ch02/randomAccess/RandomAccessTest.java)
 
 ### 2.2.1 The DataInput and DataOutput Interfaces
 
 Use to read and write binary data.
 
-See [DataIO](../book-code/corejava/v2ch02/randomAccess/DataIO.java)
+The DataInput interface provides for reading bytes from a binary stream and reconstructing from them data in any of the Java primitive types
+
+The DataOutput interface provides for converting data from any of the Java primitive types to a series of bytes and writing these bytes to a binary stream. The can be read by a DataInput.
+
+See Book examples
+- [DataIO](../book-code/corejava/v2ch02/randomAccess/DataIO.java)
+
 
 ### 2.2.2 Random-Access Files
 

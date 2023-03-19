@@ -10,7 +10,7 @@ public class ScannerTest {
     public static void main(String[] args) throws IOException {
 
 
-        // Default delimiter is whiyespace
+        // Default delimiter is whitespace
         Path filePath = Path.of(OUT_FILE_TXT);
         try (Scanner in = new Scanner(filePath);) {
             System.out.println("*** Default delimiter");
