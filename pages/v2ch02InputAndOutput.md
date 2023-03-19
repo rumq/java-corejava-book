@@ -434,7 +434,12 @@ See [FilesDirectoryVisitorTest](../book-code/corejava/v2ch02/pawarv/FilesDirecto
 
 ### 2.4.8 ZIP File Systems
 
-See [ZipInputStream](../book-code/corejava/v2ch02/zip/ZipTest.java)
+See 
+- [ZipInputStream](../book-code/corejava/v2ch02/zip/ZipTest.java)
+- [SimpleZipOutput](../book-code/corejava/v2ch02/pawarv/SimpleZipOutput.java)
+- [ZipFolder](../book-code/corejava/v2ch02/pawarv/ZipFolder.java)
+- [ZipIndividually](../book-code/corejava/v2ch02/pawarv/ZipIndividually.java)
+
 
 Rest, later.
 
