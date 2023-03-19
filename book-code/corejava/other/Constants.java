@@ -33,4 +33,5 @@ public class Constants {
     public static final String IN_FILE = DATA_DIRECTORY + IN_FILE_NAME;
     public static final String IN_FILE_1 = DATA_DIRECTORY + IN_FILE_1_TXT;
     public static final String OUT_FILE_1 = DATA_DIRECTORY + OUT_FILE_1_TXT;
+    public static final String USER_HOME = System.getProperty("user.home");
 }

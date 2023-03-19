@@ -436,6 +436,8 @@ See [FilesDirectoryVisitorTest](../book-code/corejava/v2ch02/pawarv/FilesDirecto
 
 See [ZipInputStream](../book-code/corejava/v2ch02/zip/ZipTest.java)
 
+Rest, later.
+
 2.5 Memory-Mapped Files
 
 2.5.1 Memory-Mapped File Performance
@@ -444,7 +446,7 @@ See [ZipInputStream](../book-code/corejava/v2ch02/zip/ZipTest.java)
 
 2.6 File Locking
 
-2.7 Regular Expressions
+### 2.7 Regular Expressions
 
 2.7.1 The Regular Expression Syntax
 
