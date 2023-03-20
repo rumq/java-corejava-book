@@ -2,6 +2,47 @@
 
 # Volume 2 Chapter 2: Input and Output
 
+- [Volume 2 Chapter 2: Input and Output](#volume-2-chapter-2-input-and-output)
+  - [2.1 Input/Output Streams](#21-inputoutput-streams)
+    - [Introduction](#introduction)
+    - [2.1.1 Reading and Writing Bytes](#211-reading-and-writing-bytes)
+    - [2.1.2 The Complete Stream Zoo](#212-the-complete-stream-zoo)
+    - [2.1.3 Combining Input/Output Stream Filters](#213-combining-inputoutput-stream-filters)
+    - [2.1.4 Text Input and Output](#214-text-input-and-output)
+    - [2.1.5 How to Write Text Output](#215-how-to-write-text-output)
+    - [2.1.6 How to Read Text Input](#216-how-to-read-text-input)
+    - [2.1.7 Saving Objects in Text Format](#217-saving-objects-in-text-format)
+    - [2.1.8 Character Encodings](#218-character-encodings)
+  - [2.2 Reading and Writing Binary Data](#22-reading-and-writing-binary-data)
+    - [2.2.1 The DataInput and DataOutput Interfaces](#221-the-datainput-and-dataoutput-interfaces)
+    - [2.2.2 Random-Access Files](#222-random-access-files)
+    - [2.2.3 ZIP Archives](#223-zip-archives)
+  - [2.3 Object Input/Output Streams and Serialization](#23-object-inputoutput-streams-and-serialization)
+    - [2.3.1 Saving and Loading Serializable Objects (later)](#231-saving-and-loading-serializable-objects-later)
+    - [2.3.2 Understanding the Object Serialization File Format (later)](#232-understanding-the-object-serialization-file-format-later)
+    - [2.3.3 Modifying the Default Serialization Mechanism (later)](#233-modifying-the-default-serialization-mechanism-later)
+    - [2.3.4 The readResolve and writeReplace Methods (later)](#234-the-readresolve-and-writereplace-methods-later)
+    - [2.3.5 Versioning (later)](#235-versioning-later)
+    - [2.3.6 Using Serialization for Cloning (later)](#236-using-serialization-for-cloning-later)
+    - [2.3.7 Deserialization and Security (later)](#237-deserialization-and-security-later)
+  - [2.4 Working with Files](#24-working-with-files)
+    - [2.4.1 Paths](#241-paths)
+    - [2.4.2 Reading and Writing Files](#242-reading-and-writing-files)
+    - [2.4.3 Creating Files and Directories](#243-creating-files-and-directories)
+    - [2.4.4 Copying, Moving, and Deleting Files](#244-copying-moving-and-deleting-files)
+    - [2.4.5 Getting File Information](#245-getting-file-information)
+    - [2.4.6 Visiting Directory Entries](#246-visiting-directory-entries)
+    - [2.4.7 Using Directory Streams](#247-using-directory-streams)
+    - [2.4.8 ZIP File Systems](#248-zip-file-systems)
+  - [2.7 Regular Expressions](#27-regular-expressions)
+    - [2.7.1 The Regular Expression Syntax](#271-the-regular-expression-syntax)
+    - [2.7.2 Matching an Entire String](#272-matching-an-entire-string)
+    - [2.7.3 Finding All Matches in a String](#273-finding-all-matches-in-a-string)
+    - [2.7.4 Groups](#274-groups)
+    - [2.7.5 Splitting along Delimiters](#275-splitting-along-delimiters)
+    - [2.7.6 Replacing Matches](#276-replacing-matches)
+    - [2.7.7 Flags](#277-flags)
+
 Status : IN_PROGRESS
 
 We'll look into
@@ -546,6 +587,7 @@ stream.filter(predicate).forEach(System.out::println);
 See 
 
 - [RegexMatchingSubstring](../book-code/corejava/v2ch02/pawarv/RegexMatchingSubstring.java)
+- [HrefMatch](../book-code/corejava/v2ch02/match/HrefMatch.java) - Book example
 
 For the second case, we can use the `find` method of the `Pattern` class.
 The `find` method checks whether a substring of the string matches the regular expression.
@@ -564,12 +606,26 @@ while (matcher.find())
 ```
 
 
-2.7.4 Groups
+### 2.7.4 Groups
 
-2.7.5 Splitting along Delimiters
+See
+- [RegexGroupTest](../book-code/corejava/v2ch02/pawarv/RegexGroupTest.java)
+- [RegexTest](../book-code/corejava/v2ch02/regex/RegexTest.java) Book example
 
-2.7.6 Replacing Matches
+### 2.7.5 Splitting along Delimiters
 
-2.7.7 Flags
+See
+- [RegexSplitTest](../book-code/corejava/v2ch02/pawarv/RegexSplitTest.java)
+  
+
+### 2.7.6 Replacing Matches
+
+See
+- [RegexReplaceTest](../book-code/corejava/v2ch02/pawarv/RegexReplaceTest.java)
+ 
+
+### 2.7.7 Flags
+
+Can change the behaviour of the regular expression using flags.
 
 > [Home](HOME.md)
