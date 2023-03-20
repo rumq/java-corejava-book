@@ -21,7 +21,7 @@ public class HrefMatch
          // get URL string from command line or use default
          String urlString;
          if (args.length > 0) urlString = args[0];
-         else urlString = "http://openjdk.java.net/";
+         else urlString = "https://openjdk.org/";
 
          // read contents of URL
          InputStream in = new URL(urlString).openStream();

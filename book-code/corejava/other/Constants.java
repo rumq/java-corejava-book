@@ -11,6 +11,7 @@ public class Constants {
     public static final String OUT_FILE_TXT = "out_file.txt";
     public static final String IN_FILE_NAME = "in_file.txt";
     public static final String IN_FILE_1_TXT = "in_file_1.txt";
+    public static final String IN_FILE_2_TXT = "in_file_2.txt";
     public static final String OUT_FILE_1_TXT = "out_file_1.txt";
     public static final String INDIAN_RUPEE_TXT = "indian_rupee.txt";
     // public static final String IN_FILE_TXT = "in_file_unicode.txt";
@@ -32,6 +33,7 @@ public class Constants {
     public static final String AMERICAN_DOLLAR = DATA_DIRECTORY + "american_dollar.txt"; // $ U+0024 | hex-UTF8 24       | decimal 36          | hex-UTF16 0024 decimal 36
     public static final String IN_FILE = DATA_DIRECTORY + IN_FILE_NAME;
     public static final String IN_FILE_1 = DATA_DIRECTORY + IN_FILE_1_TXT;
+    public static final String IN_FILE_2 = DATA_DIRECTORY + IN_FILE_2_TXT;
     public static final String OUT_FILE_1 = DATA_DIRECTORY + OUT_FILE_1_TXT;
     public static final String USER_HOME = System.getProperty("user.home");
 }

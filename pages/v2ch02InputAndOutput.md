@@ -451,13 +451,118 @@ Rest, later.
 
 2.6 File Locking
 
-### 2.7 Regular Expressions
+## 2.7 Regular Expressions
 
-2.7.1 The Regular Expression Syntax
+Regular expressions are a powerful language for describing text patterns. They are used in many applications, including search and replace operations, pattern matching in text editors, and parsing and validating data.
 
-2.7.2 Matching an Entire String
+The Java regular expression API is in the `java.util.regex` package.
 
-2.7.3 Finding All Matches in a String
+The pattern class is `java.util.regex.Pattern`. The [Pattern JDK documentation](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/regex/Pattern.html)  has a nice summary of the syntax.
+
+The Java tutorial on [Regular Expressions](https://docs.oracle.com/javase/tutorial/essential/regex/) is also a good resource.
+
+A good book to read is [Mastering Regular Expressions](https://www.amazon.com/Mastering-Regular-Expressions-Jeffrey-Friedl/dp/0596528124).
+
+A good website to test regular expressions is [regex101](https://regex101.com/).
+
+
+### 2.7.1 The Regular Expression Syntax
+
+Try out the examples in [RegexTest](../book-code/corejava/v2ch02/pawarv/RegexTest.java).
+
+A character means the same thing as itself. For example, the regular expression `a` matches the string `a`. But the the following reserved characters have special meanings: 
+
+`. * + ? { | ( ) [ \ ^ $`
+
+To match a reserved character, you have to escape it with a backslash. For example, the regular expression `\.` matches the string `.`.
+
+The following characters have special meanings:
+
+| Character | Meaning |
+| --------- | ------- |
+| `.` | Matches any character. |
+| `^` | Matches the beginning of a line. |
+| `$` | Matches the end of a line. |
+| `*` | Matches zero or more occurrences of the preceding character. |
+| `+` | Matches one or more occurrences of the preceding character. |
+| `?` | Matches zero or one occurrence of the preceding character. |
+| `\` | Escapes the following character. |
+| `[]` | Matches any character in the brackets. |
+| `[^]` | Matches any character not in the brackets. |
+| `()` | Groups characters. |
+| `{}` | Specifies the number of occurrences of the preceding character. |
+| `\|` | Separates alternatives. |
+| `\d` | Matches a digit. |
+| `\D` | Matches a non-digit. |
+| `\s` | Matches a whitespace character. |
+| `\S` | Matches a non-whitespace character. |
+| `\w` | Matches a word character. |
+| `\W` | Matches a non-word character. |
+
+
+There is a lot to learn about, see the reference.
+
+### 2.7.2 Matching an Entire String
+
+See
+- [RegexMatchingEntireString](../book-code/corejava/v2ch02/pawarv/RegexMatchingEntireString.java)
+
+There are two cases
+
+1. The regular expression matches the entire string.
+2. The regular expression matches a substring of the string, so you want to know how many times the pattern occurs in the string.
+
+
+For the first case, we can just use the `matches` method of the `String` class or the `matches` method of the `Pattern` class for the first case. 
+
+The `matches` method checks whether the entire string matches the regular expression. 
+
+If we need to use the same regular expression many times, it is more efficient to compile it into a `Pattern` object. The `Pattern` class has a `compile` method that takes a regular expression and returns a `Pattern` object.
+
+```java
+Pattern pattern = Pattern.compile(regex);
+Matcher matcher = pattern.matcher(input);
+
+if(matcher.matches()) {
+    // do something
+}
+;
+```
+
+The pattern can be turned in a predicate.
+
+```java
+Predicate<String> predicate = Pattern.compile(regex).asMatchPredicate(); //  for Entire string (case )
+Predicate<String> predicate = Pattern.compile(regex).asPredicate(); // for substring (case 2)
+
+Stream<String> stream = Stream.of("a", "b", "c");
+// 
+stream.filter(predicate).forEach(System.out::println);
+
+```
+
+### 2.7.3 Finding All Matches in a String
+
+See 
+
+- [RegexMatchingSubstring](../book-code/corejava/v2ch02/pawarv/RegexMatchingSubstring.java)
+
+For the second case, we can use the `find` method of the `Pattern` class.
+The `find` method checks whether a substring of the string matches the regular expression.
+
+```java
+Pattern pattern = Pattern.compile(regex);
+Matcher matcher = pattern.matcher(input);
+while (matcher.find())
+{
+    String match = matcher.group();
+    int start = matcher.start();
+    int end = matcher.end();
+
+    // do something
+}
+```
+
 
 2.7.4 Groups
 
