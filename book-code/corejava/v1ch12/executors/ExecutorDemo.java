@@ -90,10 +90,10 @@ public class ExecutorDemo
             Callable<Long> task = () -> occurrences(word, file);          
             tasks.add(task);
          }
-         ExecutorService executor = Executors.newCachedThreadPool();
+         // ExecutorService executor = Executors.newCachedThreadPool();
          // use a single thread executor instead to see if multiple threads
          // speed up the search
-         // ExecutorService executor = Executors.newSingleThreadExecutor();
+         ExecutorService executor = Executors.newSingleThreadExecutor();
          
          Instant startTime = Instant.now();
          List<Future<Long>> results = executor.invokeAll(tasks);

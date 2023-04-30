@@ -42,6 +42,7 @@ Status : DONE
     - [12.5.7 Parallel Array Algorithms](#1257-parallel-array-algorithms)
     - [12.5.8 Older Thread-Safe Collections](#1258-older-thread-safe-collections)
   - [12.6 Tasks and Thread Pools](#126-tasks-and-thread-pools)
+  - [NOTE](#note)
     - [12.6.1 Callables and Futures](#1261-callables-and-futures)
     - [12.6.2 Executors](#1262-executors)
     - [12.6.3 Controlling Groups of Tasks](#1263-controlling-groups-of-tasks)
@@ -526,12 +527,25 @@ Later (Advanced)
 
 ## 12.6 Tasks and Thread Pools
 
-Threads are expensive to create and destroy. So, it is better to reuse threads. This is the idea behind *thread pools*.
+Threads are expensive to create and destroy. 
+So, it is better to reuse threads. 
+This is the idea behind *thread pools*.
 
+
+## NOTE 
+
+The below were done covered in the Java course.
+See commit times in the repo.
 
 ### 12.6.1 Callables and Futures
 
-Later (Advanced) and all the below.
+Callable is similar to Runnable both encapsulate asynchronous computations, but it returns a value and can throw a checked exception.
+
+```java
+public interface Callable<V> {
+  v call() throws Exception;  
+}
+
 
 ### 12.6.2 Executors
 
