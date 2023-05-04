@@ -1,0 +1,203 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "BlockingQueueTest",
+            "request": "launch",
+            "mainClass": "blockingQueue.BlockingQueueTest",
+            "projectName": "v1ch12_19bbbe51"
+        },
+        {
+            "type": "java",
+            "name": "CompletableFutureDemo",
+            "request": "launch",
+            "mainClass": "completableFutures.CompletableFutureDemo",
+            "projectName": "v1ch12_19bbbe51"
+        },
+        {
+            "type": "java",
+            "name": "CHMDemo",
+            "request": "launch",
+            "mainClass": "concurrentHashMap.CHMDemo",
+            "projectName": "v1ch12_19bbbe51"
+        },
+        {
+            "type": "java",
+            "name": "ExecutorDemo",
+            "request": "launch",
+            "mainClass": "executors.ExecutorDemo",
+            "projectName": "v1ch12_19bbbe51"
+        },
+        {
+            "type": "java",
+            "name": "ForkJoinTest",
+            "request": "launch",
+            "mainClass": "forkJoin.ForkJoinTest",
+            "projectName": "v1ch12_19bbbe51"
+        },
+        {
+            "type": "java",
+            "name": "AtomicIntegerTest",
+            "request": "launch",
+            "mainClass": "pawarv.AtomicIntegerTest",
+            "projectName": "v1ch12_19bbbe51"
+        },
+        {
+            "type": "java",
+            "name": "BasicBlockingQueueTest",
+            "request": "launch",
+            "mainClass": "pawarv.BasicBlockingQueueTest",
+            "projectName": "v1ch12_19bbbe51"
+        },
+        {
+            "type": "java",
+            "name": "BasicThreadTest",
+            "request": "launch",
+            "mainClass": "pawarv.BasicThreadTest",
+            "projectName": "v1ch12_19bbbe51"
+        },
+        {
+            "type": "java",
+            "name": "CountThreadLocalTest",
+            "request": "launch",
+            "mainClass": "pawarv.CountThreadLocalTest",
+            "projectName": "v1ch12_19bbbe51"
+        },
+        {
+            "type": "java",
+            "name": "DeadlockedTransfersTest",
+            "request": "launch",
+            "mainClass": "pawarv.DeadlockedTransfersTest",
+            "projectName": "v1ch12_19bbbe51"
+        },
+        {
+            "type": "java",
+            "name": "InterruptTest",
+            "request": "launch",
+            "mainClass": "pawarv.InterruptTest",
+            "projectName": "v1ch12_19bbbe51"
+        },
+        {
+            "type": "java",
+            "name": "InterruptedTest",
+            "request": "launch",
+            "mainClass": "pawarv.InterruptedTest",
+            "projectName": "v1ch12_19bbbe51"
+        },
+        {
+            "type": "java",
+            "name": "LongAccumulatorTest",
+            "request": "launch",
+            "mainClass": "pawarv.LongAccumulatorTest",
+            "projectName": "v1ch12_19bbbe51"
+        },
+        {
+            "type": "java",
+            "name": "OnDemandInitializationTest",
+            "request": "launch",
+            "mainClass": "pawarv.OnDemandInitializationTest",
+            "projectName": "v1ch12_19bbbe51"
+        },
+        {
+            "type": "java",
+            "name": "RaceConditionAtomicIntegerTest",
+            "request": "launch",
+            "mainClass": "pawarv.RaceConditionAtomicIntegerTest",
+            "projectName": "v1ch12_19bbbe51"
+        },
+        {
+            "type": "java",
+            "name": "RaceConditionDeadLockTest",
+            "request": "launch",
+            "mainClass": "pawarv.RaceConditionDeadLockTest",
+            "projectName": "v1ch12_19bbbe51"
+        },
+        {
+            "type": "java",
+            "name": "RaceConditionReentrantLockConditionTest",
+            "request": "launch",
+            "mainClass": "pawarv.RaceConditionReentrantLockConditionTest",
+            "projectName": "v1ch12_19bbbe51"
+        },
+        {
+            "type": "java",
+            "name": "RaceConditionReentrantLockTest",
+            "request": "launch",
+            "mainClass": "pawarv.RaceConditionReentrantLockTest",
+            "projectName": "v1ch12_19bbbe51"
+        },
+        {
+            "type": "java",
+            "name": "RaceConditionSynchronizedTest",
+            "request": "launch",
+            "mainClass": "pawarv.RaceConditionSynchronizedTest",
+            "projectName": "v1ch12_19bbbe51"
+        },
+        {
+            "type": "java",
+            "name": "RaceConditionTest",
+            "request": "launch",
+            "mainClass": "pawarv.RaceConditionTest",
+            "projectName": "v1ch12_19bbbe51"
+        },
+        {
+            "type": "java",
+            "name": "ThreadLocalTest",
+            "request": "launch",
+            "mainClass": "pawarv.ThreadLocalTest",
+            "projectName": "v1ch12_19bbbe51"
+        },
+        {
+            "type": "java",
+            "name": "ReadDir",
+            "request": "launch",
+            "mainClass": "process.ReadDir",
+            "projectName": "v1ch12_19bbbe51"
+        },
+        {
+            "type": "java",
+            "name": "SwingWorkerTest",
+            "request": "launch",
+            "mainClass": "swingWorker.SwingWorkerTest",
+            "projectName": "v1ch12_19bbbe51"
+        },
+        {
+            "type": "java",
+            "name": "SynchBankTest",
+            "request": "launch",
+            "mainClass": "synch.SynchBankTest",
+            "projectName": "v1ch12_19bbbe51"
+        },
+        {
+            "type": "java",
+            "name": "SynchBankTest2",
+            "request": "launch",
+            "mainClass": "synch2.SynchBankTest2",
+            "projectName": "v1ch12_19bbbe51"
+        },
+        {
+            "type": "java",
+            "name": "ThreadTest",
+            "request": "launch",
+            "mainClass": "threads.ThreadTest",
+            "projectName": "v1ch12_19bbbe51"
+        },
+        {
+            "type": "java",
+            "name": "UnsynchBankTest",
+            "request": "launch",
+            "mainClass": "unsynch.UnsynchBankTest",
+            "projectName": "v1ch12_19bbbe51"
+        }
+    ]
+}
